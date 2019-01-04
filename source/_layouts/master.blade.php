@@ -53,7 +53,7 @@
             @yield('body')
         </main>
 
-        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+        <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
 {{-- <div id="vue-search" class="mx-auto">
                 <search></search>
             </div> --}}
