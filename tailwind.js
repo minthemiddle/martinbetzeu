@@ -97,11 +97,11 @@ let colors = {
   'teal-lightest': '#e8fffe',
 
   'blue-darkest': '#24548f',
-  'blue-darker': '#1a4d8c',
-  'blue-dark': '#0174d4',
+  'blue-darker': 'hsl(233, 73%, 37%)',
+  'blue-dark': 'hsl(233, 73%, 47%)',
   'blue': 'hsl(233, 73%, 57%)', // brand martinbetz
   'blue-light': 'hsl(233, 73%, 72%)',
-  'blue-lighter': '#bcdefa',
+  'blue-lighter': 'hsl(233, 73%, 87%)',
   'blue-lightest': '#eff8ff',
 
   'indigo-darkest': '#191e38',
