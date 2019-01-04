@@ -1,10 +1,5 @@
----
-pagination:
-    collection: products
-    perPage: 4
----
-
 @extends('_layouts.master')
 @section('body')
-Test
+<h1>Products</h1>
+<hr class="border-b my-6">
 @stop
