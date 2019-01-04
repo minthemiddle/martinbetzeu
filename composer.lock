@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "07cacddcc0a2079afee2aa426df33b5b",
+    "content-hash": "0567b3a3d6c84f64b244779f002190ea",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1523,16 +1523,16 @@
         },
         {
             "name": "tightenco/jigsaw",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/jigsaw.git",
-                "reference": "b40b63614f9565e5dff4f867f780674429c2b328"
+                "reference": "558bc712146aa1c1883a017681cc609e93594b87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/jigsaw/zipball/b40b63614f9565e5dff4f867f780674429c2b328",
-                "reference": "b40b63614f9565e5dff4f867f780674429c2b328",
+                "url": "https://api.github.com/repos/tightenco/jigsaw/zipball/558bc712146aa1c1883a017681cc609e93594b87",
+                "reference": "558bc712146aa1c1883a017681cc609e93594b87",
                 "shasum": ""
             },
             "require": {
@@ -1582,20 +1582,20 @@
                 "site",
                 "static"
             ],
-            "time": "2019-01-02T18:59:35+00:00"
+            "time": "2019-01-03T14:07:41+00:00"
         },
         {
             "name": "tightenco/jigsaw-blog-template",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/jigsaw-blog-template.git",
-                "reference": "f4ef0a280c610d505dc0ff9b800c8b8adbfafbfc"
+                "reference": "bedafabbffb177a9f65f610e08c2ff7c469a3617"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/jigsaw-blog-template/zipball/f4ef0a280c610d505dc0ff9b800c8b8adbfafbfc",
-                "reference": "f4ef0a280c610d505dc0ff9b800c8b8adbfafbfc",
+                "url": "https://api.github.com/repos/tightenco/jigsaw-blog-template/zipball/bedafabbffb177a9f65f610e08c2ff7c469a3617",
+                "reference": "bedafabbffb177a9f65f610e08c2ff7c469a3617",
                 "shasum": ""
             },
             "require": {
@@ -1636,7 +1636,7 @@
                 "static",
                 "template"
             ],
-            "time": "2019-01-02T20:36:50+00:00"
+            "time": "2019-01-03T13:32:43+00:00"
         }
     ],
     "packages-dev": [],
