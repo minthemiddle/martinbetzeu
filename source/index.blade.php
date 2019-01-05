@@ -40,7 +40,9 @@
 
     @include('_components.newsletter-signup')
 
-    @foreach ($posts->where('featured', false)->where('language', '!=', 'de')->take(6)->chunk(2) as $row)
+    <p class="uppercase tracking-wide text-sm text-grey-darker mb-0">Featured articles</p>
+
+    @foreach ($posts->where('featured', true)->where('language', '!=', 'de')->take(6)->chunk(2) as $row)
         <div class="flex flex-col md:flex-row md:-mx-6">
             @foreach ($row as $post)
                 <div class="w-full md:w-1/2 md:mx-6">
