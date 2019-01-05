@@ -1,1 +1,7 @@
-// Your custom blog styles here
+::selection {
+    background: hsl(232, 17%, 92%);
+}
+
+::-moz-selection {
+   background: hsl(232, 17%, 92%);
+}
