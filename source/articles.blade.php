@@ -15,8 +15,6 @@ pagination:
 @section('body')
     <h1>Articles</h1>
 
-    <hr class="border-b my-6">
-
     @foreach ($pagination->items as $post)
         @include('_components.post-preview-inline')
 
