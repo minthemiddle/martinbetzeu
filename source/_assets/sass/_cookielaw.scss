@@ -1,0 +1,11 @@
+.Cookie--mbeu {
+    @apply bg-blue p-6 text-white;
+}
+
+.Cookie--mbeu .Cookie__button {
+    @apply bg-white text-blue p-4;
+}
+
+.Cookie--mbeu div.Cookie__button:hover {
+    @apply bg-blue-lightest text-blue;
+}
