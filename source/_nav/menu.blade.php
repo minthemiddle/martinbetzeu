@@ -9,9 +9,9 @@
         Products
     </a>
 
-    <a title="{{ $page->siteName }} About" href="/about"
-        class="text-xl ml-6 text-grey-darker hover:text-blue-dark {{ $page->isActive('/about') ? 'active text-blue-dark' : '' }}">
-        About
+    <a title="{{ $page->siteName }} Services" href="/services"
+        class="text-xl ml-6 text-grey-darker hover:text-blue-dark {{ $page->isActive('/services') ? 'active text-blue-dark' : '' }}">
+        Services
     </a>
 
     <a title="{{ $page->siteName }} Contact" href="/contact"
