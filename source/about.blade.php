@@ -9,5 +9,4 @@
 
 @section('body')
     <h1>Services</h1>
-    @include('_components.about-text')
 @endsection
