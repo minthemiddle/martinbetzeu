@@ -1,7 +1,6 @@
 window.axios = require('axios');
 window.fuse = require('fuse.js');
 window.Vue = require('vue');
-import { CookieConsent } from 'cookieconsent';
 import EmailObfuscate from 'email-obfuscate';
 
 
