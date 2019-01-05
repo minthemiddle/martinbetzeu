@@ -9,5 +9,5 @@
 
 @section('body')
     <h1>About</h1>
-    @include('_components/about-text.blade.php')
+    @include('_components.about-text')
 @endsection
