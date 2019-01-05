@@ -8,6 +8,10 @@
 @endpush
 
 @section('body')
+
+    @include('_components.about-text')
+    <hr class="border-b my-12">
+
     @foreach ($posts->where('featured', true) as $featuredPost)
         <div class="w-full mb-6">
             @if ($featuredPost->cover_image)
