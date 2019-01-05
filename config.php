@@ -3,15 +3,15 @@
 return [
     'baseUrl' => 'http://localhost:3000',
     'production' => false,
-    'siteName' => 'Martin Betz >',
+    'siteName' => 'Martin Betz',
     'siteSignature' => 'MB>',
-    'siteDescription' => 'Generate an elegant blog with Jigsaw',
-    'siteAuthor' => 'Author Name',
+    'siteDescription' => 'Articles, services and products of Martin Betz',
+    'siteAuthor' => 'Martin Betz',
 
     // collections
     'collections' => [
         'posts' => [
-            'author' => 'Martin Betz', // Default author, if not provided in a post
+            'author' => 'Martin Betz',
             'sort' => '-priority',
             'path' => 'articles/{filename}',
         ],
