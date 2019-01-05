@@ -11,7 +11,6 @@
         "axios": "^0.18.0",
         "browser-sync": "^2.26.3",
         "browser-sync-webpack-plugin": "^2.0.1",
-        "cookieconsent": "^3.1.0",
         "cross-env": "^3.2.3",
         "email-obfuscate": "0.0.6",
         "extra-watch-webpack-plugin": "^1.0.3",
