@@ -75,7 +75,10 @@
                 </li>
 
                 <li>
-                    <a href="/privacy">Privacy/Datenschutz</a>
+                    <a href="/privacy">Privacy/Datenschutz </a>
+                </li>
+                <li class="ml-2">
+                     <a href="/imprint">Imprint</a>
                 </li>
                 <li class="ml-2">
                     <span id="cntct"></span>
