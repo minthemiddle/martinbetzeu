@@ -25,6 +25,7 @@
         "tailwind-heropatterns": "0.0.7",
         "tailwindcss": "^0.7.2",
         "vue": "^2.5.21",
+        "vue-cookie-law": "^1.8.0",
         "vue-template-compiler": "^2.5.21",
         "yargs": "^4.6.0"
     }
