@@ -31,26 +31,14 @@ Vue.config.productionTip = false;
 //     },
 // }).$mount('#vue-search');
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#4054e1",
-      "text": "white"
-    },
-    "button": {
-      "background": "white",
-      "text": "#613b3b"
-    }
+new Vue({
+  components: {
+    cookielaw,
   },
-  "content": {
-    "message": "I use very few cookies on this site. It is fully GDPR compliant",
-    "dismiss": "Ok",
-    "href": "/privacy"
-  }
-});
-});
+}).$mount('#vue-cookie');
+
+
+
 
 
 var el = document.getElementById('cntct');
