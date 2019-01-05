@@ -3,39 +3,37 @@ extends: _layouts.post
 section: content
 title: Generate PDF invoices from Markdown using Pandoc
 date: 2017-01-09
-updated: 2019-01-05
+update: 2019-01-05
 description: Generate PDF invoices from Markdown using Pandoc
-# cover_image: /assets/img/post-cover-image-2.png
+priority: 40
 featured: true
 categories: [tech, terminal]
 ---
 
-## TL;DR
-
-You can use [Pandoc](http://pandoc.org/) with [WKHTMLTOPDF](http://wkhtmltopdf.org/) to generate nice-looking PDF invoices from Markdown files.
+**TL;DR:** You can use *Pandoc* with *wkthmltopdf* to generate nice-looking PDF invoices from Markdown files.
 
 ## The context
 
 I love simplicity, structure and I like good design. When it comes to invoices or other formal documents that you need to generate as a freelancer (such as status reports or fact sheets), these things do not get together easily:
 
 ## The commercial or complicated way
-Of course, you can fire up *InDesign* or *Apple Pages* and fine-tune your documents, but this comes at a price: you have to create every new document individually as templating and mail-merging is very basic in both programs. Also, you are stuck with proprietary file formats that you might not be able to open in the future (and your tax office may not be happy about that). On the other side, you have *LaTeX* which can output fantastic documents from marked up text but has a steep learning curve and also quite some weight (~ 1GB extra). Also, if you want to use system or OTF fonts, you quickly run into problems. Both programs also struggle with the generation of web-ready formats, most notably HTML5.
+Of course, you can fire up *InDesign* or *Apple Pages* and fine-tune your documents, but this comes at a price: you have to create every new document individually as templating and mail-merging is very basic in both programs. Also, you are stuck with proprietary file formats that you might not be able to open in the future (and your tax office may not be happy about that). On the other side, you have *LaTeX* which can output fantastic documents from marked up text but has a steep learning curve and also quite some weight (~ 1GB extra). Also, if you want to use system or OTF fonts, you quickly run into problems. Both *InDesign* and *Pages* also struggle with the generation of HTML5.
 
 ## The (rather) easy way
-*[Pandoc](pandoc.org)* to the rescue. Pandoc is a handy command-line tool that converts text files between different formats. I use it to convert markdown files with YAML metadata blocks to PDF and HTML5 files. And I can style these documents via CSS3 so I can use all fonts simple. To use Avenir Next, which I installed on my machine, I just need 'font-family: 'Avenir Neue'' in my CSS.
+*Pandoc* to the rescue. Pandoc is a handy command-line tool that converts text files between different formats. I use it to convert markdown files with YAML metadata blocks to PDF and HTML5 files. And I can style these documents via CSS3 so I can use all local fonts. To use Avenir Next, which I installed on my machine, I just need `font-family: 'Avenir Neue'` in my CSS.
 
 So how would I create a nice looking invoice?
 
 Here is the template markdown for a fixed-budget project that I did:
 
 ```
-\--- # escaped intentionally
+---
 papersize: a4
 margin-left: 20mm
 margin-right: 25mm
 margin-top: 10mm
 margin-bottom: 20mm
-\... # escaped
+...
 
 ![](img/logo.png){ width=13.587mm height=13.559mm}
 
@@ -55,7 +53,7 @@ Guten Tag Herr Kunde,
 für Ihren am 01.01.2017 per Mail erteilten Auftrag für die Neugestaltung der Webseite
 [test.de](test.de) berechne ich Ihnen entsprechend Abmachung folgenden Pauschalbetrag:
 
-**4.000€**
+**6.000€**
 
 Entsprechend §19 UStG erhebe ich als Kleinunternehmer keine Umsatzsteuer.
 Abgaben zur Künstlersozialkasse fallen nicht an.
@@ -78,15 +76,15 @@ Note that I entered all my personal, the project and the client data manually, b
 
 This is how my output PDF (format: A4, black border for contrast only) looks like:
 
-![Invoice Example](http://i.imgur.com/sKKILXv.png)
+![Invoice Example](/assets/img/invoices-markdown-example.png)
 
 So how can you make an invoice as pretty or even prettier than this?
 
 ### Instructions
 
-1. Install `pandoc`. If you are on Mac, get [brew](brew.sh) and install it via `brew install pandoc`. Otherwise, head over to [Pandoc's website](http://pandoc.org/installing.html) and get a package for your machine.
-1. Install `wkhtmltopdf` via `brew install Caskroom/cask/wkhtmltopdf` or via the right package from [their website](http://wkhtmltopdf.org/downloads.html) - this is an invisible (aka headless) browser which saves to PDF.
-1. `pandoc invoice.m -t html5 d -o invoice.pdf` to output your first version of the invoice PDF. `-t` is for 'to' and indicates the format, `-o … *.pdf` will automatically understand that you want to save it as a PDF
+1. Install *pandoc*. If you are on Mac, get *Homebrew* and install *pandoc* via `brew install pandoc`. Otherwise, head over to [Pandoc's website](http://pandoc.org/installing.html) and get a package for your machine.
+1. Install `wkhtmltopdf` via `brew install Caskroom/cask/wkhtmltopdf` or via the right package from [their website](http://wkhtmltopdf.org/downloads.html). *wkthmltopdf* is an invisible (aka headless) browser which saves documents to PDF.
+1. Execute `pandoc invoice.m -t html5 d -o invoice.pdf` in the terminal to output your first version of the invoice PDF. `-t` is for 'to' and indicates the format, `-o … *.pdf` will automatically understand that you want to save it as a PDF
 1. To make the invoice prettier, you can add `--css style.css` to the *pandoc* command
 
 Here is my final CSS. I will tell you about some problems, solutions and architecture decisions after the code.
@@ -96,7 +94,9 @@ Here is my final CSS. I will tell you about some problems, solutions and archite
 
 body {
 font-size: 10.5pt;
-font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+font-family: 
+    "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 hyphens: auto;
 height: 270mm; /* 297 - 10 (top) - 20 (bottom) */
 line-height: 140%;
@@ -149,14 +149,6 @@ font-size: 9pt;
 word-spacing: 1pt;
 }
 
-/*p:first-of-type::after {
-content: "\2014";
-position: absolute;
-top: 89mm; / 99mm - 10mm top /
-right: 0mm;
-
-}*/
-
 p:nth-of-type(2) {
 margin-top: 20mm;
 }
@@ -176,7 +168,6 @@ position: absolute;
 bottom: 2mm;
 margin-bottom: 0;
 padding-bottom: 0;
-/* word-spacing: 1pt; */
 color: #444;
 }
 
@@ -207,7 +198,7 @@ And now the making-of:
 1. My logo is `*.svg` but that got totally skewed when getting rendered to PDF. I had to generate a high-resolution PNG to get around that.
 1. I made dozens of iterations of the CSS to get the design that I wanted. First I did it the hard way: Change CSS, run Pandoc command, open PDF. Then I found out that *PDF Expert* re-renders when the PDF has changed. Still, I had to fire Pandoc after each CSS change manually. So I was looking for "live reloading" and ended up with `fswatch` on Mac (or `inotifywait` on Linux). I put the actual Pandoc command in a Bash script and started the watcher with `fswatch -o . | xargs -n1 ./compile.sh`. It worked. The only downside I encountered was that the PDF would reload in *PDF Expert* every 2 seconds no matter whether there was a change in the CSS not. Flicker, flicker, flicker.
 
-### Make it safe(r)
+### Make it safer
 
 Now you have a neat invoice PDF from a very simple Markdown file. But: The client could easily edit this PDF, change the cost or copy my signature. You cannot entirely prevent this to happen, but let`s make it a bit more secure.
 
@@ -227,6 +218,11 @@ The invoice PDF is nice, but of course, we can make it even better. Here are som
 1. Tinkering with `p:nth-of-type(10)`-ish selectors is not too much fun, so probably using an HTML template with some smarter defaults would be good. I did not have much success with loading a new template from a different `--data-dir` but *brew's*, so I copied my template to `/usr/local/Cellar/pandoc/1.16.0.2/share/x86_64-osx-ghc-7.10.3/pandoc-1.16.0.2/data/templates/`
 1. Also, I found [another nice template](https://www.redminecrm.com/boards/35/topics/1466-custom-template-for-german-invoice) that I might learn a trick or two from
 1. Finally, for cross-media usage, I might add another stylesheet for the web or maybe media queries (but I have no clue whether that works…)
+
+### Resources
+- [Homebrew](brew.sh)
+- [Pandoc](http://pandoc.org/)
+- [WKHTMLTOPDF](http://wkhtmltopdf.org/)
 
 ### Q&A
 
