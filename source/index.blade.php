@@ -10,7 +10,7 @@
 @section('body')
 
     @include('_components.about-text')
-    <hr class="border-b my-12">
+    <hr class="border-b my-8">
 
     @foreach ($posts->where('featured', true) as $featuredPost)
         <div class="w-full mb-6">
