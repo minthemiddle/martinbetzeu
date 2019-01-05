@@ -46,14 +46,14 @@ View the full documentation at https://tailwindcss.com.
 let colors = {
   'transparent': 'transparent',
 
-  'black': '#212022',
-  'grey-darkest': '#484849',
-  'grey-darker': '#606f7b',
+  'black': 'hsl(232, 29%, 23%)',
+  'grey-darkest': 'hsl(232, 17%, 41%)',
+  'grey-darker': 'hsl(232, 17%, 60%)',
   'grey-dark': '#8795a1',
-  'grey': '#b8c2cc',
-  'grey-light': '#e2e8ee',
-  'grey-lighter': '#ecf0f3',
-  'grey-lightest': '#f9f9f9',
+  'grey': 'hsl(232, 17%, 79%)',
+  'grey-light': 'hsl(232, 17%, 87%)',
+  'grey-lighter': 'hsl(232, 17%, 92%)',
+  'grey-lightest': 'hsl(232, 17%, 98%)',
   'white': '#ffffff',
 
   'red-darkest': '#3b0d0c',
@@ -99,7 +99,7 @@ let colors = {
   'blue-darkest': '#24548f',
   'blue-darker': 'hsl(233, 73%, 37%)',
   'blue-dark': 'hsl(233, 73%, 47%)',
-  'blue': 'hsl(233, 73%, 57%)', // brand martinbetz
+  'blue': '#4154E1', // brand martinbetz
   'blue-light': 'hsl(233, 73%, 72%)',
   'blue-lighter': 'hsl(233, 73%, 87%)',
   'blue-lightest': '#eff8ff',
