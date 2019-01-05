@@ -51,11 +51,4 @@
             <hr class="w-full border-b mt-2 mb-6">
         @endif
     @endforeach
-
-    <div class="bg-white mt-10 lg:-mx-12 my-12 p-6 md:px-12 shadow">
-        @foreach ($testimonials->take(2) as $testimonial)
-                {!! $testimonial !!}
-                <p class="-mt-4"><em>— @if($page->url)<a href="{{ $testimonial->url }}">{{ $testimonial->name }}</a>@else {{ $testimonial->name }}@endif</em></p>
-        @endforeach
-    </div>
 @stop
