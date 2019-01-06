@@ -38,7 +38,7 @@
         @endif
     @endforeach
 
-    @include('_components.newsletter-signup')
+    @include('_components.newsletter-signup-sendy')
 
     <p class="uppercase tracking-wide text-sm text-grey-darker mb-0">Featured articles</p>
 
