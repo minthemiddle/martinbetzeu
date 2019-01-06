@@ -75,7 +75,7 @@
                 </li>
 
                 <li>
-                    <a href="/privacy">Privacy/Datenschutz </a>
+                    <a href="/privacy">Privacy/GDPR </a>
                 </li>
                 <li class="ml-2">
                      <a href="/imprint">Imprint</a>
