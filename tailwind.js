@@ -938,6 +938,26 @@ plugins: [
     // center: true,
     // padding: '1rem',
   }),
+  require("tailwind-heropatterns")({
+  // as per tailwind docs you can pass variants
+  variants: [],
+
+  // the list of patterns you want to generate a class for
+  // the names must be in kebab-case
+  // an empty array will generate all 87 patterns
+  patterns: ["texture"],
+
+  // The foreground colors of the pattern
+  colors: {
+    default: "#000044"
+  },
+
+  // The foreground opacity
+  opacity: {
+    default: "0.1",
+    "100": "1.0"
+  }
+  }),
   function({ addUtilities }) {
       const newUtilities = {
         '.transition-fast': {
