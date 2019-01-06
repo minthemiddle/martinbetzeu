@@ -1,8 +1,9 @@
 <template>
   <footer>
-    <cookie-law theme="mbeu">
+    <cookie-law theme="mbeu" buttonText="I agree">
       <div slot="message">
-    I use 1 session cookie to log anonymous page visits and redirects. <a href="/privacy" class="text-blue-lighter">(More)</a></div></cookie-law>
+    If you agree, I use 1 session cookie to log anonymous page visits and redirects. <a href="/privacy" class="text-blue-lighter">(More)</a></div>
+  </cookie-law>
   </footer>
 </template>
 
