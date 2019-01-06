@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 .Cookie--mbeu {
     @apply bg-blue p-6 text-white;
 }
@@ -9,3 +11,5 @@
 .Cookie--mbeu div.Cookie__button:hover {
     @apply bg-blue-lightest text-blue;
 }
+
+/* purgecss end ignore */
