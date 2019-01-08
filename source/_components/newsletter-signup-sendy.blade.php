@@ -2,7 +2,7 @@
 <div class="w-full justify-center lg:-mx-12 my-12 p-6 md:px-12 bg-grey-lighter border border-grey-light text-sm md:rounded shadow">
 <h3 class="text-center">Get my newsletter (6x a year)</h3>
     <!-- Begin Sendy Signup Form -->
-    <form action="http://www.betzventures.com/sendy/subscribe" method="POST" accept-charset="utf-8">
+    <form action="https://www.betzventures.com/sendy/subscribe" method="POST" accept-charset="utf-8">
         <div class="mt-6 md:flex text-xl w-full">
             <div class="md:w-2/3 flex">
                 <input type="email" name="email" id="email" class="w-full outline-none px-4 py-2 flex-1 rounded-l rounded-r-none" required placeholder="Your e-mail">
