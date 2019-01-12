@@ -7,6 +7,7 @@ description: Quick tool generation with VueJS, Tailwind CSS and LocalStorage
 categories: [tech]
 priority: 2
 language: en
+slug: vue-quick-tools
 ---
 
 ## Before: Tools with Excel

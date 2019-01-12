@@ -8,6 +8,7 @@ description: How to use Visual Studio Code for web design
 categories: [tech]
 featured: true
 priority: 50
+slug: vsc-webdesign
 ---
 
 To design web pages, you should really use a good text editor. Microsoft’s open source text editor Visual Studio Code (VSC) is such an editor. Here is how I set it up and which plugins help me having a good time while writing HTML and CSS.

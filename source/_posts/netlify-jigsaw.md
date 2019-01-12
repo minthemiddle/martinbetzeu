@@ -8,6 +8,7 @@ description: How to host static pages built by Jigsaw on Netlify
 priority: 30
 featured: false
 categories: [tech]
+slug: jigsaw-netlify
 ---
 
 Jigsaw is a very lean static page generator and especially easy to learn for everyone familiar with Laravel and its blade templating language.

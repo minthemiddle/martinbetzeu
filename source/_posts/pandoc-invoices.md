@@ -8,6 +8,7 @@ description: Generate PDF invoices from Markdown using Pandoc
 priority: 40
 featured: true
 categories: [tech, terminal]
+slug: pandoc-invoices
 ---
 
 **TL;DR:** You can use *Pandoc* with *wkthmltopdf* to generate nice-looking PDF invoices from Markdown files.
