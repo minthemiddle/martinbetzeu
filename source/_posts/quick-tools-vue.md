@@ -16,7 +16,7 @@ I used to write down the total number of tasks in a row in Excel and add a row f
 
 That setup is flexible and worked pretty well, but it looked boring. Well, just like an Excel sheet looks like.
 
-![Excel tool](https://cdn-images-1.medium.com/max/2000/1*QZ2RVmws7tw-nuapaM0Jmg.png)
+![Excel tool](/assets/img/articles/vuejs-excel-tool.png)
 
 I need to confess that visuals make a huge motivation difference for me.
 
@@ -35,7 +35,7 @@ The modern web universe has such tools:
 
 Here is how my little example task progress tracker looks like using these tools:
 
-![](https://cdn-images-1.medium.com/max/2000/1*kP4OduC88p6j1nuM0unmbw.png)
+![VueJS Todo Counter](/assets/img/articles/vuejs-todo-counter.png)
 
 Let me do a quick tour of the feature that I use frequently to build tools like this task tracker:
 
