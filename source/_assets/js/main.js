@@ -2,6 +2,7 @@ window.axios = require('axios');
 window.fuse = require('fuse.js');
 window.Vue = require('vue');
 import EmailObfuscate from 'email-obfuscate';
+window.EO = EmailObfuscate;
 
 
 import Search from './components/Search.vue';
