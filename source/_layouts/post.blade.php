@@ -60,3 +60,19 @@
         </div>
     </nav>
 @endsection
+
+@push('scripts')
+@if($page->slug)
+<script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('{{ $page->slug }}');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+@endif
+@endpush
