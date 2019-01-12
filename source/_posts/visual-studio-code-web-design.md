@@ -3,7 +3,7 @@ extends: _layouts.post
 section: content
 title: How to use Visual Studio Code for web design
 date: 2018-03-06
-update: 2019-01-04
+update: 2019-01-12
 description: How to use Visual Studio Code for web design
 categories: [tech]
 featured: true
