@@ -91,4 +91,9 @@ These are a few features that are relatively new and might help you more than th
 - [Path completion for CSS imports ](https://code.visualstudio.com/updates/v1_27#_path-completion-for-css-imports)(since v.1.27)
 - [Fold CSS region](https://code.visualstudio.com/updates/v1_23#_css-region-folding) with /* #region */ and /* #endregion */ (since v.1.23)
 
+## Other resources
+
+- [HTML in Visual Studio Code](https://code.visualstudio.com/docs/languages/html)
+- [CSS, SCSS and Less](https://code.visualstudio.com/docs/languages/css)
+
 *How do you set up Visual Studio Code for web design projects? And which other plugins do you use on a regular base?*
