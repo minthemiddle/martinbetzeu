@@ -40,7 +40,7 @@ Here is how my little example task progress tracker looks like using these tools
 Let me do a quick tour of the feature that I use frequently to build tools like this task tracker:
 
 - **TailwindCSS from CDN**: In JSBin I have a boilerplate with Tailwind so the page looks good from line 1 `<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">`
-- **Antialiasing** `<body class="antialiased"` - This smoothes all fonts
+- **Antialiasing** `<body class="antialiased">` - This smoothes all fonts
 - **VueJS from CDN** `<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>` Pull in VueJS to make the page dynamic
 - **Quick role-model-binding** To fetch my entries and process them with VueJS, I add a simple v-model: `<input v-model=“tasks.done” name=“done">`
 
