@@ -26,3 +26,21 @@
 <p>For the reasons stated above, I’ll only respond to those e-mails that are a good match for my priorities and schedule.</p>
 
 @stop
+
+@push('scripts')
+<script>
+  var el = document.getElementById('cntct-contact');
+    EO(el, {
+      name: 'contact+me',
+      domain: 'martinbetz',
+      tld: 'eu',
+      altText: 'Email'
+    });
+    EO(el2, {
+        name: 'test',
+        domain: 'martinbetz',
+        tld: 'eu',
+        altText: 'Email'
+    });
+</script>
+@endpush
