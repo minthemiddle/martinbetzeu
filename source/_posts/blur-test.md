@@ -7,7 +7,7 @@ update: 2019-01-12
 description: Evaluate website hierarchies with CSS blur test
 priority: 30
 featured: false
-categories: [tech, design, quicktip]
+categories: [tech]
 ---
 
 **TL;DR:** To evaluate the hierarchies on your website, use the `filter: blur(5px)` style on your `<body>` element.
