@@ -36,7 +36,7 @@
                 <a
                     href="{{ '/categories/' . $category }}"
                     title="View posts in {{ $category }}"
-                    class="text-sm tracking-wide bg-white text-grey-dark p-2 rounded uppercase"
+                    class="text-sm tracking-wide bg-white text-grey-dark p-2  uppercase"
                 >{{ $category }}</a>
             @endforeach
             </p>
