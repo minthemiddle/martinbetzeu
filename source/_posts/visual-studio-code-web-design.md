@@ -87,6 +87,7 @@ Just install them with `cmd+shift+p`, type `install` and select `Extensions: Ins
 
 These are a few features that are relatively new and might help you more than they do help me right now…
 
+- [Custom HTML tags/attributes](https://code.visualstudio.com/updates/v1_30) (since v.1.30)
 - [Path completion for CSS imports ](https://code.visualstudio.com/updates/v1_27#_path-completion-for-css-imports)(since v.1.27)
 - [Fold CSS region](https://code.visualstudio.com/updates/v1_23#_css-region-folding) with /* #region */ and /* #endregion */ (since v.1.23)
 
