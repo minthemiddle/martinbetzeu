@@ -12,7 +12,7 @@ priority: 50
 
 To design web pages, you should really use a good text editor. Microsoft’s open source text editor Visual Studio Code (VSC) is such an editor. Here is how I set it up and which plugins help me having a good time while writing HTML and CSS.
 
-I update this article whenever there is a new version of VSCode. (Latest changes reflected: `v1.1.29.1-October 2018`
+I update this article whenever there is a new version of VSCode. (Latest changes reflected: [v1.30.2-Novemer 2018](https://code.visualstudio.com/updates/v1_30)
 
 ## Basics
 
@@ -87,7 +87,7 @@ Just install them with `cmd+shift+p`, type `install` and select `Extensions: Ins
 
 These are a few features that are relatively new and might help you more than they do help me right now…
 
-* [Path completion for CSS imports ](https://code.visualstudio.com/updates/v1_27#_path-completion-for-css-imports)(since v.1.27)
-* [Fold CSS region](https://code.visualstudio.com/updates/v1_23#_css-region-folding) with /* #region */ and /* #endregion */ (since v.1.23)
+- [Path completion for CSS imports ](https://code.visualstudio.com/updates/v1_27#_path-completion-for-css-imports)(since v.1.27)
+- [Fold CSS region](https://code.visualstudio.com/updates/v1_23#_css-region-folding) with /* #region */ and /* #endregion */ (since v.1.23)
 
 *How do you set up Visual Studio Code for web design projects? And which other plugins do you use on a regular base?*
