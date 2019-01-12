@@ -42,4 +42,4 @@ You can either create an own class and apply it when testing:
 
 Or you simply create an on-the-fly class using Chrome's DevTools or Firefox' Inspector
 
-<img class="border-2 rounded border-grey shadow-inline" src="/assets/img/articles/inspector.png" alt="">
+<img class="border-2 rounded border-grey shadow-inline" src="/assets/img/articles/blurtest-inspector.png" alt="">
