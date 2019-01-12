@@ -19,7 +19,7 @@
     </div>
 
     @if($page->slug)
-    <div class="text-center mt-12 mb-12 bg-blue-lightest rounded-lg p-8 border-t-4 border-blue">
+    <div class="text-center mt-12 mb-12 bg-blue-lightest p-8 border-t-4 border-blue">
         <div class="font-bold text-blue">Send me your feedback on</div>
         <div>"{{ $page->title }}"</div>
         <p id="cntct-article"></p>
