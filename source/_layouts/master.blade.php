@@ -88,6 +88,15 @@
         <div id="vue-cookie"><cookielaw theme="royal"></cookielaw></div>
 
         <script src="{{ mix('js/main.js', 'assets/build') }}"></script>
+        <script>
+            var el = document.getElementById('cntct-me');
+            EO(el, {
+              name: 'contact+me',
+              domain: 'martinbetz',
+              tld: 'eu',
+              altText: 'Email'
+            });
+        </script>
 
         @stack('scripts')
     </body>
