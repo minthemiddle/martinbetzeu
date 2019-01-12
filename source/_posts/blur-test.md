@@ -14,9 +14,9 @@ categories: [tech, design, quicktip]
 
 ## Why hierarchies matter
 
-Not everything is equally important on your website: Every single page should have *one single goal* (signing up for newsletter, click the buying button, display the one information everyone looks for).
+Not everything is equally important on your website: Every single page should have *one single goal* (signing up for a newsletter, click the buying button, display the one information everyone looks for).
 
-Also, some *elements belong together* to give the reader orientation (image and label, intro and list). Whitespace at the right amount and place is what gives orientation and structure.
+Also, some *elements belong together* to give the reader orientation (image and label, intro and list). Whitespace at the right amount and place is what gives orientation, and structure.
 
 ## How to test hierarchies
 
@@ -24,7 +24,7 @@ To test your hierarchies, it helps to get a bird's eye view over your website.
 
 The best way to test your hierarchies is the *blur test*. By blurring out the specific content, you will quickly recognize borders, space and sizing.
 
-## Quicktipp
+## How to apply blur effect in CSS
 
 The quickest way to do the blur test is by using the `blur` CSS filter.
 
