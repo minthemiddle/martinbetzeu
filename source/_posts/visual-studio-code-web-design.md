@@ -28,7 +28,7 @@ This is how a *HTML5 Boilerplate* project looks like after startup via code .
 
 **Use `Cmd+P`:** To switch between files, you would usually use tabs. That might be okay when you have one `index.html` and one `style.css` file, but even with our example HTML5 Boilerplate and its many files, it already gets complicated. It is much faster and visually pleasing to use `cmd+p` with its typeahead functionality to quickly find and edit the file you need. Let me show you what I mean.
 
-<iframe src="https://medium.com/media/35cd56338fe8b8c932f8e72911d7575e" frameborder=0></iframe>
+<video src="/assets/video/vsc-webdesign.webm" class="w-full" controls="true"></video>
 
 **Use symbols to jump within file:** Wonder, where you hid that `h2` heading in your `main.css`? Well, you could browse the whole file or memorise it. Or you can just hit `cmd+shift+o` to quickly go to a definition within your HTML and CSS files.
 
