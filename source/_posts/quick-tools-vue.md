@@ -82,5 +82,5 @@ Other tools that I built the same way:
 There are endless opportunities to create flexible and good-looking tools for your specific needs in very little time!
 
 
-[Here is the source](http://jsbin.com/koroyap/5/edit?output) for the tracking tool
+[Here is the source](http://jsbin.com/koroyap/5/edit?output) for the todo tracking tool
 
