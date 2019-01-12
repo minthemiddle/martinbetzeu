@@ -3,6 +3,7 @@ extends: _layouts.post
 section: content
 title: Quick tools with VueJS
 date: 2018-02-25
+update: 2019-01-12
 description: Quick tool generation with VueJS, Tailwind CSS and LocalStorage
 categories: [tech]
 priority: 2
