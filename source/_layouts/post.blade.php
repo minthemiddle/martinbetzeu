@@ -18,6 +18,14 @@
         @yield('content')
     </div>
 
+    @if($page->slug)
+    <div class="text-center mt-12 mb-12 bg-blue-lightest rounded-lg p-8 border-t-4 border-blue">
+        <div class="font-bold text-blue">Send me your feedback on</div>
+        <div>"{{ $page->title }}"</div>
+        <p id="cntct-article"></p>
+    </div>
+    @endif
+
     <div class="border-b border-t border-blue-lighter mt-4 pb-4 pt-4 mb-10">
         <p class="text-grey-darker text-xl md:mt-0">{{ date('F j, Y', $page->date) }}@if($page->update)   •  Last updated: {{ date('F j, Y', $page->update) }}@endif</p>
 
