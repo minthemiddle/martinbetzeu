@@ -11,11 +11,11 @@
 <h1>Contact</h1>
 
 <p>
-    I love to hear your stories, feedback and ideas to everything I create. The limited time I can put aside I like to dedicate fully to creating high quality articles and products. I hence have clear priorities and do spend all of my available time right now on the following:</p>
+    I love to hear your stories, feedback and ideas to everything I create. The limited time I can put aside I like to dedicate fully to creating high quality articles and products. I hence have clear priorities and do spend all of my available time right now on the following mission:</p>
 
-<ul class="list-reset">
-    <li><a href="/products/soloheroes">SoloHeroes</a></li>
-</ul>
+    <blockquote>
+        I help solo entrepreneurs to make the most of their working days. My focus is on solo developer.
+    </blockquote>
 
 <p>
     If you have feedback, an offer, opportunity, or introduction that is connected to my priorities or anything that might make my life more interesting, e-mail me:
