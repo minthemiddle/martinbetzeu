@@ -81,6 +81,6 @@ Other tools that I built the same way:
 
 There are endless opportunities to create flexible and good-looking tools for your specific needs in very little time!
 
-Here is the source for the tracking tool:
-[JS Bin — Collaborative JavaScript Debugging](http://jsbin.com/koroyap/5/edit?output)
+
+[Here is the source](http://jsbin.com/koroyap/5/edit?output) for the tracking tool
 
