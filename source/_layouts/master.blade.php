@@ -81,7 +81,7 @@
                      <a href="/imprint">Imprint</a>
                 </li>
                 <li class="ml-2">
-                    <span id="cntct"></span>
+                    <span id="cntct-me"></span>
                 </li>
             </ul>
         </footer>
