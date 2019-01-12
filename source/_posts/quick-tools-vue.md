@@ -46,7 +46,28 @@ Let me do a quick tour of the feature that I use frequently to build tools like 
 
 The actual power comes from a few lines of JavaScript. Let me explain with inline comments
 
-<iframe src="https://medium.com/media/85cfd3bff18539cda3a42bae2c85457d" frameborder=0></iframe>
+```javascript
+var app = new Vue({},
+computed: { /* Calculate the ratio */
+    ratio: function() {
+        return Math.floor(this.tasks.done / this.tasks.total * 100) + '%'
+    }
+},
+watch: { /* Observe changes and write to LocalStorage */
+    tasks: {
+        handler() {
+            console.log('Tasks changed');
+            localStorage.setItem('tasks', JSON.stringify(this.tasks));
+        },
+        deep: true,
+    }
+},
+mounted() { /* Load values from LocalStorage and load */
+    console.log('App mounted');
+    if (localStorage.getItem('tasks')) this.tasks = JSON.parse(localStorage.getItem('tasks'));
+}
+})
+```
 
 ## Write endless simple tools with this setup
 
