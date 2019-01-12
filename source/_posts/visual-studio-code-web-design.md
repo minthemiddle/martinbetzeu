@@ -25,7 +25,7 @@ I update this article whenever there is a new version of VSCode. (Latest changes
 
 This is how a *HTML5 Boilerplate* project looks like after startup via code .
 
-![](https://cdn-images-1.medium.com/max/3692/1*1A0UMBTUpLCR9Ld4-HOzXg.png)
+![Blank Visual Studio Code window](/assets/img/articles/vsc-blank.png)
 
 **Use `Cmd+P`:** To switch between files, you would usually use tabs. That might be okay when you have one `index.html` and one `style.css` file, but even with our example HTML5 Boilerplate and its many files, it already gets complicated. It is much faster and visually pleasing to use `cmd+p` with its typeahead functionality to quickly find and edit the file you need. Let me show you what I mean.
 
@@ -37,7 +37,7 @@ This is how I would find my `<h1>` definition in `main.css`:
 
 I just hit `cmd+shift+o`, type in `h` and in the typeahead list I already see the `h2` definitions. Of course I can switch with the up and down keys.
 
-![](https://cdn-images-1.medium.com/max/2854/1*4v5h6h1lrPkeqVzepaIfig.png)
+![Visual Studio Code Quick Jump](/assets/img/articles/vsc-quick-jump.png)
 
 **Use Emmet**: To massively speed up typing HTML, use Emmet. It is a shortcut-language which expands to HTML. You write `h2>div*2` and hit Tab. It expands to the following.
 
