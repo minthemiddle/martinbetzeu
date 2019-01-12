@@ -84,5 +84,3 @@ There are endless opportunities to create flexible and good-looking tools for yo
 Here is the source for the tracking tool:
 [JS Bin — Collaborative JavaScript Debugging](http://jsbin.com/koroyap/5/edit?output)
 
-https://medium.com/@martin_betz/quick-tool-generation-with-vuejs-tailwind-css-and-localstorage-5cfb23bb91b2
-
