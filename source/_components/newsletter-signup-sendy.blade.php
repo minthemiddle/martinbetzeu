@@ -6,7 +6,7 @@
         <div class="mt-6 md:flex text-xl w-full">
             <div class="md:w-2/3 flex">
                 <input type="email" name="email" id="email" class="w-full outline-none px-4 py-2 flex-1 rounded-l rounded-r-none" required placeholder="Your e-mail">
-                <div class="bg-blue-lightest py-1 px-2 rounded-r md:rounded-r-none">
+                <div class="bg-grey-lightest py-1 px-2 rounded-r md:rounded-r-none">
                 <input type="checkbox" name="gdpr" id="gdpr" class="" required>
                 <label for="gdpr">GDPR</label>
             </div>
