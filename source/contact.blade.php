@@ -18,8 +18,10 @@
 </ul>
 
 <p>
-    If you have feedback, an offer, opportunity, or introduction that is connected to my priorities or anything that might make my life more interesting, e-mail me: <br>
-    <span id="cntct"></span>
+    If you have feedback, an offer, opportunity, or introduction that is connected to my priorities or anything that might make my life more interesting, e-mail me:
+</p>
+<p>
+    <span id="cntct-contact"></span>
 </p>
 <p>For the reasons stated above, I’ll only respond to those e-mails that are a good match for my priorities and schedule.</p>
 
