@@ -37,15 +37,3 @@ new Vue({
     cookielaw,
   },
 }).$mount('#vue-cookie');
-
-
-
-
-
-var el = document.getElementById('cntct');
-EmailObfuscate(el, {
-  name: 'contact+me',
-  domain: 'martinbetz',
-  tld: 'eu',
-  altText: 'Email'
-});
