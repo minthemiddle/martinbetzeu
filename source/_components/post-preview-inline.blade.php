@@ -9,11 +9,11 @@
         </h2>
 
 
-    <p class="mb-4 mt-0">{!! $post->excerpt(200) !!}</p>
+    <p class="mb-4 mt-0">{!! $post->getContent() !!}</p>
 
-    <a
+    {{-- <a
         href="{{ $post->getUrl() }}"
         title="Read more - {{ $post->title }}"
         class="uppercase font-semibold tracking-wide mb-2"
-    >Read</a>
+    >Read</a> --}}
 </div>
