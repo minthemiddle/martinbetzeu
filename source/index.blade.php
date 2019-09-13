@@ -12,9 +12,9 @@
     @include('_components.about-text')
     <hr class="border-b my-8">
 
-    <p class="uppercase tracking-wide text-sm text-grey-darker mb-0">Current project</p>
+    {{-- <p class="uppercase tracking-wide text-sm text-grey-darker mb-0">Current project</p> --}}
 
-    @foreach ($products->where('featured', true) as $featuredPost)
+    {{-- @foreach ($products->where('featured', true) as $featuredPost)
         <div class="w-full mb-6">
             @if ($featuredPost->cover_image)
                 <img src="{{ $featuredPost->cover_image }}" alt="{{ $featuredPost->title }} cover image" class="mb-6">
@@ -38,7 +38,7 @@
         @endif
     @endforeach
 
-    @include('_components.newsletter-signup-sendy')
+    @include('_components.newsletter-signup-sendy') --}}
 
     <p class="uppercase tracking-wide text-sm text-grey-darker mb-0">Featured articles</p>
 
