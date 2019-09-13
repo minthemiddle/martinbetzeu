@@ -14,7 +14,7 @@
     I love to hear your stories, feedback and ideas to everything I create. The limited time I can put aside, I like to dedicate fully to creating high quality articles and products. I hence have clear priorities and do spend all of my available time right now on the following mission:</p>
 
     <blockquote>
-        I help solo entrepreneurs to make the most of their working days. My focus is on solo developers.
+        Inspire people to improve their world with digital tools.
     </blockquote>
 
 <p>
