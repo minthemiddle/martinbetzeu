@@ -9,7 +9,7 @@
         </h2>
 
 
-    <p class="mb-4 mt-0">{!! $post->getContent() !!}</p>
+    <p class="mb-4 mt-0">{!! $post->excerpt() !!}</p>
 
     {{-- <a
         href="{{ $post->getUrl() }}"
