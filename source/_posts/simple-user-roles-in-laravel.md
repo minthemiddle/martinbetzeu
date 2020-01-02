@@ -5,7 +5,7 @@ title: "Simple user roles in Laravel"
 date: 2019-12-27
 update: 2019-12-27
 description: "Simple user roles in Laravel"
-priority: 40
+priority: 55
 featured: true
 categories: [tech]
 slug: simple-user-roles-in-laravel
