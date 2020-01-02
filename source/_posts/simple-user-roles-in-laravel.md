@@ -3,7 +3,6 @@ extends: _layouts.post
 section: content
 title: "Simple user roles in Laravel"
 date: 2019-12-27
-update: 2019-12-27
 description: "Simple user roles in Laravel"
 priority: 55
 featured: true
