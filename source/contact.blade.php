@@ -14,11 +14,11 @@
     I love to hear your stories, feedback and ideas to everything I create. The limited time I can put aside, I like to dedicate fully to creating high quality articles and products. I hence have clear priorities and do spend all of my available time right now on the following mission:</p>
 
     <blockquote>
-        Inspire people to improve their world with digital tools.
+        Develop custom business web applications with Laravel.
     </blockquote>
 
 <p>
-    If you have feedback, an offer, opportunity, or introduction that is connected to my priorities or anything that might make my life more interesting, e-mail me:
+    If you have feedback, an offer, opportunity, or introduction that is connected to my priority or anything that might make my life more interesting, e-mail me:
 </p>
 <p>
     <span id="cntct-contact"></span>
