@@ -5,7 +5,7 @@ title: ToDoist Scheduler
 date: 2018-11-14
 description: Plan your workday
 categories: [tools]
-priority: 1
+priority: 20
 language: en
 active: true
 featured: false

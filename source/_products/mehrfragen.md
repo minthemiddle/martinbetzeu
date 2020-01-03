@@ -6,7 +6,7 @@ date: 2019-03-31
 description: Find interesting questions
 link: https://mehrfragen.de
 categories:
-priority: 1
+priority: 2
 language: en
 active: true
 featured: false
