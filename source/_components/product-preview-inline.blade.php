@@ -1,9 +1,10 @@
 <div class="flex flex-col mb-4">
         <h2 class="text-3xl mt-0">
             <a
-                href="{{ $post->getUrl() }}"
+                href="{{ $post->link }}"
                 title="Read more - {{ $post->title }}"
                 class="font-extrabold"
+                target="_blank"
             >{{ $post->title }}</a>
 
         </h2>
