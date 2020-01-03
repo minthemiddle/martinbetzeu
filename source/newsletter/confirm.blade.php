@@ -1,7 +1,7 @@
 @extends('_layouts.master')
 
 @section('body')
-    <div class="flex flex-col items-center text-grey-darker mt-32">
+    <div class="flex flex-col items-center text-gray-600 mt-32">
 
         <h2 class="text-3xl">Thanks for your interest in my newsletter.</h2>
         <p class="text-xl">

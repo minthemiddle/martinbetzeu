@@ -12,7 +12,7 @@
     @include('_components.about-text')
     <hr class="border-b my-8">
 
-    {{-- <p class="uppercase tracking-wide text-sm text-grey-darker mb-0">Current project</p> --}}
+    {{-- <p class="uppercase tracking-wide text-sm text-gray-600 mb-0">Current project</p> --}}
 
     {{-- @foreach ($products->where('featured', true) as $featuredPost)
         <div class="w-full mb-6">
@@ -21,7 +21,7 @@
             @endif
 
             <h2 class="text-3xl mt-0">
-                <a href="{{ $featuredPost->getUrl() }}" title="Read {{ $featuredPost->title }}" class="text-grey-darkest font-extrabold">
+                <a href="{{ $featuredPost->getUrl() }}" title="Read {{ $featuredPost->title }}" class="text-gray-900 font-extrabold">
                     {{ $featuredPost->title }}
                 </a>
             </h2>
@@ -40,7 +40,7 @@
 
     @include('_components.newsletter-signup-sendy') --}}
 
-    <p class="uppercase tracking-wide text-sm text-grey-darker mb-0">Featured articles</p>
+    <p class="uppercase tracking-wide text-sm text-gray-600 mb-0">Featured articles</p>
 
     @foreach ($posts->where('featured', true)->where('language', '!=', 'de')->take(6)->chunk(2) as $row)
         <div class="flex flex-col md:flex-row md:-mx-6">

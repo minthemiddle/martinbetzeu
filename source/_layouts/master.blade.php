@@ -21,10 +21,9 @@
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
     </head>
 
-    <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans">
-        <header class="border-t-2 flex items-center shadow bg-white border-b h-24 py-4" role="banner">
-            <div class="pin-t bg-blue-light h-1 absolute w-full"></div>
-            <div class="container flex items-center max-w-xl mx-auto px-4 lg:px-8">
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-900 leading-normal font-sans">
+        <header class="border-t-2 border-blue-400 flex items-center shadow bg-white h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-6xl mx-auto px-4 lg:px-8">
                 <div class="flex items-center">
                     <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
                         <h1 class="text-2xl md:text-3xl text-blue font-semibold my-0">{{ $page->siteName }}</h1>
@@ -43,7 +42,7 @@
 
         @include('_nav.menu-responsive')
 
-        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-16 px-6">
+        <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
 
 
             @yield('body')
@@ -53,7 +52,7 @@
 {{-- <div id="vue-search" class="mx-auto">
                 <search></search>
             </div> --}}
-            <ul class="flex flex-col md:flex-row justify-center list-reset">
+            <ul class="flex flex-col md:flex-row justify-center">
                 <li class="md:mr-2">
                     &copy; Martin Betz {{ date('Y') }}.
                 </li>

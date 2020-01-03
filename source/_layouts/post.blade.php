@@ -19,15 +19,15 @@
     </div>
 
     @if($page->slug)
-    <div class="text-center mt-12 mb-12 bg-blue-lightest p-8 border-t-4 border-blue">
-        <div class="font-bold text-blue">Send me your feedback on</div>
+    <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
         <div>"{{ $page->title }}"</div>
-        <p id="cntct-article"></p>
+        <p class="flex justify-center" id="cntct-article"></p>
     </div>
     @endif
 
-    <div class="border-b border-t border-blue-lighter mt-4 pb-4 pt-4 mb-10">
-        <p class="text-grey-darker text-xl md:mt-0">{{ date('F j, Y', $page->date) }}@if($page->update)   •  Last updated: {{ date('F j, Y', $page->update) }}@endif</p>
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">{{ date('F j, Y', $page->date) }}@if($page->update)   •  Last updated: {{ date('F j, Y', $page->update) }}@endif</p>
 
 
         @if ($page->categories)
@@ -36,7 +36,7 @@
                 <a
                     href="{{ '/categories/' . $category }}"
                     title="View posts in {{ $category }}"
-                    class="text-sm tracking-wide bg-white text-grey-dark p-2  uppercase"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
                 >{{ $category }}</a>
             @endforeach
             </p>
