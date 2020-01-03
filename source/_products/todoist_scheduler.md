@@ -9,9 +9,6 @@ priority: 1
 language: en
 active: true
 featured: false
+link: https://github.com/minthemiddle/todoist-scheduler
 ---
-Todoist Scheduler is a open source script to help you plan your workday with Todoist.  
-  
-[Link](https://github.com/minthemiddle/todoist-scheduler)
-
-
+Todoist Scheduler is a open source script to help you plan your workday with Todoist.
