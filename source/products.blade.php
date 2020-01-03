@@ -16,7 +16,7 @@ pagination:
     <h1>Products</h1>
 
     @foreach ($pagination->items as $post)
-        @include('_components.post-preview-inline')
+        @include('_components.product-preview-inline')
 
         @if ($post != $pagination->items->last())
             <hr class="border-b my-6">
