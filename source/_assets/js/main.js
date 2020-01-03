@@ -30,9 +30,3 @@ Vue.config.productionTip = false;
 //         Search,
 //     },
 // }).$mount('#vue-search');
-
-new Vue({
-  components: {
-    cookielaw,
-  },
-}).$mount('#vue-cookie');
