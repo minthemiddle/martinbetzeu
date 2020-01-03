@@ -69,7 +69,6 @@
                 </li>
             </ul>
         </footer>
-        <div id="vue-cookie"><cookielaw theme="royal"></cookielaw></div>
 
         <script src="{{ mix('js/main.js', 'assets/build') }}"></script>
         <script>

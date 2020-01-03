@@ -6,7 +6,6 @@ window.EO = EmailObfuscate;
 
 
 import Search from './components/Search.vue';
-import cookielaw from './components/CookieLaw.vue';
 import hljs from 'highlight.js/lib/highlight';
 
 // Syntax highlighting
