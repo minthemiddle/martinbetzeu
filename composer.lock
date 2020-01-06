@@ -880,16 +880,16 @@
             "time": "2017-10-23T01:57:42+00:00"
         },
         {
-            "name": "sam600/sitemap",
+            "name": "samdark/sitemap",
             "version": "2.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sam600/sitemap.git",
+                "url": "https://github.com/samdark/sitemap.git",
                 "reference": "dcfef471e79abca9d3c4d83dd6a7861cec1a596a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sam600/sitemap/zipball/dcfef471e79abca9d3c4d83dd6a7861cec1a596a",
+                "url": "https://api.github.com/repos/samdark/sitemap/zipball/dcfef471e79abca9d3c4d83dd6a7861cec1a596a",
                 "reference": "dcfef471e79abca9d3c4d83dd6a7861cec1a596a",
                 "shasum": ""
             },
@@ -903,7 +903,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "sam600\\sitemap\\": ""
+                    "samdark\\sitemap\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -918,7 +918,7 @@
                 }
             ],
             "description": "Sitemap and sitemap index builder",
-            "homepage": "https://github.com/sam600/sitemap",
+            "homepage": "https://github.com/samdark/sitemap",
             "keywords": [
                 "Sitemap"
             ],
@@ -1783,20 +1783,20 @@
         },
         {
             "name": "tightenco/jigsaw-blog-template",
-            "version": "v1.0.11",
+            "version": "v1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/jigsaw-blog-template.git",
-                "reference": "792f804c3ac473bc3a15b4f11f8c718cd69c79a9"
+                "reference": "cd608ca01257cda4ad9a52a5d7a5e4eb12eae280"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/jigsaw-blog-template/zipball/792f804c3ac473bc3a15b4f11f8c718cd69c79a9",
-                "reference": "792f804c3ac473bc3a15b4f11f8c718cd69c79a9",
+                "url": "https://api.github.com/repos/tightenco/jigsaw-blog-template/zipball/cd608ca01257cda4ad9a52a5d7a5e4eb12eae280",
+                "reference": "cd608ca01257cda4ad9a52a5d7a5e4eb12eae280",
                 "shasum": ""
             },
             "require": {
-                "sam600/sitemap": "^2.2",
+                "samdark/sitemap": "^2.2",
                 "tightenco/jigsaw": "^1.3.0"
             },
             "type": "library",
@@ -1833,7 +1833,7 @@
                 "static",
                 "template"
             ],
-            "time": "2019-10-30T17:26:18+00:00"
+            "time": "2020-01-04T20:53:09+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
