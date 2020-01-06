@@ -1,0 +1,646 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Martin Betz</title>
+    <link href="https://martinbetz.eu" />
+    <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
+    <updated>2020-01-06T14:54:31+00:00</updated>
+    <id>https://martinbetz.eu/rss/feed.atom</id>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+                <entry>
+    <id>https://martinbetz.eu/articles/laravel-rss-to-follow</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/laravel-rss-to-follow" />
+    <title>Laravel blogs to follow via RSS</title>
+    <published>2020-01-06T00:00:00+00:00</published>
+    <updated>2020-01-06T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">There are many high quality blogs on Laravel and related topics, such as Tailwind, Livewire, AlpineJS and VueJS. There are some well-known bloggers, such as Freek and Matt Stauffer, but also some lesser-known yet excellent ones.
+Here are the direct links......</summary>
+    <content type="html"><![CDATA[
+        <p>There are many high quality blogs on Laravel and related topics, such as Tailwind, Livewire, AlpineJS and VueJS. There are some well-known bloggers, such as Freek and Matt Stauffer, but also some lesser-known yet excellent ones.</p>
+<p>Here are the direct links to the RSS feeds, the list is sorted alphabetically:</p>
+<ul>
+<li><a href="https://www.amitmerchant.com/feed">Amit Merchant</a></li>
+<li><a href="https://benfurfie.co.uk/feed">Ben Furfie's Blog</a></li>
+<li><a href="http://calebporzio.com/rss/">Caleb Porzio</a></li>
+<li><a href="http://christoph-rumpel.com/feed.xml">Christoph Rumpel</a></li>
+<li><a href="https://www.youtube.com/feeds/videos.xml?channel_id=UCQI-Ym2rLZx52vEoqlPQMdg">Coder's Tape</a></li>
+<li><a href="http://daylerees.com/feed/">Dayle Rees</a></li>
+<li><a href="https://divinglaravel.com/feed">Diving Laravel</a></li>
+<li><a href="https://driesvints.com/blog/feed.atom">Dries Vints</a></li>
+<li><a href="https://dyrynda.com.au/blog/feed">Dyrynda</a></li>
+<li><a href="https://murze.be/feed/">freek.dev</a></li>
+<li><a href="https://jasonmccreary.me/feed.atom">Jason McCreary</a></li>
+<li><a href="http://laraveldaily.com/feed/">Laravel Daily</a></li>
+<li><a href="https://feedpress.me/laravel-links">Laravel News Links</a></li>
+<li><a href="https://feed.laravel-news.com/">Laravel News</a></li>
+<li><a href="http://www.laravel-tricks.com/feed">Laravel-Tricks</a></li>
+<li><a href="https://martinbetz.eu/blog/feed.atom">Martin Betz</a></li>
+<li><a href="https://matthewdaly.co.uk/rss.xml">Matthew Daly's Blog</a></li>
+<li><a href="http://mattstauffer.co/blog/feed.atom">MattStauffer.com</a></li>
+<li><a href="https://mauricius.dev/index.xml">Maurizio Bonani</a></li>
+<li><a href="https://themsaid.com/feed">Mohamed Said</a></li>
+<li><a href="https://ohseemedia.com/feed">Oh See Media</a></li>
+<li><a href="http://feeds2.feedburner.com/Paulundcouk">Paulund</a></li>
+<li><a href="https://pociot.dev/feed">pociot.dev</a></li>
+<li><a href="https://sebastiandedeyne.com/index.xml">Sebastian De Deyne</a></li>
+<li><a href="http://shawnmc.cool/feed">Shawn McCool</a></li>
+<li><a href="https://www.stitcher.io/https://www.stitcher.io/rss">stitcher.io</a></li>
+<li><a href="https://tighten.co/blog/feed.atom">Tighten Blog</a></li>
+<li><a href="https://timacdonald.me/feed.xml">Tim MacDonald</a></li>
+</ul>
+<p>If you know more Laravel blogs to follow, just send them to me and I'll add them.</p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/simple-user-roles-in-laravel</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/simple-user-roles-in-laravel" />
+    <title>Simple user roles in Laravel</title>
+    <published>2019-12-27T00:00:00+00:00</published>
+    <updated>2019-12-27T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">If you do only have roles for your users – such as admin, contributor and user – and you want to restrict access to routes only, advanced (and excellent) packages may be too heavy for you.
+Let me show you how to solve this authorization problem very......</summary>
+    <content type="html"><![CDATA[
+        <p>If you do only have roles for your users – such as admin, contributor and user – and you want to restrict access to routes only, advanced (and excellent) packages may be too heavy for you.
+Let me show you how to solve this authorization problem very easily.</p>
+<p>Your user model needs an extra field to store the role of every user. Let's add a string field which will hold values such as <code>user</code>, <code>manager</code> or <code>admin</code>. Every user needs a role, so this field is not nullable and has a default of <code>user</code>. Of course you have more fields in your user model, I'll add an email field to the user for demonstration purposes.</p>
+<pre><code class="language-php">// Create migration
+// create_users_table.php
+
+Schema::create('users', function (Blueprint $table) {
+  ...
+  $table-&gt;string('email')-&gt;unique();
+  $table-&gt;string('role')-&gt;default('user');
+  ...
+}</code></pre>
+<p>Let's create a test user, using Laravel's tinker app, test it's default role and upgrade it to <code>admin</code>.
+<code>php artisan tinker</code></p>
+<pre><code class="language-php">// Create test user
+$user = App\User::create(['email' =&gt; 'test01@test.test']);
+$user-&gt;role; // 'user'
+
+// Upgrade user to admin
+$user-&gt;role = 'admin';
+$user-&gt;save();</code></pre>
+<p>Until now, the user role is just a string and does not do anything. Let's change this by generating a custom middleware. Middlewares can be attached to routes and control who has access to those routes.</p>
+<p>For example, to restrict the access to <code>/logged-in-users-only</code> to logged in users, you would create the following function in your routes file:</p>
+<pre><code class="language-php">// routes/web.php
+Route::get('logged-in-users-only', function () {
+  return 'Only logged in users can see this';
+})-&gt;middleware('auth');</code></pre>
+<p>We can restrict routes to user roles with a custom middleware:</p>
+<p><code>php artisan make:middleware UserRoles</code></p>
+<p>This will create a middleware file that we can customize:</p>
+<pre><code class="language-php">// Http/Middleware/UserRoles
+public function handle($request, Closure $next, ...$roles)
+{
+  return collect($roles)-&gt;contains(auth()-&gt;user()-&gt;role) ? $next($request) : back();
+}</code></pre>
+<p>This <code>handle()</code> method will only allow people access the route if their role is in the list of allowed roles in the protected route.</p>
+<p>Here is the whole <code>return</code> one-liner in natural language:</p>
+<blockquote>
+<p>If the collection of rules contains the logged in user's role, then allow and process the request, otherwise redirect the user back.</p>
+</blockquote>
+<ul>
+<li><code>...$roles</code> allows to pass multiple roles at once, the resulting <code>$roles</code> is an array with all parameters</li>
+<li>With <code>collect()</code> I create a collection out of the array, so I can use collection methods and chain them, such as <code>contains()</code></li>
+<li><code>contains()</code> will check whether the role is in the collection</li>
+<li><code>return CONDITION ? THEN : ELSE</code> is called a ternary operator and a shorter version of <code>if (CONDITION) { then } else { }</code></li>
+</ul>
+<p>To make use of this middleware, we need to register it in the kernel:</p>
+<pre><code class="language-php">// Http/Kernel.php
+
+use App\Http\Middleware\UserRoles;
+...
+
+protected $routeMiddleware = [
+  ...
+  'roles' =&gt; UserRoles::class,
+];</code></pre>
+<p>To only allow users with role <code>admin</code> to a route, you create it like the following:</p>
+<pre><code class="language-php">// routes/web.php
+Route::get('types', function () {
+  return 'Access granted';
+})-&gt;name('test.roles')-&gt;middleware('roles:admin');</code></pre>
+<p>And because we allow to pass more than one role (remember the <code>...$roles</code>) to the middleware, we can allow several roles to access the same route. Let's also give the <code>manager</code> access to this route:</p>
+<pre><code class="language-php">// routes/web.php
+Route::get('types', function () {
+  return 'Access granted';
+})-&gt;name('test.roles')-&gt;middleware('roles:admin,manager'); // no space after comma!</code></pre>
+<p>One risk with this approach is that you pass roles around as strings. You always need to remember which roles you have and how you named them. A small typo such as <code>adnin</code> instead of <code>admin</code> will be hard to spot and renaming a role (e.g. <code>manager</code> to become <code>editor</code>) can easily break your system.</p>
+<p>In the next iteration of this article, I will introduce <code>Enums</code> to help reducing this risk, but for now this solution is lean and will solve your basic needs.</p>
+<p>P.S. If you have suggestions on refactoring or improving, please send me a mail:</p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/blur-test</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/blur-test" />
+    <title>CSS blur test</title>
+    <published>2018-12-20T00:00:00+00:00</published>
+    <updated>2018-12-20T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">TL;DR: To evaluate the hierarchies on your website, use the &lt;code&gt;filter: blur(5px)&lt;/code&gt; style on your &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; element.
+
+Not everything is equally important on your website: Every single page should have one single goal (signing up......</summary>
+    <content type="html"><![CDATA[
+        <p><strong>TL;DR:</strong> To evaluate the hierarchies on your website, use the <code>filter: blur(5px)</code> style on your <code>&lt;body&gt;</code> element.</p>
+<h2>Why hierarchies matter</h2>
+<p>Not everything is equally important on your website: Every single page should have <em>one single goal</em> (signing up for a newsletter, click the buying button, display the one information everyone looks for).</p>
+<p>Also, some <em>elements belong together</em> to give the reader orientation (image and label, intro and list). Whitespace at the right amount and place is what gives orientation, and structure.</p>
+<h2>How to test hierarchies</h2>
+<p>To test your hierarchies, it helps to get a bird's eye view over your website.</p>
+<p>The best way to test your hierarchies is the <em>blur test</em>. By blurring out the specific content, you will quickly recognize borders, space and sizing.</p>
+<h2>How to apply blur effect in CSS</h2>
+<p>The quickest way to do the blur test is by using the <code>blur</code> CSS filter.</p>
+<p>You can either create an own class and apply it when testing:</p>
+<pre><code class="language-html">&lt;style&gt;
+.blurtest {
+    filter: blur(5px);
+}
+&lt;/style&gt;
+&lt;body class="blurtest"&gt;
+&lt;/body&gt;</code></pre>
+<p>Or you simply create an on-the-fly class using Chrome's DevTools or Firefox' Inspector</p>
+<img class="border-2 rounded border-grey shadow-inline" src="/assets/img/articles/blurtest-inspector.png" alt="">    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/visual-studio-code-web-design</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/visual-studio-code-web-design" />
+    <title>How to use Visual Studio Code for web design</title>
+    <published>2018-03-06T00:00:00+00:00</published>
+    <updated>2018-03-06T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">To design web pages, you should really use a good text editor. Microsoft’s open source text editor Visual Studio Code (VSC) is such an editor. Here is how I set it up and which plugins help me having a good time while writing HTML and CSS.
+I update......</summary>
+    <content type="html"><![CDATA[
+        <p>To design web pages, you should really use a good text editor. Microsoft’s open source text editor Visual Studio Code (VSC) is such an editor. Here is how I set it up and which plugins help me having a good time while writing HTML and CSS.</p>
+<p>I update this article whenever there is a new version of VSCode. (Latest changes reflected: <a href="https://code.visualstudio.com/updates/v1_30">v1.30.2-Novemer 2018</a></p>
+<h2>Basics</h2>
+<p><strong>Installing VSC:</strong> You can download Visual Studio Code for free <a href="https://code.visualstudio.com/Download">here</a>. If you happen to be on a Mac, you should really use <a href="https://brew.sh/index_de">Brew</a> to install packages. You can then just install VSC with <code>brew install visual-studio-code</code>. On Windows, <a href="https://chocolatey.org/">chocolatey</a> would be the equivalent package manager and <code>choco install visualstudiocode</code> the command to go for.</p>
+<p><strong>Always use latest version:</strong> Be sure to always update VSC to the latest version. Microsoft releases great new features every month and you do not want to miss a single one. Just use <code>Code &gt; Check For Updates…</code></p>
+<p><strong>Open Projects:</strong> To open VSC, always browse to your project folder on the terminal and fire up the editor with <code>code .</code>. This way, you open your whole project as one.</p>
+<p>This is how a <em>HTML5 Boilerplate</em> project looks like after startup via code .</p>
+<p><img src="/assets/img/articles/vsc-blank.png" alt="Blank Visual Studio Code window" /></p>
+<p><strong>Use <code>Cmd+P</code>:</strong> To switch between files, you would usually use tabs. That might be okay when you have one <code>index.html</code> and one <code>style.css</code> file, but even with our example HTML5 Boilerplate and its many files, it already gets complicated. It is much faster and visually pleasing to use <code>cmd+p</code> with its typeahead functionality to quickly find and edit the file you need. Let me show you what I mean.</p>
+<video src="/assets/video/vsc-webdesign.webm" class="w-full" controls="true"><video src="/assets/video/vsc-webdesign.webm" class="w-full" controls="true"></video></video>
+<p><strong>Use symbols to jump within file:</strong> Wonder, where you hid that <code>h2</code> heading in your <code>main.css</code>? Well, you could browse the whole file or memorise it. Or you can just hit <code>cmd+shift+o</code> to quickly go to a definition within your HTML and CSS files.</p>
+<p>This is how I would find my <code>&lt;h1&gt;</code> definition in <code>main.css</code>:</p>
+<p>I just hit <code>cmd+shift+o</code>, type in <code>h</code> and in the typeahead list I already see the <code>h2</code> definitions. Of course I can switch with the up and down keys.</p>
+<p><img src="/assets/img/articles/vsc-quick-jump.png" alt="Visual Studio Code Quick Jump" /></p>
+<p><strong>Use Emmet</strong>: To massively speed up typing HTML, use Emmet. It is a shortcut-language which expands to HTML. You write <code>h2&gt;div*2</code> and hit Tab. It expands to the following.</p>
+<pre><code class="language-html">&lt;h2&gt;
+      &lt;div&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;/div&gt;
+&lt;/h2&gt;</code></pre>
+<p>Use this <a href="https://docs.emmet.io/cheat-sheet/">cheatsheet</a> to learn all the commands Emmet has.</p>
+<h2>Settings</h2>
+<p>You can customise all your settings in <code>Code &gt; Preferences &gt; Settings</code>. Here are my most important settings:</p>
+<pre><code class="language-js">{ // your settings file must begin like this
+      "editor.fontSize": 14, // see note #1    
+      "editor.lineHeight": 28, // see note #2
+      "editor.wordWrap": "on", // #2
+      "workbench.editor.showTabs": "off" // #3
+      "editor.minimap.enabled": true, // #4
+      "editor.minimap.renderCharacters": true // #4, no comma after the last setting!
+}</code></pre>
+<ol>
+<li>I prefer to have some <em>space between</em> my lines, so I double the linespacing. And I increase the font size so I can move away from my monitor a bit more.</li>
+<li>By default, words do not wrap at line endings. I prefer that they do.</li>
+<li>As described above, <code>cmd+p</code> is so much faster than tabs. Use this, not tabs!</li>
+<li><em>Minimaps</em> helps you to keep a bird’s eye overview</li>
+</ol>
+<h2>Plugins</h2>
+<p>There are a few VSC plugins that I can wholeheartedly recommend to you for web design projects.</p>
+<p>Just install them with <code>cmd+shift+p</code>, type <code>install</code> and select <code>Extensions: Install</code>. In the search bar, type in the name and click on the install buttons next to the plugin.</p>
+<ul>
+<li><strong>beautify</strong>: This gives your HTML and CSS files auto indentation and makes them easier to read.</li>
+<li><strong>Bootstrap 4 &amp; Font awesome snippets</strong>: With this installed, in every HTML document, you can just type b4 and you get a list of Bootstrap 4 snippets at your fingertips. Very handy!</li>
+<li><strong>cdnjs</strong>: Quickly add your favourite libraries from the command line. Just enter <code>cmd+shift+p &gt; cdnjs</code> and search for something nice, for example Bulma.</li>
+<li><strong>Close HTML/XML tag</strong>: Does exactly what it promises. Helps you closing your tags</li>
+<li><strong>HTML Snippets</strong>: Another set of snippets, this time HTML5 semantic snippets. Has no prefix, just use the tag, so for examplefigure will spit out a whole figure set.</li>
+<li><strong>Material Icon Theme:</strong> Pure aesthetics, but your folder and files look a lot nicer with this one</li>
+<li><strong>Sublime Material Theme:</strong> Another eye-candy. See whether you like it. Most people do.</li>
+</ul>
+<h2>Notable Features</h2>
+<p>These are a few features that are relatively new and might help you more than they do help me right now…</p>
+<ul>
+<li><a href="https://code.visualstudio.com/updates/v1_30">Custom HTML tags/attributes</a> (since v.1.30)</li>
+<li><a href="https://code.visualstudio.com/updates/v1_27#_path-completion-for-css-imports">Path completion for CSS imports </a>(since v.1.27)</li>
+<li><a href="https://code.visualstudio.com/updates/v1_23#_css-region-folding">Fold CSS region</a> with /<em> #region </em>/ and /<em> #endregion </em>/ (since v.1.23)</li>
+</ul>
+<h2>Other resources</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/languages/html">HTML in Visual Studio Code</a></li>
+<li><a href="https://code.visualstudio.com/docs/languages/css">CSS, SCSS and Less</a></li>
+</ul>
+<p><em>How do you set up Visual Studio Code for web design projects? And which other plugins do you use on a regular base?</em></p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/quick-tools-vue</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/quick-tools-vue" />
+    <title>Quick tools with VueJS</title>
+    <published>2018-02-25T00:00:00+00:00</published>
+    <updated>2018-02-25T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">
+I used to write down the total number of tasks in a row in Excel and add a row for my done tasks. I would add a ratio row and do the math to see my progress.
+That setup is flexible and worked pretty well, but it looked boring. Well, just like an Excel......</summary>
+    <content type="html"><![CDATA[
+        <h2>Before: Tools with Excel</h2>
+<p>I used to write down the total number of tasks in a row in Excel and add a row for my done tasks. I would add a ratio row and do the math to see my progress.</p>
+<p>That setup is flexible and worked pretty well, but it looked boring. Well, just like an Excel sheet looks like.</p>
+<p><img src="/assets/img/articles/vuejs-excel-tool.png" alt="Excel tool" /></p>
+<p>I need to confess that visuals make a huge motivation difference for me.</p>
+<h2>After: Tools with JS, CSS, LocalStorage</h2>
+<p>That is why I need a good toolbox for creating helpers that are…</p>
+<ul>
+<li>Easy to implement</li>
+<li>Easy to adjust and extend</li>
+<li>Looking nice</li>
+</ul>
+<p>The modern web universe has such tools:</p>
+<ul>
+<li><a href="https://gist.github.com/tailwindcss.com">TailwindCSS</a> lets me write beautiful yet flexible UIs in minutes not hours</li>
+<li><a href="https://gist.github.com/vuejs.org">VueJS</a> is a drop-in extension to make my HTML dynamic without adding extra tooling</li>
+<li><a href="https://www.taniarascia.com/how-to-use-local-storage-with-javascript/">LocalStorage</a> lets me persist all the data that I enter and process</li>
+</ul>
+<p>Here is how my little example task progress tracker looks like using these tools:</p>
+<p><img src="/assets/img/articles/vuejs-todo-counter.png" alt="VueJS Todo Counter" /></p>
+<p>Let me do a quick tour of the feature that I use frequently to build tools like this task tracker:</p>
+<ul>
+<li><strong>TailwindCSS from CDN</strong>: In JSBin I have a boilerplate with Tailwind so the page looks good from line 1 <code>&lt;link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"&gt;</code></li>
+<li><strong>Antialiasing</strong> <code>&lt;body class="antialiased"&gt;</code> - This smoothes all fonts</li>
+<li><strong>VueJS from CDN</strong> <code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"&gt;&lt;/script&gt;</code> Pull in VueJS to make the page dynamic</li>
+<li><strong>Quick role-model-binding</strong> To fetch my entries and process them with VueJS, I add a simple v-model: <code>&lt;input v-model=“tasks.done” name=“done"&gt;</code></li>
+</ul>
+<p>The actual power comes from a few lines of JavaScript. Let me explain with inline comments</p>
+<pre><code class="language-javascript">var app = new Vue({},
+computed: { /* Calculate the ratio */
+    ratio: function() {
+        return Math.floor(this.tasks.done / this.tasks.total * 100) + '%'
+    }
+},
+watch: { /* Observe changes and write to LocalStorage */
+    tasks: {
+        handler() {
+            console.log('Tasks changed');
+            localStorage.setItem('tasks', JSON.stringify(this.tasks));
+        },
+        deep: true,
+    }
+},
+mounted() { /* Load values from LocalStorage and load */
+    console.log('App mounted');
+    if (localStorage.getItem('tasks')) this.tasks = JSON.parse(localStorage.getItem('tasks'));
+}
+})</code></pre>
+<h2>Write endless simple tools with this setup</h2>
+<p>The combination of the three technologies (HTML + CSS Framework, JavaScript, LocalStorage) makes it super easy to create simple yet flexible and beautiful tools.</p>
+<p>Other tools that I built the same way:</p>
+<ul>
+<li>Day and pomodoro planner</li>
+<li>Customized todo app</li>
+<li>Cryptocurrency price tracker (using jQuery’s <code>$.getJSON('API-URI')</code> as I did not find a drop in replacement for VueJS)</li>
+</ul>
+<p>There are endless opportunities to create flexible and good-looking tools for your specific needs in very little time!</p>
+<p><a href="http://jsbin.com/koroyap/5/edit?output">Here is the source</a> for the todo tracking tool</p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/netlify-jigsaw</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/netlify-jigsaw" />
+    <title>Host Jigsaw static content on Netlify</title>
+    <published>2018-02-22T00:00:00+00:00</published>
+    <updated>2018-02-22T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">Jigsaw is a very lean static page generator and especially easy to learn for everyone familiar with Laravel and its blade templating language.
+netlify is a fantastic host for static pages with a generous free tier and nice tooling.
+One of the coolest......</summary>
+    <content type="html"><![CDATA[
+        <p>Jigsaw is a very lean static page generator and especially easy to learn for everyone familiar with Laravel and its blade templating language.</p>
+<p><a href="http://netlify.com">netlify</a> is a fantastic host for static pages with a generous free tier and nice tooling.</p>
+<p>One of the coolest features is Continuous Deployment: You create and preview your site locally, commit changes to your Git repo — and Netlify builds static pages using their build image.</p>
+<p>Node, Ruby and Python based tools have been well supported for a long time, but PHP just got first class support lately: Netlify’s <a href="https://github.com/brycekahle">Bryce Kahle</a> updated PHP to version 7.2, improved composer support and made sure that essential extensions like mbstring are in the base image.</p>
+<p>Thanks to these changes, it is now super easy to have a continuous Jigsaw (PHP) build that reacts to commits to your Github, Gitlab or Bitbucket repos.</p>
+<p>Let me walk you through an example site (see: <a href="https://github.com/minthemiddle/jigsaw-netlify-test">minthemiddle/jigsaw-netlify-test</a>):</p>
+<h2>Install Jigsaw locally.</h2>
+<p>As I have had problems installing Jigsaw globally, I always install it locally</p>
+<ul>
+<li><code>$mkdir jigsaw-netlify-test</code></li>
+<li><code>cd jigsaw-netlify-test</code></li>
+<li><code>composer require tightenco/jigsaw</code></li>
+<li><code>./vendor/bin/jigsaw init</code></li>
+</ul>
+<h2>Set up Git</h2>
+<ul>
+<li>Put your project folder in a git repo via git init</li>
+<li>Create a repo in Github/Bitbucket/Gitlab and add remote repo locally</li>
+<li>Create your first commit: <code>git commit -am “Initial commit"</code> and push it to Github: <code>git push</code></li>
+</ul>
+<h2>Set up Netlify page</h2>
+<ul>
+<li>Log into your Netlify account and create New site from Git</li>
+<li>Select the repo that you just generated</li>
+</ul>
+<h2>Create deployment script</h2>
+<p>Netlify needs to know how to build your site. You can tell it by creating a <code>netlify.toml</code> config file:</p>
+<pre><code class="language-yaml">[build]
+PHP_VERSION=7.2
+command = "gulp --production"
+publish = "build_production"</code></pre>
+<p>This will use PHP7.2, run gulp which will compile assets and build your site using Jigsaw and deploy the static page to the <code>/build_production</code> folder from where Netlify publishes it to the web.</p>
+<h2>Deploy</h2>
+<p>Try it out:</p>
+<ul>
+<li>Make some changes in your local Jigsaw page in the <code>/source</code> folder.</li>
+<li>Commit your changes</li>
+<li>Push them to your Git repo</li>
+<li>Select the site in Netlify and head over to <em>Deploys</em> where you can see your site building</li>
+<li>The build script will automatically install all composer requirements and build your site</li>
+<li>After about 4 minutes the build finishes and your site is live</li>
+</ul>
+<h2>Speed it up</h2>
+<ul>
+<li>I found out that yarn takes about 2 minutes to install itself and all dependencies in Netlify’s image</li>
+<li>As I often do not need to recompile assets (from Sass or JavaScript bundles), but just change content in my Jigsaw site, I removed the package.json and use jigsaw instead of gulp</li>
+<li>This speeds up the whole build process to only 15 secs (down from 4 minutes)</li>
+<li>This is how my netlify.toml looks like</li>
+</ul>
+<pre><code class="language-yaml"># netlify.toml
+[build]
+
+PHP_VERSION=7.2
+
+command = "./vendor/bin/jigsaw build production"
+publish = "build_production"</code></pre>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/pandoc-invoices</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/pandoc-invoices" />
+    <title>Generate PDF invoices from Markdown using Pandoc</title>
+    <published>2017-01-09T00:00:00+00:00</published>
+    <updated>2017-01-09T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">TL;DR: You can use Pandoc with wkthmltopdf to generate nice-looking PDF invoices from Markdown files.
+
+I love simplicity, structure and I like good design. When it comes to invoices or other formal documents that you need to generate as a freelancer......</summary>
+    <content type="html"><![CDATA[
+        <p><strong>TL;DR:</strong> You can use <em>Pandoc</em> with <em>wkthmltopdf</em> to generate nice-looking PDF invoices from Markdown files.</p>
+<h2>The context</h2>
+<p>I love simplicity, structure and I like good design. When it comes to invoices or other formal documents that you need to generate as a freelancer (such as status reports or fact sheets), these things do not get together easily:</p>
+<h2>The commercial or complicated way</h2>
+<p>Of course, you can fire up <em>InDesign</em> or <em>Apple Pages</em> and fine-tune your documents, but this comes at a price: you have to create every new document individually as templating and mail-merging is very basic in both programs. Also, you are stuck with proprietary file formats that you might not be able to open in the future (and your tax office may not be happy about that). On the other side, you have <em>LaTeX</em> which can output fantastic documents from marked up text but has a steep learning curve and also quite some weight (~ 1GB extra). Also, if you want to use system or OTF fonts, you quickly run into problems. Both <em>InDesign</em> and <em>Pages</em> also struggle with the generation of HTML5.</p>
+<h2>The (rather) easy way</h2>
+<p><em>Pandoc</em> to the rescue. Pandoc is a handy command-line tool that converts text files between different formats. I use it to convert markdown files with YAML metadata blocks to PDF and HTML5 files. And I can style these documents via CSS3 so I can use all local fonts. To use Avenir Next, which I installed on my machine, I just need <code>font-family: 'Avenir Neue'</code> in my CSS.</p>
+<p>So how would I create a nice looking invoice?</p>
+<p>Here is the template markdown for a fixed-budget project that I did:</p>
+<pre><code>---
+papersize: a4
+margin-left: 20mm
+margin-right: 25mm
+margin-top: 10mm
+margin-bottom: 20mm
+...
+
+![](img/logo.png){ width=13.587mm height=13.559mm}
+
+Martin Betz | Meine Straße 1 | 123456 Berlin
+
+Mein Kunde
+Kurfürstenstraße 123
+10961 Berlin
+
+Berlin, 07.01.2017
+
+# Rechnung: Neugestaltung Webseite
+## Rechnungsnummer: 170101
+
+Guten Tag Herr Kunde,
+
+für Ihren am 01.01.2017 per Mail erteilten Auftrag für die Neugestaltung der Webseite
+[test.de](test.de) berechne ich Ihnen entsprechend Abmachung folgenden Pauschalbetrag:
+
+**6.000€**
+
+Entsprechend §19 UStG erhebe ich als Kleinunternehmer keine Umsatzsteuer.
+Abgaben zur Künstlersozialkasse fallen nicht an.
+
+Bitte überweisen Sie den Rechnungsbetrag innerhalb von 14 Tagen
+auf untenstehendes Konto bei der Rich Bank.
+
+Vielen Dank für die sehr gute Zusammenarbeit!
+
+Mit freundlichen Grüßen,
+
+![](img/unterschrift_ex.png){ width=33.8mm }
+(Martin Betz)
+
+MARTIN BETZ | Meine Straße 1 | 123456 Berlin | (0000) 000 00 000 | xxx@martinbetz.eu
+Steuer-Nummer: 00/000/00000 | Bankverbindung | IBAN DE00 0000 0000 0000 0000 00 | BIC XXXXXXXXXXX</code></pre>
+<p>Note that I entered all my personal, the project and the client data manually, but could have queried them from a database as well. Automation is easy in this workflow.</p>
+<p>This is how my output PDF (format: A4, black border for contrast only) looks like:</p>
+<p><img src="/assets/img/invoices-markdown-example.png" alt="Invoice Example" /></p>
+<p>So how can you make an invoice as pretty or even prettier than this?</p>
+<h3>Instructions</h3>
+<ol>
+<li>Install <em>pandoc</em>. If you are on Mac, get <em>Homebrew</em> and install <em>pandoc</em> via <code>brew install pandoc</code>. Otherwise, head over to <a href="http://pandoc.org/installing.html">Pandoc's website</a> and get a package for your machine.</li>
+<li>Install <code>wkhtmltopdf</code> via <code>brew install Caskroom/cask/wkhtmltopdf</code> or via the right package from <a href="http://wkhtmltopdf.org/downloads.html">their website</a>. <em>wkthmltopdf</em> is an invisible (aka headless) browser which saves documents to PDF.</li>
+<li>Execute <code>pandoc invoice.m -t html5 d -o invoice.pdf</code> in the terminal to output your first version of the invoice PDF. <code>-t</code> is for 'to' and indicates the format, <code>-o … *.pdf</code> will automatically understand that you want to save it as a PDF</li>
+<li>To make the invoice prettier, you can add <code>--css style.css</code> to the <em>pandoc</em> command</li>
+</ol>
+<p>Here is my final CSS. I will tell you about some problems, solutions and architecture decisions after the code.</p>
+<pre><code class="language-css">@charset "utf-8";
+
+body {
+font-size: 10.5pt;
+font-family: 
+    "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+hyphens: auto;
+height: 270mm; /* 297 - 10 (top) - 20 (bottom) */
+line-height: 140%;
+margin: 0;
+padding: 0;
+}
+
+code {
+font-family: "Source Sans Code", Courier New, Courier, monospace;
+margin-left: 1pt;
+}
+
+a {
+color: black;
+margin-left: 1pt;
+}
+
+table {
+width: 100%;
+}
+
+table:nth-of-type(3) {
+border: 1px solid black;
+padding: 5pt;
+}
+
+table:nth-of-type(3) td:nth-of-type(2) {
+text-align: center;
+}
+
+h1 {
+font-size: 13pt;
+margin-top: 6pt;
+margin-bottom: 0;
+}
+
+h2 {
+font-size: 10.5pt;
+font-weight: normal;
+margin-top: 0;
+margin-bottom: 20pt;
+}
+
+p {
+width: 100%;
+}
+
+p:first-of-type {
+font-size: 9pt;
+word-spacing: 1pt;
+}
+
+p:nth-of-type(2) {
+margin-top: 20mm;
+}
+
+p:nth-of-type(3) {
+text-align: right;
+}
+
+p:nth-last-of-type(3) {
+margin-top: 10mm;
+}
+
+p:last-of-type {
+text-align: justify;
+font-size: 9pt;
+position: absolute;
+bottom: 2mm;
+margin-bottom: 0;
+padding-bottom: 0;
+color: #444;
+}
+
+hr {
+border: 1px solid #eee;
+}
+
+hr:last-of-type {
+position: absolute;
+bottom: 14mm;
+width: 100%;
+}
+
+figure {
+margin: 0;
+}  </code></pre>
+<p>And now the making-of:</p>
+<ol>
+<li>Positioning elements was harder than expected: You set the paper size via the YAML metadata, so I thought I could just derive absolute values from there</li>
+<li>I believed that <code>body</code> height should be: <code>297 (A4 height) - 10 (margin-top) - 10 (margin-bottom) = 277mm</code>.</li>
+<li>I tried to position a fold line at 99mm (<code>297/3</code>) via <code>.foldline { position: absolute; top:99mm; }</code>, but when I printed it, it showed up at 105mm.</li>
+<li>CSS understands <code>mm</code> and <code>pt</code> as values, so I used <code>mm</code> for positioning and <code>pt</code> for font sizes (exactly as in traditional DTP programs)</li>
+<li>Footer: I first thought about a <code>Flexbox</code> layout with fixed footer, but quickly settled on a <code>position: absolute;</code> solution as it is enough for my purpose. The calculations, however, were not working as expected so I had to tweak the <code>bottom: xx mm</code> settings by hand</li>
+<li>I tried to justify my footer, but… CSS <a href="http://stackoverflow.com/questions/23038457/justify-one-line-of-html-text-to-fill-an-entire-line">cannot justify one-line paragraphs easily</a>. Ouch…</li>
+<li>As you cannot set <code>id</code>s or <code>class</code>es in your markdown for the HTML, you end up with a lot of <code>&lt;p&gt;</code>s. I had to make excessive usage of <code>:nth-of-type()</code>, <code>:first-of-type()</code>, <code>:last-of-type()</code> and <code>:nth-last-of-type</code>. It would be nice to have a template for the HTML output (it's possible, more on this later)</li>
+<li>My logo is <code>*.svg</code> but that got totally skewed when getting rendered to PDF. I had to generate a high-resolution PNG to get around that.</li>
+<li>I made dozens of iterations of the CSS to get the design that I wanted. First I did it the hard way: Change CSS, run Pandoc command, open PDF. Then I found out that <em>PDF Expert</em> re-renders when the PDF has changed. Still, I had to fire Pandoc after each CSS change manually. So I was looking for &quot;live reloading&quot; and ended up with <code>fswatch</code> on Mac (or <code>inotifywait</code> on Linux). I put the actual Pandoc command in a Bash script and started the watcher with <code>fswatch -o . | xargs -n1 ./compile.sh</code>. It worked. The only downside I encountered was that the PDF would reload in <em>PDF Expert</em> every 2 seconds no matter whether there was a change in the CSS not. Flicker, flicker, flicker.</li>
+</ol>
+<h3>Make it safer</h3>
+<p>Now you have a neat invoice PDF from a very simple Markdown file. But: The client could easily edit this PDF, change the cost or copy my signature. You cannot entirely prevent this to happen, but let`s make it a bit more secure.</p>
+<ol>
+<li>Get the command-line tool <em>pdftk</em> <code>brew install https://raw.githubusercontent.com/turforlag/homebrew-cervezas/master/pdftk.rb </code></li>
+<li><code>pdftk invoice.pdf output invoice-protected.pdf allow printing owner_pw "mysecretpassword"</code></li>
+</ol>
+<p>The client can still print the secured invoice, but not to change it. Funnily, <a href="https://pdfexpert.com/de">PDF Expert</a> is ignoring these settings and still able to edit the file. I have no idea why.</p>
+<h3>Next steps</h3>
+<p>The invoice PDF is nice, but of course, we can make it even better. Here are some ideas:</p>
+<ol>
+<li>Set a base font size in <code>pt</code> and set the other sizes relative with <code>em</code></li>
+<li>Switch the whole styling to <code>Sass</code>, predominantly for nesting the <code>p { %:nth-of-type {} }</code></li>
+<li><em>Tables</em> are a big thing in most non-fixed-price invoices. And a big CSS design challenge</li>
+<li>Tinkering with <code>p:nth-of-type(10)</code>-ish selectors is not too much fun, so probably using an HTML template with some smarter defaults would be good. I did not have much success with loading a new template from a different <code>--data-dir</code> but <em>brew's</em>, so I copied my template to <code>/usr/local/Cellar/pandoc/1.16.0.2/share/x86_64-osx-ghc-7.10.3/pandoc-1.16.0.2/data/templates/</code></li>
+<li>Also, I found <a href="https://www.redminecrm.com/boards/35/topics/1466-custom-template-for-german-invoice">another nice template</a> that I might learn a trick or two from</li>
+<li>Finally, for cross-media usage, I might add another stylesheet for the web or maybe media queries (but I have no clue whether that works…)</li>
+</ol>
+<h3>Resources</h3>
+<ul>
+<li><a href="brew.sh">Homebrew</a></li>
+<li><a href="http://pandoc.org/">Pandoc</a></li>
+<li><a href="http://wkhtmltopdf.org/">WKHTMLTOPDF</a></li>
+</ul>
+<h3>Q&amp;A</h3>
+<ul>
+<li>Why didn't you use a styled <em>OpenDocument</em> template? I don't like the fact that you <a href="https://ask.libreoffice.org/en/question/19709/how-to-delete-unwanted-styles-and-formatting-options-in-libreoffice/?answer=19720#post-id-19720">cannot delete standard style formats</a>. I like lean templates. Otherwise, excellent choice!</li>
+<li>Why not via <em>LaTeX</em>? Fonts, installation overhead {~900 MB), different markup (see above)</li>
+</ul>
+<p>Do you use Pandoc in varying ways for invoice generation? Or do you have other comments or tips? I am very looking forward to your feedback!</p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/dash-snippets</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/dash-snippets" />
+    <title>Use Dash snippets for frequently-used text</title>
+    <published>2017-01-06T00:00:00+00:00</published>
+    <updated>2017-01-06T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">If you are like me, you get a lot of business and personal mail. Often the answer is repeated over and over. When I lived in Istanbul, my friends (and even their friends) asked me for trip advice, other friends want to start learning to code and ask me......</summary>
+    <content type="html"><![CDATA[
+        <p>If you are like me, you get a lot of business and personal mail. Often the answer is repeated over and over. When I lived in Istanbul, my friends (and even their friends) asked me for trip advice, other friends want to start learning to code and ask me for the best resources.</p>
+<h2>TL;DR</h2>
+<p>You can use <a href="https://kapeli.com/dash"><em>Dash</em></a> (on OSX) to quickly access and adjust text templates that you often use with <a href="https://kapeli.com/dash_guide#introductionToSnippets"><em>Dash's snippets</em></a>.</p>
+<h2>Before: Snippets as text files</h2>
+<p>I saved quite a few text snippets as simple <code>*.txt</code> files that I would quickly find via <em>Apple Spotlight</em>'s full-text search capability. So with the request for coding advice as an example, the steps involved where:</p>
+<ol>
+<li>Receive a mail about <code>coding resources</code></li>
+<li>Hit reply</li>
+<li>Fire up <em>Spotlight</em> (<code>⌘+Space</code>) with the search query <code>coding resources</code></li>
+<li>Open <code>reply_coding_resources.txt</code> with a double-click in <em>TextEdit</em></li>
+<li>Copy the content</li>
+<li>Paste it in the reply</li>
+<li>Browse the snippet and adjust salutation and minor details that differed from the snippet</li>
+<li>Hit send</li>
+</ol>
+<h2>Can I streamline that?</h2>
+<p>After repeating these seven steps over and over, my programmer self thought about how to simplify this. I took a look at <a href="https://smilesoftware.com/textexpander">TextExpander</a> – I would not mind paying $3.50 a month for an ever-evolving product, but the problem set for snippets is finite and already well being worked on and <a href="https://www.trankynam.com/atext/">aText</a> – good feature set and price, but I did not like the UI and workflow too much.</p>
+<p>When I inserted some HTML snippets, it instantly dawned on me:
+I already have a tool for managing snippets – <em><code>Dash</code></em>.</p>
+<h2>After: Dash Snippets</h2>
+<p>Dash is an offline-first documentation browser for programming languages for Mac OS X. You can download and browse documentations for a large number of languages – and save snippets that you can use in any program. It's about $25 once, but for that price you get an excellent documentation browser and a snippet tool. Dash uses Mac's accessibility tools, so you first need to enable it in your Mac's settings.</p>
+<p>You can set triggers that paste the snippets. For your non-programming text snippets, I would advise you to use an indicator not being used in the programming languages you use.</p>
+<p>I use <code>§</code> for this. In your snippet you can use <code>__placeholder__</code> for, you guess it, a placeholder that you can fill interactively when you paste the snippet.</p>
+<p>So here is the workflow for the same <em>coding advice</em> snippet from earlier. I'm assuming that Dash is set up to run at startup and is now sitting in the background waiting for your command.</p>
+<ol>
+<li>Receive a mail about <code>coding resources</code></li>
+<li>Hit reply</li>
+<li>Type <code>§codingresources</code></li>
+<li>Change the salutation interactively</li>
+<li>Hit send</li>
+</ol>
+<p>It's not only two steps less than with my previous solution, but also faster and less error prone. At the beginning, I tried to come up with really short indicators, such as <code>§cdrsc</code> but of course, these are hard to memorise. So I would advise you to use full-length descriptions.</p>
+<p>You could use this technique not only for quick personal responses about coding resources but also for an easy customer support. It is fast, easy and with no big learning curve.</p>    ]]></content>
+</entry>
+    </feed>
