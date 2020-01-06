@@ -1,0 +1,274 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="1">
+
+        <meta property="og:title" content="How to use Visual Studio Code for web design | Martin Betz"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://martinbetz.eu/articles/visual-studio-code-web-design"/>
+        <meta property="og:description" content="Articles, services and products of Martin Betz" />
+
+        <title>Martin Betz | How to use Visual Studio Code for web design</title>
+
+        <link rel="home" href="https://martinbetz.eu">
+        <link rel="icon" href="/favicon.ico?v=5">
+        <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
+
+            <meta property="og:title" content="How to use Visual Studio Code for web design" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/visual-studio-code-web-design"/>
+    <meta property="og:description" content="How to use Visual Studio Code for web design" />
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=5dfa6a6b10092132e0b4">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-900 leading-normal font-sans">
+        <header class="border-t-2 border-blue-400 flex items-center shadow bg-white h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-6xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Martin Betz home" class="inline-flex items-center">
+                        <h1 class="text-2xl md:text-3xl text-blue font-semibold my-0">Martin Betz</h1>
+                    </a>
+                </div>
+
+                <div class="flex flex-1 justify-end items-center">
+
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Martin Betz Articles" href="/articles"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Articles
+    </a>
+
+    <a title="Martin Betz Products" href="/products"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Products
+    </a>
+
+    <a title="Martin Betz Services" href="/services"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Services
+    </a>
+
+    <a title="Martin Betz Contact" href="/contact"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Contact
+    </a>
+
+    <a href="/rss/feed.atom">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-xl ml-6 text-gray-900 hover:text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue border border-blue h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="nav-menu hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Martin Betz Articles"
+                href="/articles"
+                class="nav-menu__item hover:text-blue "
+            >Articles</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Products"
+                href="/products"
+                class="nav-menu__item hover:text-blue "
+            >Products</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Services"
+                href="/services"
+                class="nav-menu__item hover:text-blue "
+            >Services</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Contact"
+                href="/contact"
+                class="nav-menu__item hover:text-blue "
+            >Contact</a>
+        </li>
+    </ul>
+</nav>
+
+        <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
+
+
+                
+    <h1 class="leading-none mb-2">How to use Visual Studio Code for web design</h1>
+
+    <div class="rich-text pb-4" v-pre>
+        <p>To design web pages, you should really use a good text editor. Microsoft’s open source text editor Visual Studio Code (VSC) is such an editor. Here is how I set it up and which plugins help me having a good time while writing HTML and CSS.</p>
+<p>I update this article whenever there is a new version of VSCode. (Latest changes reflected: <a href="https://code.visualstudio.com/updates/v1_30">v1.30.2-Novemer 2018</a></p>
+<h2>Basics</h2>
+<p><strong>Installing VSC:</strong> You can download Visual Studio Code for free <a href="https://code.visualstudio.com/Download">here</a>. If you happen to be on a Mac, you should really use <a href="https://brew.sh/index_de">Brew</a> to install packages. You can then just install VSC with <code>brew install visual-studio-code</code>. On Windows, <a href="https://chocolatey.org/">chocolatey</a> would be the equivalent package manager and <code>choco install visualstudiocode</code> the command to go for.</p>
+<p><strong>Always use latest version:</strong> Be sure to always update VSC to the latest version. Microsoft releases great new features every month and you do not want to miss a single one. Just use <code>Code &gt; Check For Updates…</code></p>
+<p><strong>Open Projects:</strong> To open VSC, always browse to your project folder on the terminal and fire up the editor with <code>code .</code>. This way, you open your whole project as one.</p>
+<p>This is how a <em>HTML5 Boilerplate</em> project looks like after startup via code .</p>
+<p><img src="/assets/img/articles/vsc-blank.png" alt="Blank Visual Studio Code window" /></p>
+<p><strong>Use <code>Cmd+P</code>:</strong> To switch between files, you would usually use tabs. That might be okay when you have one <code>index.html</code> and one <code>style.css</code> file, but even with our example HTML5 Boilerplate and its many files, it already gets complicated. It is much faster and visually pleasing to use <code>cmd+p</code> with its typeahead functionality to quickly find and edit the file you need. Let me show you what I mean.</p>
+<video src="/assets/video/vsc-webdesign.webm" class="w-full" controls="true"><video src="/assets/video/vsc-webdesign.webm" class="w-full" controls="true"></video></video>
+<p><strong>Use symbols to jump within file:</strong> Wonder, where you hid that <code>h2</code> heading in your <code>main.css</code>? Well, you could browse the whole file or memorise it. Or you can just hit <code>cmd+shift+o</code> to quickly go to a definition within your HTML and CSS files.</p>
+<p>This is how I would find my <code>&lt;h1&gt;</code> definition in <code>main.css</code>:</p>
+<p>I just hit <code>cmd+shift+o</code>, type in <code>h</code> and in the typeahead list I already see the <code>h2</code> definitions. Of course I can switch with the up and down keys.</p>
+<p><img src="/assets/img/articles/vsc-quick-jump.png" alt="Visual Studio Code Quick Jump" /></p>
+<p><strong>Use Emmet</strong>: To massively speed up typing HTML, use Emmet. It is a shortcut-language which expands to HTML. You write <code>h2&gt;div*2</code> and hit Tab. It expands to the following.</p>
+<pre><code class="language-html">&lt;h2&gt;
+      &lt;div&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;/div&gt;
+&lt;/h2&gt;</code></pre>
+<p>Use this <a href="https://docs.emmet.io/cheat-sheet/">cheatsheet</a> to learn all the commands Emmet has.</p>
+<h2>Settings</h2>
+<p>You can customise all your settings in <code>Code &gt; Preferences &gt; Settings</code>. Here are my most important settings:</p>
+<pre><code class="language-js">{ // your settings file must begin like this
+      "editor.fontSize": 14, // see note #1    
+      "editor.lineHeight": 28, // see note #2
+      "editor.wordWrap": "on", // #2
+      "workbench.editor.showTabs": "off" // #3
+      "editor.minimap.enabled": true, // #4
+      "editor.minimap.renderCharacters": true // #4, no comma after the last setting!
+}</code></pre>
+<ol>
+<li>I prefer to have some <em>space between</em> my lines, so I double the linespacing. And I increase the font size so I can move away from my monitor a bit more.</li>
+<li>By default, words do not wrap at line endings. I prefer that they do.</li>
+<li>As described above, <code>cmd+p</code> is so much faster than tabs. Use this, not tabs!</li>
+<li><em>Minimaps</em> helps you to keep a bird’s eye overview</li>
+</ol>
+<h2>Plugins</h2>
+<p>There are a few VSC plugins that I can wholeheartedly recommend to you for web design projects.</p>
+<p>Just install them with <code>cmd+shift+p</code>, type <code>install</code> and select <code>Extensions: Install</code>. In the search bar, type in the name and click on the install buttons next to the plugin.</p>
+<ul>
+<li><strong>beautify</strong>: This gives your HTML and CSS files auto indentation and makes them easier to read.</li>
+<li><strong>Bootstrap 4 &amp; Font awesome snippets</strong>: With this installed, in every HTML document, you can just type b4 and you get a list of Bootstrap 4 snippets at your fingertips. Very handy!</li>
+<li><strong>cdnjs</strong>: Quickly add your favourite libraries from the command line. Just enter <code>cmd+shift+p &gt; cdnjs</code> and search for something nice, for example Bulma.</li>
+<li><strong>Close HTML/XML tag</strong>: Does exactly what it promises. Helps you closing your tags</li>
+<li><strong>HTML Snippets</strong>: Another set of snippets, this time HTML5 semantic snippets. Has no prefix, just use the tag, so for examplefigure will spit out a whole figure set.</li>
+<li><strong>Material Icon Theme:</strong> Pure aesthetics, but your folder and files look a lot nicer with this one</li>
+<li><strong>Sublime Material Theme:</strong> Another eye-candy. See whether you like it. Most people do.</li>
+</ul>
+<h2>Notable Features</h2>
+<p>These are a few features that are relatively new and might help you more than they do help me right now…</p>
+<ul>
+<li><a href="https://code.visualstudio.com/updates/v1_30">Custom HTML tags/attributes</a> (since v.1.30)</li>
+<li><a href="https://code.visualstudio.com/updates/v1_27#_path-completion-for-css-imports">Path completion for CSS imports </a>(since v.1.27)</li>
+<li><a href="https://code.visualstudio.com/updates/v1_23#_css-region-folding">Fold CSS region</a> with /<em> #region </em>/ and /<em> #endregion </em>/ (since v.1.23)</li>
+</ul>
+<h2>Other resources</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/languages/html">HTML in Visual Studio Code</a></li>
+<li><a href="https://code.visualstudio.com/docs/languages/css">CSS, SCSS and Less</a></li>
+</ul>
+<p><em>How do you set up Visual Studio Code for web design projects? And which other plugins do you use on a regular base?</em></p>    </div>
+
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"How to use Visual Studio Code for web design"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
+    </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">March 6, 2018   •  Last updated: January 12, 2019</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/tech"
+                    title="View posts in tech"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >tech</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/quick-tools-vue" title="Older Post: Quick tools with VueJS">
+                    &LeftArrow; Quick tools with VueJS
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://martinbetz.eu/articles/blur-test" title="Newer Post: CSS blur test">
+                    CSS blur test &RightArrow;
+                </a>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
+
+            <ul class="flex flex-col md:flex-row justify-center">
+                <li class="md:mr-2">
+                    &copy; Martin Betz 2020.
+                </li>
+
+                <li>
+                    <a href="/privacy">Privacy/GDPR </a>
+                </li>
+                <li class="ml-2">
+                     <a href="/imprint">Imprint</a>
+                </li>
+                <li class="ml-2">
+                    <span id="cntct-me"></span>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=f4391a1bf44752fd065c"></script>
+        <script>
+            var el = document.getElementById('cntct-me');
+            EO(el, {
+              name: 'contact+me',
+              domain: 'martinbetz',
+              tld: 'eu',
+              altText: 'Email'
+            });
+        </script>
+
+        <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('vsc-webdesign');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>

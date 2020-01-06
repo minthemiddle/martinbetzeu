@@ -1,0 +1,282 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="1">
+
+        <meta property="og:title" content="Simple user roles in Laravel | Martin Betz"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://martinbetz.eu/articles/simple-user-roles-in-laravel"/>
+        <meta property="og:description" content="Articles, services and products of Martin Betz" />
+
+        <title>Martin Betz | Simple user roles in Laravel</title>
+
+        <link rel="home" href="https://martinbetz.eu">
+        <link rel="icon" href="/favicon.ico?v=5">
+        <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
+
+            <meta property="og:title" content="Simple user roles in Laravel" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/simple-user-roles-in-laravel"/>
+    <meta property="og:description" content="Simple user roles in Laravel" />
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=5dfa6a6b10092132e0b4">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-900 leading-normal font-sans">
+        <header class="border-t-2 border-blue-400 flex items-center shadow bg-white h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-6xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Martin Betz home" class="inline-flex items-center">
+                        <h1 class="text-2xl md:text-3xl text-blue font-semibold my-0">Martin Betz</h1>
+                    </a>
+                </div>
+
+                <div class="flex flex-1 justify-end items-center">
+
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Martin Betz Articles" href="/articles"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Articles
+    </a>
+
+    <a title="Martin Betz Products" href="/products"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Products
+    </a>
+
+    <a title="Martin Betz Services" href="/services"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Services
+    </a>
+
+    <a title="Martin Betz Contact" href="/contact"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Contact
+    </a>
+
+    <a href="/rss/feed.atom">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-xl ml-6 text-gray-900 hover:text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue border border-blue h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="nav-menu hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Martin Betz Articles"
+                href="/articles"
+                class="nav-menu__item hover:text-blue "
+            >Articles</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Products"
+                href="/products"
+                class="nav-menu__item hover:text-blue "
+            >Products</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Services"
+                href="/services"
+                class="nav-menu__item hover:text-blue "
+            >Services</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Contact"
+                href="/contact"
+                class="nav-menu__item hover:text-blue "
+            >Contact</a>
+        </li>
+    </ul>
+</nav>
+
+        <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
+
+
+                
+    <h1 class="leading-none mb-2">Simple user roles in Laravel</h1>
+
+    <div class="rich-text pb-4" v-pre>
+        <p>If you do only have roles for your users – such as admin, contributor and user – and you want to restrict access to routes only, advanced (and excellent) packages may be too heavy for you.
+Let me show you how to solve this authorization problem very easily.</p>
+<p>Your user model needs an extra field to store the role of every user. Let's add a string field which will hold values such as <code>user</code>, <code>manager</code> or <code>admin</code>. Every user needs a role, so this field is not nullable and has a default of <code>user</code>. Of course you have more fields in your user model, I'll add an email field to the user for demonstration purposes.</p>
+<pre><code class="language-php">// Create migration
+// create_users_table.php
+
+Schema::create('users', function (Blueprint $table) {
+  ...
+  $table-&gt;string('email')-&gt;unique();
+  $table-&gt;string('role')-&gt;default('user');
+  ...
+}</code></pre>
+<p>Let's create a test user, using Laravel's tinker app, test it's default role and upgrade it to <code>admin</code>.
+<code>php artisan tinker</code></p>
+<pre><code class="language-php">// Create test user
+$user = App\User::create(['email' =&gt; 'test01@test.test']);
+$user-&gt;role; // 'user'
+
+// Upgrade user to admin
+$user-&gt;role = 'admin';
+$user-&gt;save();</code></pre>
+<p>Until now, the user role is just a string and does not do anything. Let's change this by generating a custom middleware. Middlewares can be attached to routes and control who has access to those routes.</p>
+<p>For example, to restrict the access to <code>/logged-in-users-only</code> to logged in users, you would create the following function in your routes file:</p>
+<pre><code class="language-php">// routes/web.php
+Route::get('logged-in-users-only', function () {
+  return 'Only logged in users can see this';
+})-&gt;middleware('auth');</code></pre>
+<p>We can restrict routes to user roles with a custom middleware:</p>
+<p><code>php artisan make:middleware UserRoles</code></p>
+<p>This will create a middleware file that we can customize:</p>
+<pre><code class="language-php">// Http/Middleware/UserRoles
+public function handle($request, Closure $next, ...$roles)
+{
+  return collect($roles)-&gt;contains(auth()-&gt;user()-&gt;role) ? $next($request) : back();
+}</code></pre>
+<p>This <code>handle()</code> method will only allow people access the route if their role is in the list of allowed roles in the protected route.</p>
+<p>Here is the whole <code>return</code> one-liner in natural language:</p>
+<blockquote>
+<p>If the collection of rules contains the logged in user's role, then allow and process the request, otherwise redirect the user back.</p>
+</blockquote>
+<ul>
+<li><code>...$roles</code> allows to pass multiple roles at once, the resulting <code>$roles</code> is an array with all parameters</li>
+<li>With <code>collect()</code> I create a collection out of the array, so I can use collection methods and chain them, such as <code>contains()</code></li>
+<li><code>contains()</code> will check whether the role is in the collection</li>
+<li><code>return CONDITION ? THEN : ELSE</code> is called a ternary operator and a shorter version of <code>if (CONDITION) { then } else { }</code></li>
+</ul>
+<p>To make use of this middleware, we need to register it in the kernel:</p>
+<pre><code class="language-php">// Http/Kernel.php
+
+use App\Http\Middleware\UserRoles;
+...
+
+protected $routeMiddleware = [
+  ...
+  'roles' =&gt; UserRoles::class,
+];</code></pre>
+<p>To only allow users with role <code>admin</code> to a route, you create it like the following:</p>
+<pre><code class="language-php">// routes/web.php
+Route::get('types', function () {
+  return 'Access granted';
+})-&gt;name('test.roles')-&gt;middleware('roles:admin');</code></pre>
+<p>And because we allow to pass more than one role (remember the <code>...$roles</code>) to the middleware, we can allow several roles to access the same route. Let's also give the <code>manager</code> access to this route:</p>
+<pre><code class="language-php">// routes/web.php
+Route::get('types', function () {
+  return 'Access granted';
+})-&gt;name('test.roles')-&gt;middleware('roles:admin,manager'); // no space after comma!</code></pre>
+<p>One risk with this approach is that you pass roles around as strings. You always need to remember which roles you have and how you named them. A small typo such as <code>adnin</code> instead of <code>admin</code> will be hard to spot and renaming a role (e.g. <code>manager</code> to become <code>editor</code>) can easily break your system.</p>
+<p>In the next iteration of this article, I will introduce <code>Enums</code> to help reducing this risk, but for now this solution is lean and will solve your basic needs.</p>
+<p>P.S. If you have suggestions on refactoring or improving, please send me a mail:</p>    </div>
+
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"Simple user roles in Laravel"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
+    </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">December 27, 2019</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/tech"
+                    title="View posts in tech"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >tech</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/blur-test" title="Older Post: CSS blur test">
+                    &LeftArrow; CSS blur test
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://martinbetz.eu/articles/laravel-rss-to-follow" title="Newer Post: Laravel blogs to follow via RSS">
+                    Laravel blogs to follow via RSS &RightArrow;
+                </a>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
+
+            <ul class="flex flex-col md:flex-row justify-center">
+                <li class="md:mr-2">
+                    &copy; Martin Betz 2020.
+                </li>
+
+                <li>
+                    <a href="/privacy">Privacy/GDPR </a>
+                </li>
+                <li class="ml-2">
+                     <a href="/imprint">Imprint</a>
+                </li>
+                <li class="ml-2">
+                    <span id="cntct-me"></span>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=f4391a1bf44752fd065c"></script>
+        <script>
+            var el = document.getElementById('cntct-me');
+            EO(el, {
+              name: 'contact+me',
+              domain: 'martinbetz',
+              tld: 'eu',
+              altText: 'Email'
+            });
+        </script>
+
+        <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('simple-user-roles-in-laravel');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>

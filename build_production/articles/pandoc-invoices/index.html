@@ -1,0 +1,417 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="1">
+
+        <meta property="og:title" content="Generate PDF invoices from Markdown using Pandoc | Martin Betz"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://martinbetz.eu/articles/pandoc-invoices"/>
+        <meta property="og:description" content="Articles, services and products of Martin Betz" />
+
+        <title>Martin Betz | Generate PDF invoices from Markdown using Pandoc</title>
+
+        <link rel="home" href="https://martinbetz.eu">
+        <link rel="icon" href="/favicon.ico?v=5">
+        <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
+
+            <meta property="og:title" content="Generate PDF invoices from Markdown using Pandoc" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/pandoc-invoices"/>
+    <meta property="og:description" content="Generate PDF invoices from Markdown using Pandoc" />
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=5dfa6a6b10092132e0b4">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-900 leading-normal font-sans">
+        <header class="border-t-2 border-blue-400 flex items-center shadow bg-white h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-6xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Martin Betz home" class="inline-flex items-center">
+                        <h1 class="text-2xl md:text-3xl text-blue font-semibold my-0">Martin Betz</h1>
+                    </a>
+                </div>
+
+                <div class="flex flex-1 justify-end items-center">
+
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Martin Betz Articles" href="/articles"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Articles
+    </a>
+
+    <a title="Martin Betz Products" href="/products"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Products
+    </a>
+
+    <a title="Martin Betz Services" href="/services"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Services
+    </a>
+
+    <a title="Martin Betz Contact" href="/contact"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Contact
+    </a>
+
+    <a href="/rss/feed.atom">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-xl ml-6 text-gray-900 hover:text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue border border-blue h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="nav-menu hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Martin Betz Articles"
+                href="/articles"
+                class="nav-menu__item hover:text-blue "
+            >Articles</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Products"
+                href="/products"
+                class="nav-menu__item hover:text-blue "
+            >Products</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Services"
+                href="/services"
+                class="nav-menu__item hover:text-blue "
+            >Services</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Contact"
+                href="/contact"
+                class="nav-menu__item hover:text-blue "
+            >Contact</a>
+        </li>
+    </ul>
+</nav>
+
+        <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
+
+
+                
+    <h1 class="leading-none mb-2">Generate PDF invoices from Markdown using Pandoc</h1>
+
+    <div class="rich-text pb-4" v-pre>
+        <p><strong>TL;DR:</strong> You can use <em>Pandoc</em> with <em>wkthmltopdf</em> to generate nice-looking PDF invoices from Markdown files.</p>
+<h2>The context</h2>
+<p>I love simplicity, structure and I like good design. When it comes to invoices or other formal documents that you need to generate as a freelancer (such as status reports or fact sheets), these things do not get together easily:</p>
+<h2>The commercial or complicated way</h2>
+<p>Of course, you can fire up <em>InDesign</em> or <em>Apple Pages</em> and fine-tune your documents, but this comes at a price: you have to create every new document individually as templating and mail-merging is very basic in both programs. Also, you are stuck with proprietary file formats that you might not be able to open in the future (and your tax office may not be happy about that). On the other side, you have <em>LaTeX</em> which can output fantastic documents from marked up text but has a steep learning curve and also quite some weight (~ 1GB extra). Also, if you want to use system or OTF fonts, you quickly run into problems. Both <em>InDesign</em> and <em>Pages</em> also struggle with the generation of HTML5.</p>
+<h2>The (rather) easy way</h2>
+<p><em>Pandoc</em> to the rescue. Pandoc is a handy command-line tool that converts text files between different formats. I use it to convert markdown files with YAML metadata blocks to PDF and HTML5 files. And I can style these documents via CSS3 so I can use all local fonts. To use Avenir Next, which I installed on my machine, I just need <code>font-family: 'Avenir Neue'</code> in my CSS.</p>
+<p>So how would I create a nice looking invoice?</p>
+<p>Here is the template markdown for a fixed-budget project that I did:</p>
+<pre><code>---
+papersize: a4
+margin-left: 20mm
+margin-right: 25mm
+margin-top: 10mm
+margin-bottom: 20mm
+...
+
+![](img/logo.png){ width=13.587mm height=13.559mm}
+
+Martin Betz | Meine Straße 1 | 123456 Berlin
+
+Mein Kunde
+Kurfürstenstraße 123
+10961 Berlin
+
+Berlin, 07.01.2017
+
+# Rechnung: Neugestaltung Webseite
+## Rechnungsnummer: 170101
+
+Guten Tag Herr Kunde,
+
+für Ihren am 01.01.2017 per Mail erteilten Auftrag für die Neugestaltung der Webseite
+[test.de](test.de) berechne ich Ihnen entsprechend Abmachung folgenden Pauschalbetrag:
+
+**6.000€**
+
+Entsprechend §19 UStG erhebe ich als Kleinunternehmer keine Umsatzsteuer.
+Abgaben zur Künstlersozialkasse fallen nicht an.
+
+Bitte überweisen Sie den Rechnungsbetrag innerhalb von 14 Tagen
+auf untenstehendes Konto bei der Rich Bank.
+
+Vielen Dank für die sehr gute Zusammenarbeit!
+
+Mit freundlichen Grüßen,
+
+![](img/unterschrift_ex.png){ width=33.8mm }
+(Martin Betz)
+
+MARTIN BETZ | Meine Straße 1 | 123456 Berlin | (0000) 000 00 000 | xxx@martinbetz.eu
+Steuer-Nummer: 00/000/00000 | Bankverbindung | IBAN DE00 0000 0000 0000 0000 00 | BIC XXXXXXXXXXX</code></pre>
+<p>Note that I entered all my personal, the project and the client data manually, but could have queried them from a database as well. Automation is easy in this workflow.</p>
+<p>This is how my output PDF (format: A4, black border for contrast only) looks like:</p>
+<p><img src="/assets/img/invoices-markdown-example.png" alt="Invoice Example" /></p>
+<p>So how can you make an invoice as pretty or even prettier than this?</p>
+<h3>Instructions</h3>
+<ol>
+<li>Install <em>pandoc</em>. If you are on Mac, get <em>Homebrew</em> and install <em>pandoc</em> via <code>brew install pandoc</code>. Otherwise, head over to <a href="http://pandoc.org/installing.html">Pandoc's website</a> and get a package for your machine.</li>
+<li>Install <code>wkhtmltopdf</code> via <code>brew install Caskroom/cask/wkhtmltopdf</code> or via the right package from <a href="http://wkhtmltopdf.org/downloads.html">their website</a>. <em>wkthmltopdf</em> is an invisible (aka headless) browser which saves documents to PDF.</li>
+<li>Execute <code>pandoc invoice.m -t html5 d -o invoice.pdf</code> in the terminal to output your first version of the invoice PDF. <code>-t</code> is for 'to' and indicates the format, <code>-o … *.pdf</code> will automatically understand that you want to save it as a PDF</li>
+<li>To make the invoice prettier, you can add <code>--css style.css</code> to the <em>pandoc</em> command</li>
+</ol>
+<p>Here is my final CSS. I will tell you about some problems, solutions and architecture decisions after the code.</p>
+<pre><code class="language-css">@charset "utf-8";
+
+body {
+font-size: 10.5pt;
+font-family: 
+    "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+hyphens: auto;
+height: 270mm; /* 297 - 10 (top) - 20 (bottom) */
+line-height: 140%;
+margin: 0;
+padding: 0;
+}
+
+code {
+font-family: "Source Sans Code", Courier New, Courier, monospace;
+margin-left: 1pt;
+}
+
+a {
+color: black;
+margin-left: 1pt;
+}
+
+table {
+width: 100%;
+}
+
+table:nth-of-type(3) {
+border: 1px solid black;
+padding: 5pt;
+}
+
+table:nth-of-type(3) td:nth-of-type(2) {
+text-align: center;
+}
+
+h1 {
+font-size: 13pt;
+margin-top: 6pt;
+margin-bottom: 0;
+}
+
+h2 {
+font-size: 10.5pt;
+font-weight: normal;
+margin-top: 0;
+margin-bottom: 20pt;
+}
+
+p {
+width: 100%;
+}
+
+p:first-of-type {
+font-size: 9pt;
+word-spacing: 1pt;
+}
+
+p:nth-of-type(2) {
+margin-top: 20mm;
+}
+
+p:nth-of-type(3) {
+text-align: right;
+}
+
+p:nth-last-of-type(3) {
+margin-top: 10mm;
+}
+
+p:last-of-type {
+text-align: justify;
+font-size: 9pt;
+position: absolute;
+bottom: 2mm;
+margin-bottom: 0;
+padding-bottom: 0;
+color: #444;
+}
+
+hr {
+border: 1px solid #eee;
+}
+
+hr:last-of-type {
+position: absolute;
+bottom: 14mm;
+width: 100%;
+}
+
+figure {
+margin: 0;
+}  </code></pre>
+<p>And now the making-of:</p>
+<ol>
+<li>Positioning elements was harder than expected: You set the paper size via the YAML metadata, so I thought I could just derive absolute values from there</li>
+<li>I believed that <code>body</code> height should be: <code>297 (A4 height) - 10 (margin-top) - 10 (margin-bottom) = 277mm</code>.</li>
+<li>I tried to position a fold line at 99mm (<code>297/3</code>) via <code>.foldline { position: absolute; top:99mm; }</code>, but when I printed it, it showed up at 105mm.</li>
+<li>CSS understands <code>mm</code> and <code>pt</code> as values, so I used <code>mm</code> for positioning and <code>pt</code> for font sizes (exactly as in traditional DTP programs)</li>
+<li>Footer: I first thought about a <code>Flexbox</code> layout with fixed footer, but quickly settled on a <code>position: absolute;</code> solution as it is enough for my purpose. The calculations, however, were not working as expected so I had to tweak the <code>bottom: xx mm</code> settings by hand</li>
+<li>I tried to justify my footer, but… CSS <a href="http://stackoverflow.com/questions/23038457/justify-one-line-of-html-text-to-fill-an-entire-line">cannot justify one-line paragraphs easily</a>. Ouch…</li>
+<li>As you cannot set <code>id</code>s or <code>class</code>es in your markdown for the HTML, you end up with a lot of <code>&lt;p&gt;</code>s. I had to make excessive usage of <code>:nth-of-type()</code>, <code>:first-of-type()</code>, <code>:last-of-type()</code> and <code>:nth-last-of-type</code>. It would be nice to have a template for the HTML output (it's possible, more on this later)</li>
+<li>My logo is <code>*.svg</code> but that got totally skewed when getting rendered to PDF. I had to generate a high-resolution PNG to get around that.</li>
+<li>I made dozens of iterations of the CSS to get the design that I wanted. First I did it the hard way: Change CSS, run Pandoc command, open PDF. Then I found out that <em>PDF Expert</em> re-renders when the PDF has changed. Still, I had to fire Pandoc after each CSS change manually. So I was looking for &quot;live reloading&quot; and ended up with <code>fswatch</code> on Mac (or <code>inotifywait</code> on Linux). I put the actual Pandoc command in a Bash script and started the watcher with <code>fswatch -o . | xargs -n1 ./compile.sh</code>. It worked. The only downside I encountered was that the PDF would reload in <em>PDF Expert</em> every 2 seconds no matter whether there was a change in the CSS not. Flicker, flicker, flicker.</li>
+</ol>
+<h3>Make it safer</h3>
+<p>Now you have a neat invoice PDF from a very simple Markdown file. But: The client could easily edit this PDF, change the cost or copy my signature. You cannot entirely prevent this to happen, but let`s make it a bit more secure.</p>
+<ol>
+<li>Get the command-line tool <em>pdftk</em> <code>brew install https://raw.githubusercontent.com/turforlag/homebrew-cervezas/master/pdftk.rb </code></li>
+<li><code>pdftk invoice.pdf output invoice-protected.pdf allow printing owner_pw "mysecretpassword"</code></li>
+</ol>
+<p>The client can still print the secured invoice, but not to change it. Funnily, <a href="https://pdfexpert.com/de">PDF Expert</a> is ignoring these settings and still able to edit the file. I have no idea why.</p>
+<h3>Next steps</h3>
+<p>The invoice PDF is nice, but of course, we can make it even better. Here are some ideas:</p>
+<ol>
+<li>Set a base font size in <code>pt</code> and set the other sizes relative with <code>em</code></li>
+<li>Switch the whole styling to <code>Sass</code>, predominantly for nesting the <code>p { %:nth-of-type {} }</code></li>
+<li><em>Tables</em> are a big thing in most non-fixed-price invoices. And a big CSS design challenge</li>
+<li>Tinkering with <code>p:nth-of-type(10)</code>-ish selectors is not too much fun, so probably using an HTML template with some smarter defaults would be good. I did not have much success with loading a new template from a different <code>--data-dir</code> but <em>brew's</em>, so I copied my template to <code>/usr/local/Cellar/pandoc/1.16.0.2/share/x86_64-osx-ghc-7.10.3/pandoc-1.16.0.2/data/templates/</code></li>
+<li>Also, I found <a href="https://www.redminecrm.com/boards/35/topics/1466-custom-template-for-german-invoice">another nice template</a> that I might learn a trick or two from</li>
+<li>Finally, for cross-media usage, I might add another stylesheet for the web or maybe media queries (but I have no clue whether that works…)</li>
+</ol>
+<h3>Resources</h3>
+<ul>
+<li><a href="brew.sh">Homebrew</a></li>
+<li><a href="http://pandoc.org/">Pandoc</a></li>
+<li><a href="http://wkhtmltopdf.org/">WKHTMLTOPDF</a></li>
+</ul>
+<h3>Q&amp;A</h3>
+<ul>
+<li>Why didn't you use a styled <em>OpenDocument</em> template? I don't like the fact that you <a href="https://ask.libreoffice.org/en/question/19709/how-to-delete-unwanted-styles-and-formatting-options-in-libreoffice/?answer=19720#post-id-19720">cannot delete standard style formats</a>. I like lean templates. Otherwise, excellent choice!</li>
+<li>Why not via <em>LaTeX</em>? Fonts, installation overhead {~900 MB), different markup (see above)</li>
+</ul>
+<p>Do you use Pandoc in varying ways for invoice generation? Or do you have other comments or tips? I am very looking forward to your feedback!</p>    </div>
+
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"Generate PDF invoices from Markdown using Pandoc"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
+    </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">January 9, 2017   •  Last updated: January 5, 2019</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/tech"
+                    title="View posts in tech"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >tech</a>
+                            <a
+                    href="/categories/terminal"
+                    title="View posts in terminal"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >terminal</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/dash-snippets" title="Older Post: Use Dash snippets for frequently-used text">
+                    &LeftArrow; Use Dash snippets for frequently-used text
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://martinbetz.eu/articles/netlify-jigsaw" title="Newer Post: Host Jigsaw static content on Netlify">
+                    Host Jigsaw static content on Netlify &RightArrow;
+                </a>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
+
+            <ul class="flex flex-col md:flex-row justify-center">
+                <li class="md:mr-2">
+                    &copy; Martin Betz 2020.
+                </li>
+
+                <li>
+                    <a href="/privacy">Privacy/GDPR </a>
+                </li>
+                <li class="ml-2">
+                     <a href="/imprint">Imprint</a>
+                </li>
+                <li class="ml-2">
+                    <span id="cntct-me"></span>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=f4391a1bf44752fd065c"></script>
+        <script>
+            var el = document.getElementById('cntct-me');
+            EO(el, {
+              name: 'contact+me',
+              domain: 'martinbetz',
+              tld: 'eu',
+              altText: 'Email'
+            });
+        </script>
+
+        <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('pandoc-invoices');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>
