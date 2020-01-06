@@ -12,7 +12,7 @@ return [
     'collections' => [
         'posts' => [
             'author' => 'Martin Betz',
-            'sort' => '-priority',
+            'sort' => '-date',
             'path' => 'articles/{filename}',
         ],
         'testimonials' => [
