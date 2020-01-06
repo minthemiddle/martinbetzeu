@@ -983,6 +983,19 @@ pre code {
   background: #e7e8ee;
 }
 
+.rich-text ul {
+  list-style-type: disc;
+  padding-left: 0.5rem;
+}
+
+.rich-text li {
+  line-height: 1.6;
+}
+
+.rich-text li a {
+  font-weight: 400;
+}
+
 .sr-only{
   position: absolute;
   width: 1px;

@@ -14,7 +14,7 @@
 
     <h1 class="leading-none mb-2">{{ $page->title }}</h1>
 
-    <div class="pb-4" v-pre>
+    <div class="rich-text pb-4" v-pre>
         @yield('content')
     </div>
 

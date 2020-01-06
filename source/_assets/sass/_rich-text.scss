@@ -1,0 +1,14 @@
+.rich-text {
+    ul {
+        @apply list-disc;
+        @apply pl-2;
+    }
+
+    li {
+        @apply leading-normal;
+
+        a {
+            @apply font-normal;
+        }
+    }
+}
