@@ -10,12 +10,6 @@ categories: [tech]
 slug: laravel-rss-to-follow
 ---
 
-## TL;DR
-
-There are many people sharing tips and tutorials on Laravel that you can follow via RSS – also quite a few who deserve more attention!
-
-## List of people and sites to follow
-
 There are many high quality blogs on Laravel and related topics, such as Tailwind, Livewire, AlpineJS and VueJS. There are some well-known bloggers, such as Freek and Matt Stauffer, but also some lesser-known yet excellent ones.
 
 Here are the direct links to the RSS feeds, the list is sorted alphabetically:
@@ -49,4 +43,5 @@ Here are the direct links to the RSS feeds, the list is sorted alphabetically:
 - [Tighten Blog](https://tighten.co/blog/feed.atom)
 - [Tim MacDonald](https://timacdonald.me/feed.xml)
 
- If you know more Laravel blogs to follow, just send them to me and I'll add them.
+
+If you know more Laravel blogs to follow, just send them to me and I'll add them.
