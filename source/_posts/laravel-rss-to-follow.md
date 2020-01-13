@@ -3,6 +3,7 @@ extends: _layouts.post
 section: content
 title: Laravel blogs to follow via RSS
 date: 2020-01-06
+update: 2020-01-14
 description: List of people writing and resources about Laravel to follow via RSS
 priority: 20
 featured: false
