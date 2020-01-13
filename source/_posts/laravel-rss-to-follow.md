@@ -25,6 +25,7 @@ Here are the direct links to the RSS feeds, the list is sorted alphabetically:
 - [Dyrynda](https://dyrynda.com.au/blog/feed)
 - [freek.dev](https://murze.be/feed/)
 - [Jason McCreary](https://jasonmccreary.me/feed.atom)
+- [Jonathan Reinink](https://reinink.ca/rss)
 - [Laravel Daily](http://laraveldaily.com/feed/)
 - [Laravel News Links](https://feedpress.me/laravel-links)
 - [Laravel News](https://feed.laravel-news.com/)
