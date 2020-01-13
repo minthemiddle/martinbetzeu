@@ -16,7 +16,7 @@ Here are the direct links to the RSS feeds, the list is sorted alphabetically:
 
 - [Amit Merchant](https://www.amitmerchant.com/feed)
 - [Ben Furfie's Blog](https://benfurfie.co.uk/feed)
-- [Caleb Porzio](http://calebporzio.com/rss/)
+- [Caleb Porzio](http://calebporzio.com/feed/)
 - [Christoph Rumpel](http://christoph-rumpel.com/feed.xml)
 - [Coder's Tape](https://www.youtube.com/feeds/videos.xml?channel_id=UCQI-Ym2rLZx52vEoqlPQMdg)
 - [Dayle Rees](http://daylerees.com/feed/)
