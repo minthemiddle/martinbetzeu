@@ -11,10 +11,11 @@
 <h1>Contact</h1>
 
 <p>
-    I love to hear your stories, feedback and ideas to everything I create. The limited time I can put aside, I like to dedicate fully to creating high quality articles and products. I hence have clear priorities and do spend all of my available time right now on the following mission:</p>
+    I love to hear your stories, feedback and ideas to everything I create. The limited time I can put aside, I like to dedicate fully to creating high quality articles and products. I hence have clear priorities and do spend all of my available time right now on the following topics:</p>
 
     <blockquote>
-        Develop custom business web applications with Laravel.
+        - Develop custom business web applications with Laravel.
+        - Help teams to work better together.
     </blockquote>
 
 <p>
