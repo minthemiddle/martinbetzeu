@@ -3,7 +3,7 @@ extends: _layouts.post
 section: content
 title: Fragebücher
 date: 2019-01-27
-update: 2019-01-27
+update: 2019-01-28
 description: Kommentierte Liste mit Fragebüchern
 priority: 40
 featured: false
