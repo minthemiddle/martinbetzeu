@@ -15,6 +15,7 @@ There are many high quality blogs on Laravel and related topics, such as Tailwin
 
 Here are the direct links to the RSS feeds, the list is sorted alphabetically:
 
+- [42Coders](https://42coders.com/comments/feed/)
 - [Amit Merchant](https://www.amitmerchant.com/feed)
 - [Ben Furfie's Blog](https://benfurfie.co.uk/feed)
 - [Caleb Porzio](http://calebporzio.com/feed/)
