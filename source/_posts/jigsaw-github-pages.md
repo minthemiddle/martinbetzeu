@@ -23,7 +23,7 @@ Since I had some problems setting it up, here is my final working solution:
 - Then I force push just the subdirectory `build_production` with the following command:
 
 ````
-git subtree split --prefix build_production`:gh-pages --force`
+git subtree split --prefix build_production`:gh-pages --force
 ```
 
 - I also have an alias for that in my `~/.zshrc`: `ghpmb` (where mb stands for martinbetz)
