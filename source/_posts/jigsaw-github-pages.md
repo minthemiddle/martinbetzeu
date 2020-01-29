@@ -20,10 +20,10 @@ Since I had some problems setting it up, here is my final working solution:
 - In `gh-pages` I first rebase to put the output HTML commits ahead of master: `grbm`
 - Then I run Jigsaw: `npm run production`
 - Next I create a bump commit with date and running number: `ga . && gcmsg "Bump: 200128-001"`
-- Then I force push just the subdirectory `build_production` with the following command:
+- Then I force push just the subdirectory `build_production` with the following command to my `github` remote repo:
 
 ````
-git subtree split --prefix build_production`:gh-pages --force
+git push github `git subtree split --prefix build_production`:gh-pages --force
 ```
 
 - I also have an alias for that in my `~/.zshrc`: `ghpmb` (where mb stands for martinbetz)
