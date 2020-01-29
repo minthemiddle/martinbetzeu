@@ -25,3 +25,5 @@ Hier stelle ich eine Reihe von weiteren Büchern kurz vor:
 -  **Hogan: 1000 Fragen, die Liebe betreffend (Schwarzkopf & Schwarzkopf, 2005)**. Gute Fragen für Menschen in jeder Phase einer Beziehung; auch schon sortiert. Den umfangreichen Begleittext kann man aber überspringen.
 -  **Kindl-Beilfuß: Fragen können we Küsse schmecken (Carl-Auer, 2010)**. Keine Sammlung von Fragen, sondern eine sehr gelungene Anleitung, vor allem für Psychotherapeuten, wie man Fragen für verschiedene Situationen findet und anwendet, z.B. das biographische Interview.
 -  **Funcke/Rachow: Was ist eigentlich Ihre Lieblingsfrage (managerSeminare, 2016)**. Fragen für jede Gelegenheit, die aufgeteilt sind nach der Intention z.B. Fragen, die zurückgreifen und Fragen, die in die Tiefe gehen. Buch richtet sich an Trainer, Moderatoren und Berater, ist jedoch für alle Frageliebhaber eine Inspiration. Gute Liste mit weiteren Fragebüchern.
+
+Auf meiner Seite [mehrfragen.de](https://mehrfragen.de) sammle ich meine Lieblingsfragen aus vielen Bereichen.
