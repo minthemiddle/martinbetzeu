@@ -1,5 +1,5 @@
 <div class="md:flex">
-    <div><p class="mb-6">I am Martin. I am product owner at [Visable Labs (B2B marketplace)](https://www.visablelabs.com/), a Laravel developer. I help companies to get more agile and individuals to get into coding and the tech industry.</p>
+    <div><p class="mb-6">I am Martin. I am product owner at <a href="https://www.visablelabs.com/" target="_blank">Visable Labs (B2B marketplace)</a>, a Laravel developer. I help companies to get more agile and individuals to get into coding and the tech industry.</p>
 
         <p class="mb-6">I also have been offering my <a href="/services">services</a> as a freelancer for over 15 years: I help my clients to define and reach their digital goals.</p>
 
