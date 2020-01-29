@@ -4,7 +4,7 @@ section: content
 title: How I deploy my Jigsaw blog to Github Pages
 date: 2020-01-28
 description: How I deploy my Jigsaw blog to Github Pages
-priority: 40
+priority: 50
 featured: true
 categories: [tech]
 slug: deploy-jigsaw-github-pages
