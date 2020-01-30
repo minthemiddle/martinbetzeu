@@ -16,5 +16,6 @@ Breaking down your day in many small 25 minutes blocks is called Pomodoro. Visua
 - Copy blocks between days pressing `alt` and dragging and dropping the block
 - Name your blocks according to the topic of your block, such as `Productivity`
 - Use emojis before the name, such as `✓ Productivity`, this will help you find and count your blocks
+- Move blocks in 15min steps up and down with`ctrl + alt + down/up` (Hint: Window manager `Magnet` overwrites these keystrokes but can be reconfigured)
 
 ![Day with pomodoros in Apple Calendar](/assets/img/articles/pomo-apple-calendar.png)
