@@ -13,6 +13,7 @@ slug: apple-calendar-pomodoro
 Breaking down your day in many small 25 minutes blocks is called Pomodoro. Visualizing and managing these blocks can be challenging. Luckily Apple Calendar helps with it. These are my best practices:
 
 - Instead of the default 1 hour blocks, you can set the default to 25. Go to your terminal and enter the following: `defaults write com.apple.iCal 'Default duration in minutes for new event' 25`
+- Plan at least 5 minutes between each pomodoro block
 - Copy blocks between days pressing `alt` and dragging and dropping the block
 - Name your blocks according to the topic of your block, such as `Productivity`
 - Use emojis before the name, such as `📎 Sorting`, this will help you find and count your blocks
