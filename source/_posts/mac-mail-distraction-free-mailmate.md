@@ -17,6 +17,10 @@ I use Mailmate, a powerfull customizable client. Here are my tipps for using it 
 - Disable autosync for all your accounts so you decide when new email flows in
   - Right-click on sources
   - `Synchronize schedule > Manual`
+- Go offline completely so certainly no new mails come in
+  - Select all sources
+  - `Take offline`
+  - When you craft and send an email when being offline, it will just be sent when you go online again
 - Select an empty folder before quitting the application
   - Mailmate will open with the last selected folder
   - I created a search folder that never returns a result with the criteria: `From > contains > RANDOMLONGSTRING`
@@ -25,5 +29,6 @@ I use Mailmate, a powerfull customizable client. Here are my tipps for using it 
   - Select all folder > Right-click > `Count > None`
   - Select all sources > Right-click > `Count > None`
 - If you wait for a email – like a 2-factor auth code – that you need to receive outside of your mail time, set a specific search with “from” or “subject” and refresh the specific mailbox/source only
+
 
 ![Distraction free email client Mailmate](/assets/img/articles/mailmate.png)
