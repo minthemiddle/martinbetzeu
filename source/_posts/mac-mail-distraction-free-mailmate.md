@@ -10,9 +10,9 @@ categories: [productivity]
 slug: mac-mail-distraction-free-mailmate
 ---
 
-Email can eat up all your attention or can be a power tool to purposefully connect with your world. Having a sensitive setup will help you with the latter.
+Email can eat up all your attention or can be a power tool to purposefully connect with your world. Setting a timebox is my tactic. I only read and answer mails in this slot. Having a sensitive setup will help you with not getting disturbed by email during your day.
 
-I use Mailmate, a powerfull customizable client. Here are my tipps for
+I use Mailmate, a powerfull customizable client. Here are my tipps for using it mindfully:
 
 - Disable autosync for all your accounts
   - Right-click on sources
@@ -24,5 +24,6 @@ I use Mailmate, a powerfull customizable client. Here are my tipps for
 - Disable all counters
   - Select all folder > Right-click > `Count > None`
   - Select all sources > Right-click > `Count > None`
+- If you wait for a email – like a 2-factor auth code – that you need to receive outside of your mail time, set a search “from”/“subject” and refresh the specific mailbox/source only
 
 ![Distraction free email client Mailmate](/assets/img/articles/mailmate.png)
