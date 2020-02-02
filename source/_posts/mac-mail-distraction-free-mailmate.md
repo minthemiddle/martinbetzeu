@@ -14,16 +14,16 @@ Email can eat up all your attention or can be a power tool to purposefully conne
 
 I use Mailmate, a powerfull customizable client. Here are my tipps for using it mindfully:
 
-- Disable autosync for all your accounts
+- Disable autosync for all your accounts so you decide when new email flows in
   - Right-click on sources
   - `Synchronize schedule > Manual`
 - Select an empty folder before quitting the application
   - Mailmate will open with the last selected folder
   - I created a search folder that never returns a result with the criteria: `From > contains > RANDOMLONGSTRING`
-  I named this folder 🙂
+  - I named this folder 🙂
 - Disable all counters
   - Select all folder > Right-click > `Count > None`
   - Select all sources > Right-click > `Count > None`
-- If you wait for a email – like a 2-factor auth code – that you need to receive outside of your mail time, set a search “from”/“subject” and refresh the specific mailbox/source only
+- If you wait for a email – like a 2-factor auth code – that you need to receive outside of your mail time, set a specific search with “from” or “subject” and refresh the specific mailbox/source only
 
 ![Distraction free email client Mailmate](/assets/img/articles/mailmate.png)
