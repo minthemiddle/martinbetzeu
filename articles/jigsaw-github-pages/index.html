@@ -5,18 +5,22 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="1">
 
-        <meta property="og:title" content="Martin Betz"/>
+        <meta property="og:title" content="How I deploy my Jigsaw blog to Github Pages | Martin Betz"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://martinbetz.eu/404"/>
+        <meta property="og:url" content="https://martinbetz.eu/articles/jigsaw-github-pages"/>
         <meta property="og:description" content="Articles, services and products of Martin Betz" />
 
-        <title>Martin Betz</title>
+        <title>Martin Betz | How I deploy my Jigsaw blog to Github Pages</title>
 
         <link rel="home" href="https://martinbetz.eu">
         <link rel="icon" href="/favicon.ico?v=5">
         <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
 
-        
+            <meta property="og:title" content="How I deploy my Jigsaw blog to Github Pages" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/jigsaw-github-pages"/>
+    <meta property="og:description" content="How I deploy my Jigsaw blog to Github Pages" />
+
         <link rel="stylesheet" href="/assets/build/css/main.css?id=b9512b49c4350ffba560">
     </head>
 
@@ -114,17 +118,60 @@
         <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
 
 
-                <div class="flex flex-col items-center text-gray-600 mt-32">
-        <h1 class="text-6xl font-light leading-none mb-2">404</h1>
+                
+    <h1 class="leading-none mb-2">How I deploy my Jigsaw blog to Github Pages</h1>
 
-        <h2 class="text-3xl">Page not found.</h2>
+    <div class="rich-text pb-4" v-pre>
+        <p>I use Tighten's Jigsaw to build this website and blog. I used to host it on Netlify and let it build it as well. But as I make many granular edits and the build taking two 2 minutes, I was looking for a quicker alternative where I just push the output HTML files instead of the source files. Turns out that Github Pages is what I looked for.</p>
+<p>Since I had some problems setting it up, here is my final working solution:</p>
+<ul>
+<li>For every now post, I create a feature branch, say <code>add-article-jigsaw-github-pages-deployment</code></li>
+<li>When done, I go to master and merge: <code>gcm &amp;&amp; gm add-article-jigsaw-github-pages-deployment</code> (using <code>zsh</code> aliases)</li>
+<li>Then I check out a running branch called <code>gh-pages</code>. I do not want the changes to the HTML in my master, so I just save them here</li>
+<li>In <code>gh-pages</code> I first rebase to put the output HTML commits ahead of master: <code>grbm</code></li>
+<li>If rebasing causes trouble, I just force delete the <code>gh-pages</code> branch (<code>gb -D gh-pages</code>) and create it afresh (its only purpose is to keep my master branch clean by not versioning the production output files)</li>
+<li>Then I run Jigsaw: <code>npm run production</code></li>
+<li>Next I create a bump commit with date and running number: <code>ga . &amp;&amp; gcmsg "Bump: 200128-001"</code></li>
+<li>Then I force push just the subdirectory <code>build_production</code> with the following command to my <code>github</code> remote repo:</li>
+</ul>
+<pre><code>git push github `git subtree split --prefix build_production`:gh-pages --force</code></pre>
+<ul>
+<li>I also have an alias for that in my <code>~/.zshrc</code>: <code>ghpmb</code> (where mb stands for martinbetz)</li>
+<li>That's it!</li>
+</ul>    </div>
 
-        <hr class="block w-full max-w-sm mx-auto border my-8">
-
-        <p class="text-xl">
-            You might want to check out my other <a href="/articles">articles</a> and <a href="/products">products</a>.
-        </p>
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"How I deploy my Jigsaw blog to Github Pages"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
     </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">January 28, 2020</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/tech"
+                    title="View posts in tech"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >tech</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/laravel-rss-to-follow" title="Older Post: Laravel blogs to follow via RSS">
+                    &LeftArrow; Laravel blogs to follow via RSS
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://martinbetz.eu/articles/apple-calendar-pomodoro" title="Newer Post: How to use Apple Calendar with Pomodoro">
+                    How to use Apple Calendar with Pomodoro &RightArrow;
+                </a>
+                    </div>
+    </nav>
         </main>
 
         <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
@@ -158,6 +205,17 @@
         </script>
 
         <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('deploy-jigsaw-github-pages');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
     const navMenu = {
         toggle() {
             const menu = document.getElementById('js-nav-menu');

@@ -5,18 +5,22 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="1">
 
-        <meta property="og:title" content="Martin Betz"/>
+        <meta property="og:title" content="How to use Apple Calendar with Pomodoro | Martin Betz"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://martinbetz.eu/404"/>
+        <meta property="og:url" content="https://martinbetz.eu/articles/apple-calendar-pomodoro"/>
         <meta property="og:description" content="Articles, services and products of Martin Betz" />
 
-        <title>Martin Betz</title>
+        <title>Martin Betz | How to use Apple Calendar with Pomodoro</title>
 
         <link rel="home" href="https://martinbetz.eu">
         <link rel="icon" href="/favicon.ico?v=5">
         <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
 
-        
+            <meta property="og:title" content="How to use Apple Calendar with Pomodoro" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/apple-calendar-pomodoro"/>
+    <meta property="og:description" content="How to use Apple Calendar with Pomodoro" />
+
         <link rel="stylesheet" href="/assets/build/css/main.css?id=b9512b49c4350ffba560">
     </head>
 
@@ -114,17 +118,59 @@
         <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
 
 
-                <div class="flex flex-col items-center text-gray-600 mt-32">
-        <h1 class="text-6xl font-light leading-none mb-2">404</h1>
+                
+    <h1 class="leading-none mb-2">How to use Apple Calendar with Pomodoro</h1>
 
-        <h2 class="text-3xl">Page not found.</h2>
+    <div class="rich-text pb-4" v-pre>
+        <p>Breaking down your day in many small 25 minutes blocks is called Pomodoro. Visualizing and managing these blocks can be challenging. Luckily Apple Calendar helps with it. These are my best practices:</p>
+<ul>
+<li>Create an extra calendar just for day planning</li>
+<li>Instead of the default 1 hour blocks, you can set the default to 25. Go to your terminal and enter the following: <code>defaults write com.apple.iCal 'Default duration in minutes for new event' 25</code></li>
+<li>Name your blocks according to the topic of your block, such as <code>Productivity</code></li>
+<li>Use emojis before the name, such as <code>📎 Sorting</code>, this will help you find and count your blocks</li>
+<li>Plan at least 5 minutes between each pomodoro block</li>
+<li>Click <code>shift</code> to select several blocks</li>
+<li>Move blocks in 15min steps up and down with<code>ctrl + alt + down/up</code> (Hint: Window manager <code>Magnet</code> overwrites these keystrokes but can be reconfigured)</li>
+<li>Copy blocks between days pressing <code>alt</code> and dragging and dropping the block</li>
+<li>Use a past day and week when you did not use the system yet and fill with template blocks to create a library</li>
+<li>Use search to find blocks in your library that you do not have readily available from the past few days; typing the first few characters will suffice</li>
+<li>Always use a second physical timer (I use a kitchen timer where I removed the audio signals) to stay in the time frame</li>
+<li>Always adjust differences like delays, skipped or extra pomodoros when or even after they happen – no plan is perfect anyway</li>
+</ul>
+<p><img src="/assets/img/articles/pomo-apple-calendar.png" alt="Day with pomodoros in Apple Calendar" /></p>    </div>
 
-        <hr class="block w-full max-w-sm mx-auto border my-8">
-
-        <p class="text-xl">
-            You might want to check out my other <a href="/articles">articles</a> and <a href="/products">products</a>.
-        </p>
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"How to use Apple Calendar with Pomodoro"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
     </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">January 29, 2020   •  Last updated: January 31, 2020</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/productivity"
+                    title="View posts in productivity"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >productivity</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/jigsaw-github-pages" title="Older Post: How I deploy my Jigsaw blog to Github Pages">
+                    &LeftArrow; How I deploy my Jigsaw blog to Github Pages
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://martinbetz.eu/articles/mac-mail-distraction-free-mailmate" title="Newer Post: Distraction-free Email with Mailmate on Mac">
+                    Distraction-free Email with Mailmate on Mac &RightArrow;
+                </a>
+                    </div>
+    </nav>
         </main>
 
         <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
@@ -158,6 +204,17 @@
         </script>
 
         <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('apple-calendar-pomodoro');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
     const navMenu = {
         toggle() {
             const menu = document.getElementById('js-nav-menu');

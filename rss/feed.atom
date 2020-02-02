@@ -3,12 +3,164 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-01-09T11:13:24+00:00</updated>
+    <updated>2020-02-02T11:06:02+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
     </author>
                 <entry>
+    <id>https://martinbetz.eu/articles/how-to-write-emails</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/how-to-write-emails" />
+    <title>How to write emails</title>
+    <published>2020-02-02T00:00:00+00:00</published>
+    <updated>2020-02-02T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">Writing good emails is the key competency in any job in my opinion. Here is my checklist on how to craft good emails and one example.
+
+Make it scannable.
+Lead with your ask.
+Establish your credibility.
+Propose next steps.
+Give a deadline.
+If asking a......</summary>
+    <content type="html"><![CDATA[
+        <p>Writing good emails is the key competency in any job in my opinion. Here is my checklist on how to craft good emails and one example.</p>
+<ul>
+<li>Make it <strong>scannable</strong>.</li>
+<li><strong>Lead with</strong> your <strong>ask</strong>.</li>
+<li><strong>Establish</strong> your credibility.</li>
+<li>Propose <strong>next steps</strong>.</li>
+<li>Give a <strong>deadline</strong>.</li>
+<li><strong>If</strong> asking a <strong>question</strong>, <strong>propose a solution</strong>.</li>
+<li>Write your <strong>subject lines like article headlines</strong>.</li>
+<li><strong>Preview</strong> all messages <strong>on your smartphone</strong>.</li>
+<li><strong>Edit</strong> all your emails. Never use the first draft.</li>
+</ul>
+<p>What are your tipps for writing emails that get results? Contact me via the link below!</p>
+<p>Disclaimer: A lot of these tips come from the book <a href="https://withoutbullshit.com/book">Writing Without Bullshit</a> that I tweak to my language and experience.</p>
+<pre><code class="language-yaml">To: editor@magazine.com
+# Headline type subject
+Title: Cooperation on article on crafting emails?
+
+Dear Peter,
+
+# Lead with the ask
+do you want to cooperate with me on an article on writing good emails?
+
+# Establish credibility
+I have been writing 10+ high-ranking articles on crafting emails in magazines such as GQ (link) and Harper's Bazaar (link) and got hundreds of positive responses from readers. I think that your magazine could profit from my expertise.
+
+# Propose next steps
+If you give me your "okay" for considering the idea, I can send you an outline within 4 working days.
+
+# Give a **deadline**
+Could you please send me a "yes" or "no" by Monday, 02, so we both can move forward?
+
+Best
+Martin</code></pre>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/mac-mail-distraction-free-mailmate</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/mac-mail-distraction-free-mailmate" />
+    <title>Distraction-free Email with Mailmate on Mac</title>
+    <published>2020-01-31T00:00:00+00:00</published>
+    <updated>2020-01-31T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">Email can eat up all your attention or can be a power tool to purposefully connect with your world. Setting a timebox is my tactic. I only read and answer mails in this slot. During the day I still want to send and find emails, so I want to avoid seeing......</summary>
+    <content type="html"><![CDATA[
+        <p>Email can eat up all your attention or can be a power tool to purposefully connect with your world. Setting a timebox is my tactic. I only read and answer mails in this slot. During the day I still want to send and find emails, so I want to avoid seeing new emails that might derail me from my initial plan. Having a sensitive setup will help you with not getting disturbed by email during your day.</p>
+<p>I use Mailmate, a powerfull customizable client. Here are my tipps for using it mindfully:</p>
+<ul>
+<li>Disable autosync for all your accounts so you decide when new email flows in
+<ul>
+<li>Right-click on sources</li>
+<li><code>Synchronize schedule &gt; Manual</code></li>
+</ul></li>
+<li>Go offline completely so certainly no new mails come in
+<ul>
+<li>Select all sources</li>
+<li><code>Take offline</code></li>
+<li>When you craft and send an email when being offline, it will just be sent when you go online again</li>
+</ul></li>
+<li>Select an empty folder before quitting the application
+<ul>
+<li>Mailmate will open with the last selected folder</li>
+<li>I created a search folder that never returns a result with the criteria: <code>From &gt; contains &gt; RANDOMLONGSTRING</code></li>
+<li>I named this folder 🙂</li>
+</ul></li>
+<li>Disable all counters
+<ul>
+<li>Select all folder &gt; Right-click &gt; <code>Count &gt; None</code></li>
+<li>Select all sources &gt; Right-click &gt; <code>Count &gt; None</code></li>
+</ul></li>
+<li>If you wait for a email – like a 2-factor auth code – that you need to receive outside of your mail time, set a specific search with “from” or “subject” and refresh the specific mailbox/source only</li>
+</ul>
+<p><img src="/assets/img/articles/mailmate.png" alt="Distraction free email client Mailmate" /></p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/apple-calendar-pomodoro</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/apple-calendar-pomodoro" />
+    <title>How to use Apple Calendar with Pomodoro</title>
+    <published>2020-01-29T00:00:00+00:00</published>
+    <updated>2020-01-29T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">Breaking down your day in many small 25 minutes blocks is called Pomodoro. Visualizing and managing these blocks can be challenging. Luckily Apple Calendar helps with it. These are my best practices:
+
+Create an extra calendar just for day planning......</summary>
+    <content type="html"><![CDATA[
+        <p>Breaking down your day in many small 25 minutes blocks is called Pomodoro. Visualizing and managing these blocks can be challenging. Luckily Apple Calendar helps with it. These are my best practices:</p>
+<ul>
+<li>Create an extra calendar just for day planning</li>
+<li>Instead of the default 1 hour blocks, you can set the default to 25. Go to your terminal and enter the following: <code>defaults write com.apple.iCal 'Default duration in minutes for new event' 25</code></li>
+<li>Name your blocks according to the topic of your block, such as <code>Productivity</code></li>
+<li>Use emojis before the name, such as <code>📎 Sorting</code>, this will help you find and count your blocks</li>
+<li>Plan at least 5 minutes between each pomodoro block</li>
+<li>Click <code>shift</code> to select several blocks</li>
+<li>Move blocks in 15min steps up and down with<code>ctrl + alt + down/up</code> (Hint: Window manager <code>Magnet</code> overwrites these keystrokes but can be reconfigured)</li>
+<li>Copy blocks between days pressing <code>alt</code> and dragging and dropping the block</li>
+<li>Use a past day and week when you did not use the system yet and fill with template blocks to create a library</li>
+<li>Use search to find blocks in your library that you do not have readily available from the past few days; typing the first few characters will suffice</li>
+<li>Always use a second physical timer (I use a kitchen timer where I removed the audio signals) to stay in the time frame</li>
+<li>Always adjust differences like delays, skipped or extra pomodoros when or even after they happen – no plan is perfect anyway</li>
+</ul>
+<p><img src="/assets/img/articles/pomo-apple-calendar.png" alt="Day with pomodoros in Apple Calendar" /></p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/jigsaw-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/jigsaw-github-pages" />
+    <title>How I deploy my Jigsaw blog to Github Pages</title>
+    <published>2020-01-28T00:00:00+00:00</published>
+    <updated>2020-01-28T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">I use Tighten&#039;s Jigsaw to build this website and blog. I used to host it on Netlify and let it build it as well. But as I make many granular edits and the build taking two 2 minutes, I was looking for a quicker alternative where I just push the output......</summary>
+    <content type="html"><![CDATA[
+        <p>I use Tighten's Jigsaw to build this website and blog. I used to host it on Netlify and let it build it as well. But as I make many granular edits and the build taking two 2 minutes, I was looking for a quicker alternative where I just push the output HTML files instead of the source files. Turns out that Github Pages is what I looked for.</p>
+<p>Since I had some problems setting it up, here is my final working solution:</p>
+<ul>
+<li>For every now post, I create a feature branch, say <code>add-article-jigsaw-github-pages-deployment</code></li>
+<li>When done, I go to master and merge: <code>gcm &amp;&amp; gm add-article-jigsaw-github-pages-deployment</code> (using <code>zsh</code> aliases)</li>
+<li>Then I check out a running branch called <code>gh-pages</code>. I do not want the changes to the HTML in my master, so I just save them here</li>
+<li>In <code>gh-pages</code> I first rebase to put the output HTML commits ahead of master: <code>grbm</code></li>
+<li>If rebasing causes trouble, I just force delete the <code>gh-pages</code> branch (<code>gb -D gh-pages</code>) and create it afresh (its only purpose is to keep my master branch clean by not versioning the production output files)</li>
+<li>Then I run Jigsaw: <code>npm run production</code></li>
+<li>Next I create a bump commit with date and running number: <code>ga . &amp;&amp; gcmsg "Bump: 200128-001"</code></li>
+<li>Then I force push just the subdirectory <code>build_production</code> with the following command to my <code>github</code> remote repo:</li>
+</ul>
+<pre><code>git push github `git subtree split --prefix build_production`:gh-pages --force</code></pre>
+<ul>
+<li>I also have an alias for that in my <code>~/.zshrc</code>: <code>ghpmb</code> (where mb stands for martinbetz)</li>
+<li>That's it!</li>
+</ul>    ]]></content>
+</entry>
+            <entry>
     <id>https://martinbetz.eu/articles/laravel-rss-to-follow</id>
     <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/laravel-rss-to-follow" />
     <title>Laravel blogs to follow via RSS</title>
@@ -23,34 +175,38 @@ Here are the direct links......</summary>
         <p>There are many high quality blogs on Laravel and related topics, such as Tailwind, Livewire, AlpineJS and VueJS. There are some well-known bloggers, such as Freek and Matt Stauffer, but also some lesser-known yet excellent ones.</p>
 <p>Here are the direct links to the RSS feeds, the list is sorted alphabetically:</p>
 <ul>
-<li><a href="https://www.amitmerchant.com/feed">Amit Merchant</a></li>
-<li><a href="https://benfurfie.co.uk/feed">Ben Furfie's Blog</a></li>
-<li><a href="http://calebporzio.com/rss/">Caleb Porzio</a></li>
-<li><a href="http://christoph-rumpel.com/feed.xml">Christoph Rumpel</a></li>
-<li><a href="https://www.youtube.com/feeds/videos.xml?channel_id=UCQI-Ym2rLZx52vEoqlPQMdg">Coder's Tape</a></li>
-<li><a href="http://daylerees.com/feed/">Dayle Rees</a></li>
-<li><a href="https://divinglaravel.com/feed">Diving Laravel</a></li>
-<li><a href="https://driesvints.com/blog/feed.atom">Dries Vints</a></li>
-<li><a href="https://dyrynda.com.au/blog/feed">Dyrynda</a></li>
-<li><a href="https://murze.be/feed/">freek.dev</a></li>
-<li><a href="https://jasonmccreary.me/feed.atom">Jason McCreary</a></li>
-<li><a href="http://laraveldaily.com/feed/">Laravel Daily</a></li>
-<li><a href="https://feedpress.me/laravel-links">Laravel News Links</a></li>
-<li><a href="https://feed.laravel-news.com/">Laravel News</a></li>
-<li><a href="http://www.laravel-tricks.com/feed">Laravel-Tricks</a></li>
-<li><a href="https://martinbetz.eu/blog/feed.atom">Martin Betz</a></li>
-<li><a href="https://matthewdaly.co.uk/rss.xml">Matthew Daly's Blog</a></li>
-<li><a href="http://mattstauffer.co/blog/feed.atom">MattStauffer.com</a></li>
-<li><a href="https://mauricius.dev/index.xml">Maurizio Bonani</a></li>
-<li><a href="https://themsaid.com/feed">Mohamed Said</a></li>
-<li><a href="https://ohseemedia.com/feed">Oh See Media</a></li>
-<li><a href="http://feeds2.feedburner.com/Paulundcouk">Paulund</a></li>
-<li><a href="https://pociot.dev/feed">pociot.dev</a></li>
-<li><a href="https://sebastiandedeyne.com/index.xml">Sebastian De Deyne</a></li>
-<li><a href="http://shawnmc.cool/feed">Shawn McCool</a></li>
-<li><a href="https://www.stitcher.io/https://www.stitcher.io/rss">stitcher.io</a></li>
-<li><a href="https://tighten.co/blog/feed.atom">Tighten Blog</a></li>
-<li><a href="https://timacdonald.me/feed.xml">Tim MacDonald</a></li>
+<li><a href="https://42coders.com/blog">42Coders</a> (<a href="https://42coders.com/feed/">RSS</a>)</li>
+<li><a href="https://www.amitmerchant.com">Amit Merchant</a> (<a href="https://www.amitmerchant.com/feed">RSS</a>)</li>
+<li><a href="https://benfurfie.co.uk">Ben Furfie's Blog</a> (<a href="https://benfurfie.co.uk/feed">RSS</a>)</li>
+<li><a href="http://calebporzio.com">Caleb Porzio</a> (<a href="http://calebporzio.com/feed/">RSS</a>)</li>
+<li><a href="http://christoph-rumpel.com">Christoph Rumpel</a> (<a href="http://christoph-rumpel.com/feed.xml">RSS</a>)</li>
+<li><a href="https://www.youtube.com/feeds/videos.xml?channel_id=UCQI-Ym2rLZx52vEoqlPQMdg">Coder's Tape</a> (<a href="https://www.youtube.com/feeds/videos.xml?channel_id=UCQI-Ym2rLZx52vEoqlPQMdg">RSS</a>)</li>
+<li><a href="http://daylerees.com">Dayle Rees</a> (<a href="http://daylerees.com/feed/">RSS</a>)</li>
+<li><a href="https://divinglaravel.com">Diving Laravel</a> (<a href="https://divinglaravel.com/feed">RSS</a>)</li>
+<li><a href="https://driesvints.com/blog">Dries Vints</a> (<a href="https://driesvints.com/blog/feed.atom">RSS</a>)</li>
+<li><a href="https://dyrynda.com.au/blog">Dyrynda</a> (<a href="https://dyrynda.com.au/blog/feed">RSS</a>)</li>
+<li><a href="https://murze.be">freek.dev</a> (<a href="https://murze.be/feed/">RSS</a>)</li>
+<li><a href="https://jasonmccreary.me">Jason McCreary</a> (<a href="https://jasonmccreary.me/feed.atom">RSS</a>)</li>
+<li><a href="https://reinink.ca">Jonathan Reinink</a> (<a href="https://reinink.ca/rss">RSS</a>)</li>
+<li><a href="http://laraveldaily.com">Laravel Daily</a> (<a href="http://laraveldaily.com/feed/">RSS</a>)</li>
+<li><a href="https://laravel-news.com/links">Laravel News Links</a> (<a href="https://feedpress.me/laravel-links">RSS</a>)</li>
+<li><a href="https://laravel-news.com/">Laravel News</a> (<a href="https://feed.laravel-news.com/">RSS</a>)</li>
+<li><a href="https://www.larashout.com">LaraShout</a> (<a href="https://www.larashout.com/feed">RSS</a>)</li>
+<li><a href="http://www.laravel-tricks.com">Laravel-Tricks</a> (<a href="http://www.laravel-tricks.com/feed">RSS</a>)</li>
+<li><a href="https://martinbetz.eu/blog">Martin Betz</a> (<a href="https://martinbetz.eu/blog/feed.atom">RSS</a>)</li>
+<li><a href="https://matthewdaly.co.uk">Matthew Daly's Blog</a> (<a href="https://matthewdaly.co.uk/rss.xml">RSS</a>)</li>
+<li><a href="https://ma.ttias.be/blog">Matthias Geniar</a> (<a href="https://ma.ttias.be/blog/index.xml">RSS</a>)</li>
+<li><a href="http://mattstauffer.co/blog">MattStauffer.com</a> (<a href="http://mattstauffer.co/blog/feed.atom">RSS</a>)</li>
+<li><a href="https://mauricius.dev">Maurizio Bonani</a> (<a href="https://mauricius.dev/index.xml">RSS</a>)</li>
+<li><a href="https://themsaid.com">Mohamed Said</a> (<a href="https://themsaid.com/feed">RSS</a>)</li>
+<li><a href="https://ohseemedia.com">Oh See Media</a> (<a href="https://ohseemedia.com/feed">RSS</a>)</li>
+<li><a href="http://feeds2.feedburner.com">Paulund</a> (<a href="http://feeds2.feedburner.com/Paulundcouk">RSS</a>)</li>
+<li><a href="https://pociot.dev">pociot.dev</a> (<a href="https://pociot.dev/feed">RSS</a>)</li>
+<li><a href="https://sebastiandedeyne.com">Sebastian De Deyne</a> (<a href="https://sebastiandedeyne.com/index.xml">RSS</a>)</li>
+<li><a href="http://shawnmc.cool">Shawn McCool</a> (<a href="http://shawnmc.cool/feed">RSS</a>)</li>
+<li><a href="https://www.stitcher.io/https://www.stitcher.io">stitcher.io</a> (<a href="https://www.stitcher.io/https://www.stitcher.io/rss">RSS</a>)</li>
+<li><a href="https://tighten.co/blog">Tighten Blog</a> (<a href="https://tighten.co/blog/feed.atom">RSS</a>)</li>
+<li><a href="https://timacdonald.me">Tim MacDonald</a> (<a href="https://timacdonald.me/feed.xml">RSS</a>)</li>
 </ul>
 <p>If you know more Laravel blogs to follow, just send them to me and I'll add them.</p>    ]]></content>
 </entry>
@@ -135,6 +291,34 @@ Route::get('types', function () {
 <p>One risk with this approach is that you pass roles around as strings. You always need to remember which roles you have and how you named them. A small typo such as <code>adnin</code> instead of <code>admin</code> will be hard to spot and renaming a role (e.g. <code>manager</code> to become <code>editor</code>) can easily break your system.</p>
 <p>In the next iteration of this article, I will introduce <code>Enums</code> to help reducing this risk, but for now this solution is lean and will solve your basic needs.</p>
 <p>P.S. If you have suggestions on refactoring or improving, please send me a mail:</p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/fragebuecher</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/fragebuecher" />
+    <title>Fragebücher</title>
+    <published>2019-01-27T00:00:00+00:00</published>
+    <updated>2019-01-27T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">Eine gute Frage kann ein Gespräch eröffnen, am Leben halten und es spannend machen. Es gibt eine Reihe von Büchern, in denen Ideen für Fragen aufgelistet sind.
+Das bekannteste Buch ist sicher Max Frisch&#039; Fragebogen.
+Hier stelle ich eine Reihe von......</summary>
+    <content type="html"><![CDATA[
+        <p>Eine gute Frage kann ein Gespräch eröffnen, am Leben halten und es spannend machen. Es gibt eine Reihe von Büchern, in denen Ideen für Fragen aufgelistet sind.</p>
+<p>Das bekannteste Buch ist sicher Max Frisch' Fragebogen.</p>
+<p>Hier stelle ich eine Reihe von weiteren Büchern kurz vor:</p>
+<ul>
+<li><strong>Krogerus/Tschäpeller: Kinderfragebuch (Kein&amp;Aber, 2012)</strong>. Mein Lieblingsfragebuch; hübsch illustriert, viele lustige Fragen, z.B. &quot;Was kochen deine Eltern am schlechtesten&quot;. Auch sehr gut für Erwachsene geeignet, die die Fragerei nicht zu ernst nehmen wollen.</li>
+<li><strong>Krogerus/Tschäpeller: Fragebuch (Kein&amp;Aber, 2014)</strong>. Gleiche Autoren, gleiche hohe Qualität. Geeignet, um &quot;sich und andere besser kennenzulernen&quot; – und zwar direkt zum Ausfüllen.</li>
+<li><strong>Stock: The Book Of Questions (Workman, 1987)</strong>. Der Klassiker auf Englisch im kleinen handlichen Format mit 1-3 Fragen pro Seite. Leider sind die Fragen unsortiert und auch zu oft mit einfachem Ja oder Nein zu beantworten.</li>
+<li><strong>Stock: Das Fragenbuch für Kids (Ravensburger, 1991)</strong>. Auch Stock hat ein Buch für Kinder geschrieben. Leider auch unsortiert, die Fragen finde ich aber gut. Krogerus sieht besser aus und ist deutlich besser aufgebaut.</li>
+<li><strong>Dobelli: Wer bin ich? (Diogenes, 2007)</strong>. 777 Fragen zur Selbsterkenntnis. Viele philosophische Themen, bei denen eine Antwort Zeit braucht.</li>
+<li><strong>Hogan: 1000 Fragen, die Liebe betreffend (Schwarzkopf &amp; Schwarzkopf, 2005)</strong>. Gute Fragen für Menschen in jeder Phase einer Beziehung; auch schon sortiert. Den umfangreichen Begleittext kann man aber überspringen.</li>
+<li><strong>Kindl-Beilfuß: Fragen können we Küsse schmecken (Carl-Auer, 2010)</strong>. Keine Sammlung von Fragen, sondern eine sehr gelungene Anleitung, vor allem für Psychotherapeuten, wie man Fragen für verschiedene Situationen findet und anwendet, z.B. das biographische Interview.</li>
+<li><strong>Funcke/Rachow: Was ist eigentlich Ihre Lieblingsfrage (managerSeminare, 2016)</strong>. Fragen für jede Gelegenheit, die aufgeteilt sind nach der Intention z.B. Fragen, die zurückgreifen und Fragen, die in die Tiefe gehen. Buch richtet sich an Trainer, Moderatoren und Berater, ist jedoch für alle Frageliebhaber eine Inspiration. Gute Liste mit weiteren Fragebüchern.</li>
+</ul>
+<p>Auf meiner Seite <a href="https://mehrfragen.de">mehrfragen.de</a> sammle ich meine Lieblingsfragen aus vielen Bereichen.</p>    ]]></content>
 </entry>
             <entry>
     <id>https://martinbetz.eu/articles/blur-test</id>
