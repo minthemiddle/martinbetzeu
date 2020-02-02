@@ -10,7 +10,7 @@ categories: [productivity]
 slug: mac-mail-distraction-free-mailmate
 ---
 
-Email can eat up all your attention or can be a power tool to purposefully connect with your world. Setting a timebox is my tactic. I only read and answer mails in this slot. Having a sensitive setup will help you with not getting disturbed by email during your day.
+Email can eat up all your attention or can be a power tool to purposefully connect with your world. Setting a timebox is my tactic. I only read and answer mails in this slot. During the day I still want to send and find emails, so I want to avoid seeing new emails that might derail me from my initial plan. Having a sensitive setup will help you with not getting disturbed by email during your day.
 
 I use Mailmate, a powerfull customizable client. Here are my tipps for using it mindfully:
 
