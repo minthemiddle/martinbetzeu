@@ -18,6 +18,7 @@ Since I had some problems setting it up, here is my final working solution:
 - When done, I go to master and merge: `gcm && gm add-article-jigsaw-github-pages-deployment` (using `zsh` aliases)
 - Then I check out a running branch called `gh-pages`. I do not want the changes to the HTML in my master, so I just save them here
 - In `gh-pages` I first rebase to put the output HTML commits ahead of master: `grbm`
+- If rebasing causes trouble, I just force delete the `gh-pages` branch (`gb -D gh-pages`) and create it afresh (its only purpose is to keep my master branch clean by not versioning the production output files)
 - Then I run Jigsaw: `npm run production`
 - Next I create a bump commit with date and running number: `ga . && gcmsg "Bump: 200128-001"`
 - Then I force push just the subdirectory `build_production` with the following command to my `github` remote repo:
