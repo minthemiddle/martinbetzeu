@@ -3,12 +3,283 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-02-02T11:06:02+00:00</updated>
+    <updated>2020-04-10T11:21:21+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
     </author>
                 <entry>
+    <id>https://martinbetz.eu/articles/only-allow-owner-to-update-their-user-profile-in-laravel-with-a-policy</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/only-allow-owner-to-update-their-user-profile-in-laravel-with-a-policy" />
+    <title>Only allow owner to update their user profile in Laravel with a policy</title>
+    <published>2020-04-10T00:00:00+00:00</published>
+    <updated>2020-04-10T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">
+
+You have a website that lists the profile of Laravel developers
+The profile is just an extension of the &lt;code&gt;User&lt;/code&gt; model, so you have extra fields
+For sake of simplicity, you have only one field in your profile that is the numbers of years......</summary>
+    <content type="html"><![CDATA[
+        <h2>The problem: Only owners should be allowed to edit their profiles</h2>
+<ul>
+<li>You have a website that lists the profile of Laravel developers</li>
+<li>The profile is just an extension of the <code>User</code> model, so you have extra fields</li>
+<li>For sake of simplicity, you have only one field in your profile that is the numbers of years you've been coding with Laravel</li>
+<li>Developers listed should only be able to edit their own profile and not foreign profiles</li>
+</ul>
+<h2>The solution: Use a policy for the User model</h2>
+<ul>
+<li>We will write a <a href="https://laravel.com/docs/7.x/authorization#creating-policies">policy</a> that will be triggered when a user updates a profile</li>
+<li>The policy checks whether you are the owner of the user profile</li>
+<li>If you are, you can update the profile</li>
+<li>If you are not the owner, your request will be denied</li>
+</ul>
+<h2>The step by step explanation</h2>
+<ul>
+<li>I will show you how to add this policy test-driven</li>
+<li>I assume that you already created a fresh Laravel app and set up your database</li>
+</ul>
+<h3>Step 1: Write a failing test <code>user_can_update_own_profile</code></h3>
+<ul>
+<li>Create a test for the User model: <code>php artisan make:test Http/Controllers/UserControllerTest</code></li>
+<li>We will write a test with how we wish our app should work if we are the owner of a profile</li>
+<li>This is called the <em>Happy Path</em></li>
+</ul>
+<pre><code class="language-php">// tests/Feature/Http/Controllers/UserControllerTest.php
+
+&lt;?php
+
+namespace Tests\Feature\Http\Controllers;
+
+use App\User;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class UserControllerTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test */
+    public function user_can_update_own_profile()
+    {
+        $user = factory(User::class)-&gt;create();
+        $response = $this-&gt;actingAs($user)-&gt;post(route('user.profile.update', $user), [
+            'experience_years' =&gt; 5,
+        ]);
+
+        $response-&gt;assertSuccessful();
+        $user-&gt;refresh();
+        $this-&gt;assertEquals(5, $user-&gt;experience_years);
+    }
+}</code></pre>
+<ul>
+<li>This test will fail for many reasons
+<ul>
+<li>We do not have a route named <code>user.profile.update</code> that we can send a <code>POST</code> request to</li>
+<li>We do not have a <code>experience_years</code> property on the <code>User</code> model</li>
+<li>We do not have a User controller that actually updates the model</li>
+</ul></li>
+<li>In a normal test-driven process, I would solve this error by error</li>
+<li>As this tutorial is about policies, I will just solve all problems at once to get to the policy part</li>
+</ul>
+<h3>Step 2: Fix the test to assert that you can update your own profile</h3>
+<ul>
+<li>The solution: Update your migration, <code>User</code> model, <code>web.php</code> routes file and create a <code>UserController</code> with an <code>update</code> method that updates with everything passed with a request</li>
+<li>I marked all new files with a <code>// ADD:</code> comment</li>
+<li>I deleted all comments and unneccessary lines</li>
+</ul>
+<pre><code class="language-php">// Migration: database/migrations/2014_10_12_000000_create_users_table.php
+// Your date in the filename should differ
+
+&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateUsersTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;string('name');
+            $table-&gt;string('email')-&gt;unique();
+            $table-&gt;integer('experience_years')-&gt;nullable(); // ADD: nullable integer
+            $table-&gt;timestamp('email_verified_at')-&gt;nullable();
+            $table-&gt;string('password');
+            $table-&gt;rememberToken();
+            $table-&gt;timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
+}
+</code></pre>
+<pre><code class="language-php">// User Model: app/User.php
+
+&lt;?php
+
+namespace App;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    protected $fillable = [
+        'name', 'email', 'password', 'experience_years' // ADD: 'experience_years'
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' =&gt; 'datetime',
+    ];
+}
+</code></pre>
+<pre><code class="language-php">// Routes: routes/web.php
+
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::post('/{user}/profile/update', 'UserController@update')-&gt;name('user.profile.update');
+</code></pre>
+<pre><code class="language-php">// Controller: app/Http/Controllers/UserController.php
+
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    public function update(Request $request, User $user)
+    {
+        $user-&gt;update($request-&gt;all());
+    }
+}</code></pre>
+<ul>
+<li>You can now run the tests with <code>php artisan test</code>.</li>
+<li>You should see two passing example tests and a passing test: <code>✓ user can update own profile</code></li>
+<li>Let's try to update someone else's years of experience:</li>
+</ul>
+<h3>Step 3: Try to update someone else's profile – and fail</h3>
+<pre><code class="language-php">/** @test */
+    public function user_cannot_update_foreign_profile()
+    {
+        $user = factory(User::class)-&gt;create();
+        $foreign_user = factory(User::class)-&gt;create([
+            'experience_years' =&gt; 2,
+        ]);
+        $response = $this-&gt;actingAs($user)-&gt;post(route('user.profile.update', $foreign_user), [
+            'experience_years' =&gt; 5,
+        ]);
+
+        $response-&gt;assertForbidden();
+        $foreign_user-&gt;refresh();
+        $this-&gt;assertEquals(2, $foreign_user-&gt;experience_years);
+    }</code></pre>
+<ul>
+<li>This test will fail <code>Asserting that 5 is 2</code></li>
+<li>This means: Yes, we can change someone else's profile</li>
+<li>Not good!</li>
+</ul>
+<h3>Step 4: Add a policy to disallow changing someone else's profile</h3>
+<ul>
+<li>Solution: Add a policy to stopp this</li>
+<li>Create the policy: <code>php artisan make:policy UserPolicy</code></li>
+</ul>
+<pre><code class="language-php">// Policy: app/Policies/UserPolicy.php
+
+&lt;?php
+
+namespace App\Policies;
+
+use App\User;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class UserPolicy
+{
+    use HandlesAuthorization;
+
+    public function update(User $user, User $user_model)
+    {
+        return $user-&gt;id === $user_model-&gt;id ? Response::allow() : Response::deny();
+    }
+}
+</code></pre>
+<ul>
+<li>Policies always have the current user passed via <code>User $user</code></li>
+<li>The second argument is the model that we want to protect</li>
+<li>Because we want to protect the user model, we need to pass it twice with differing names</li>
+<li>Interpretation of the command: If the ID of the currently logged in user is the same as the id of the user model that is being tried to update, allow the update. If not, reject the update</li>
+<li>Because we named the policy like the model, Laravel automatically finds it</li>
+<li>We only need to apply the policy on the route</li>
+</ul>
+<pre><code class="language-php">// Routes with policy: routes/web.php
+
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::post('/{user}/profile/update', 'UserController@update')-&gt;name('user.profile.update')-&gt;middleware('can:update,user');
+</code></pre>
+<p>The <code>-&gt;middleware('can:update,user)</code> means: Authorize the <code>update()</code> action and pass the <code>user</code> URL parameter to the policy (that's our <code>$user_model</code> in the policy).</p>
+<h2>Repo and extension</h2>
+<ul>
+<li>If you have problems following the code, check out the repo on <a href="https://github.com/minthemiddle/200410-listing">Github</a>.</li>
+<li>If you want to extend this functionality, try to add an exception for admins: They should be able to change every profile</li>
+</ul>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/todo-paper-audio-todoist</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/todo-paper-audio-todoist" />
+    <title>How I manage my todos</title>
+    <published>2020-02-04T00:00:00+00:00</published>
+    <updated>2020-02-04T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">To manage my todos, I use a mishmash of Getting Things Done, Bullet Journal and personal likings.
+
+I try to capture todos with whatever of these three methods is most convenient at the time
+
+Paper: I use squared paper and three symbol types,......</summary>
+    <content type="html"><![CDATA[
+        <p>To manage my todos, I use a mishmash of Getting Things Done, Bullet Journal and personal likings.</p>
+<ul>
+<li>I try to capture todos with whatever of these three methods is most convenient at the time
+<ul>
+<li><strong>Paper</strong>: I use squared paper and three symbol types, <code>ᐧ</code> (dot) for a todo, <code>o</code> for a log (&quot;I worked out for 3 minutes&quot; and <code>-</code> for a thought</li>
+<li><strong>Audio</strong>: I use a Zoom H1 voice recorder to capture stuff in situations where I do not want to write</li>
+<li><strong>Todoist</strong>: If on the computer, I save all todos directly in Todoist's Inbox</li>
+</ul></li>
+<li>At the end of every day I transfer todos from paper and audio to Todoist</li>
+<li>On paper I mark the transferred items with a <code>&gt;</code> and shred the paper once I transferred all items</li>
+<li>In Todoist is use projects with emoji names</li>
+<li>I move all todos into the respective project</li>
+<li>I keep it simple and work on projects and prioritize within them by sorting the todos manually</li>
+<li>Seldomly I use labels: I have labels for lengths, such as <code>_5</code>, <code>_25</code> and <code>_50</code> and also labels for context, such as <code>_email</code> and <code>_call</code> that I sometimes use to prioritize</li>
+</ul>
+<p><img src="/assets/img/articles/todoist.png" alt="Managing todos with Todoist" /></p>    ]]></content>
+</entry>
+            <entry>
     <id>https://martinbetz.eu/articles/how-to-write-emails</id>
     <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/how-to-write-emails" />
     <title>How to write emails</title>
@@ -128,6 +399,7 @@ Create an extra calendar just for day planning......</summary>
 <li>Use search to find blocks in your library that you do not have readily available from the past few days; typing the first few characters will suffice</li>
 <li>Always use a second physical timer (I use a kitchen timer where I removed the audio signals) to stay in the time frame</li>
 <li>Always adjust differences like delays, skipped or extra pomodoros when or even after they happen – no plan is perfect anyway</li>
+<li>For extra information that you want to display, such as task description, misuse the location field and it will show on the pomodoro block</li>
 </ul>
 <p><img src="/assets/img/articles/pomo-apple-calendar.png" alt="Day with pomodoros in Apple Calendar" /></p>    ]]></content>
 </entry>

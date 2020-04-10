@@ -5,18 +5,22 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="1">
 
-        <meta property="og:title" content="Martin Betz"/>
+        <meta property="og:title" content="How I manage my todos | Martin Betz"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://martinbetz.eu/newsletter/thanks"/>
+        <meta property="og:url" content="https://martinbetz.eu/articles/todo-paper-audio-todoist"/>
         <meta property="og:description" content="Articles, services and products of Martin Betz" />
 
-        <title>Martin Betz</title>
+        <title>Martin Betz | How I manage my todos</title>
 
         <link rel="home" href="https://martinbetz.eu">
         <link rel="icon" href="/favicon.ico?v=5">
         <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
 
-        
+            <meta property="og:title" content="How I manage my todos" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/todo-paper-audio-todoist"/>
+    <meta property="og:description" content="How to use Apple Calendar with Pomodoro" />
+
         <link rel="stylesheet" href="/assets/build/css/main.css?id=744c4fc9b5c9695b1ae3">
         <script async defer data-domain="martinbetz.eu" src="https://stats.martinbetz.eu/js/plausible.js"></script>
         <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
@@ -116,13 +120,60 @@
         <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
 
 
-                <div class="flex flex-col items-center text-gray-600 mt-32">
+                
+    <h1 class="leading-none mb-2">How I manage my todos</h1>
+    <p class="text-gray-600 font mt-0 text-base">February 4, 2020</p>
 
-        <h2 class="text-3xl">Thanks for confirming. Welcome to my newsletter!</h2>
-        <p class="text-xl">
-            You now are subscribed to my newsletter. I am curious how you like my content.
-        </p>
+    <div class="rich-text pb-4" v-pre>
+        <p>To manage my todos, I use a mishmash of Getting Things Done, Bullet Journal and personal likings.</p>
+<ul>
+<li>I try to capture todos with whatever of these three methods is most convenient at the time
+<ul>
+<li><strong>Paper</strong>: I use squared paper and three symbol types, <code>ᐧ</code> (dot) for a todo, <code>o</code> for a log (&quot;I worked out for 3 minutes&quot; and <code>-</code> for a thought</li>
+<li><strong>Audio</strong>: I use a Zoom H1 voice recorder to capture stuff in situations where I do not want to write</li>
+<li><strong>Todoist</strong>: If on the computer, I save all todos directly in Todoist's Inbox</li>
+</ul></li>
+<li>At the end of every day I transfer todos from paper and audio to Todoist</li>
+<li>On paper I mark the transferred items with a <code>&gt;</code> and shred the paper once I transferred all items</li>
+<li>In Todoist is use projects with emoji names</li>
+<li>I move all todos into the respective project</li>
+<li>I keep it simple and work on projects and prioritize within them by sorting the todos manually</li>
+<li>Seldomly I use labels: I have labels for lengths, such as <code>_5</code>, <code>_25</code> and <code>_50</code> and also labels for context, such as <code>_email</code> and <code>_call</code> that I sometimes use to prioritize</li>
+</ul>
+<p><img src="/assets/img/articles/todoist.png" alt="Managing todos with Todoist" /></p>    </div>
+
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"How I manage my todos"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
     </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">February 4, 2020</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/productivity"
+                    title="View posts in productivity"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >productivity</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/how-to-write-emails" title="Older Post: How to write emails">
+                    &LeftArrow; How to write emails
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://martinbetz.eu/articles/only-allow-owner-to-update-their-user-profile-in-laravel-with-a-policy" title="Newer Post: Only allow owner to update their user profile in Laravel with a policy">
+                    Only allow owner to update their user profile in Laravel with a policy &RightArrow;
+                </a>
+                    </div>
+    </nav>
         </main>
 
         <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
@@ -156,6 +207,17 @@
         </script>
 
         <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('todo-paper-audio-todoist');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
     const navMenu = {
         toggle() {
             const menu = document.getElementById('js-nav-menu');
