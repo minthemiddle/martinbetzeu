@@ -3,7 +3,7 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-04-27T06:55:35+00:00</updated>
+    <updated>2020-04-27T07:11:32+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
@@ -37,6 +37,8 @@ The list is sorted alphabetically:</p>
 <li>📺 <a href="https://laravelcoreadventures.com/">Laravel Core Adventures</a></li>
 <li>📘, 🚧 <a href="https://laravelsecrets.com/">Laravel Secrets</a></li>
 <li>📘 <a href="https://laravelupandrunning.com/">Laravel Up &amp; Running</a></li>
+<li>📺 <a href="https://mailcoach.app/videos">The Mailcoach
+video course</a></li>
 <li>📺, 🚧 <a href="https://multitenancy.dev/">Multi Tenancy with Laravel</a></li>
 <li>📺 <a href="https://laraveldaily.teachable.com/">Online Courses by Laravel Daily</a> 📺</li>
 <li>📺 <a href="https://phppackagedevelopment.com/">PHP Package Development</a></li>
