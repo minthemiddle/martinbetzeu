@@ -3,12 +3,50 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-04-10T11:21:21+00:00</updated>
+    <updated>2020-04-27T06:55:35+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
     </author>
                 <entry>
+    <id>https://martinbetz.eu/articles/premium-laravel</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/premium-laravel" />
+    <title>Premium Laravel courses and books</title>
+    <published>2020-04-27T00:00:00+00:00</published>
+    <updated>2020-04-27T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">There are many premium paid video courses (📺) and books (📘) for Laravel.
+I also list content that is not released yet (🚧).
+The list is sorted alphabetically:
+
+📺 Build A Chatbot
+📘 Build an API with Laravel 
+📺 Confident Laravel (📺)......</summary>
+    <content type="html"><![CDATA[
+        <p>There are many premium paid video courses (📺) and books (📘) for Laravel.<br />
+I also list content that is not released yet (🚧).<br />
+The list is sorted alphabetically:</p>
+<ul>
+<li>📺 <a href="https://course.buildachatbot.io/">Build A Chatbot</a></li>
+<li>📘 <a href="https://buildanapi.com/">Build an API with Laravel</a> </li>
+<li>📺 <a href="https://confidentlaravel.com/">Confident Laravel</a> (📺)</li>
+<li>📺, 🚧 <a href="https://eloquent-course.reinink.ca/">Eloquent Performance Patterns</a></li>
+<li>📺, 🚧 <a href="https://indepthlaravel.com/">In Depth Laravel</a></li>
+<li>📺 <a href="https://laravelcoreadventures.com/">Laravel Core Adventures</a></li>
+<li>📘, 🚧 <a href="https://laravelsecrets.com/">Laravel Secrets</a></li>
+<li>📘 <a href="https://laravelupandrunning.com/">Laravel Up &amp; Running</a></li>
+<li>📺, 🚧 <a href="https://multitenancy.dev/">Multi Tenancy with Laravel</a></li>
+<li>📺 <a href="https://laraveldaily.teachable.com/">Online Courses by Laravel Daily</a> 📺</li>
+<li>📺 <a href="https://phppackagedevelopment.com/">PHP Package Development</a></li>
+<li>📘 <a href="https://adamwathan.me/refactoring-to-collections/">Refactoring to Collections</a></li>
+<li>📺 <a href="https://serverlesslaravelcourse.com/">Serverless Laravel</a></li>
+<li>📺 <a href="https://course.testdrivenlaravel.com/">Test Driven Laravel</a></li>
+</ul>
+<p>If you know more resources, please email me 👇.</p>    ]]></content>
+</entry>
+            <entry>
     <id>https://martinbetz.eu/articles/only-allow-owner-to-update-their-user-profile-in-laravel-with-a-policy</id>
     <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/only-allow-owner-to-update-their-user-profile-in-laravel-with-a-policy" />
     <title>Only allow owner to update their user profile in Laravel with a policy</title>
