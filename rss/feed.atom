@@ -3,7 +3,7 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-04-28T03:58:18+00:00</updated>
+    <updated>2020-04-28T04:01:51+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
@@ -517,6 +517,7 @@ Here are the direct links......</summary>
 <li><a href="https://pociot.dev">pociot.dev</a> (<a href="https://pociot.dev/feed">RSS</a>)</li>
 <li><a href="https://sebastiandedeyne.com">Sebastian De Deyne</a> (<a href="https://sebastiandedeyne.com/index.xml">RSS</a>)</li>
 <li><a href="http://shawnmc.cool">Shawn McCool</a> (<a href="http://shawnmc.cool/feed">RSS</a>)</li>
+<li><a href="https://stackcoder.in/">Stackcoder</a> (<a href="https://stackcoder.in/feed">RSS</a>)</li>
 <li><a href="https://www.stitcher.io/https://www.stitcher.io">stitcher.io</a> (<a href="https://www.stitcher.io/https://www.stitcher.io/rss">RSS</a>)</li>
 <li><a href="https://tighten.co/blog">Tighten Blog</a> (<a href="https://tighten.co/blog/feed.atom">RSS</a>)</li>
 <li><a href="https://timacdonald.me">Tim MacDonald</a> (<a href="https://timacdonald.me/feed.xml">RSS</a>)</li>
