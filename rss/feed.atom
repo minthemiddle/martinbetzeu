@@ -3,7 +3,7 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-04-27T07:11:32+00:00</updated>
+    <updated>2020-04-28T03:58:18+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
@@ -23,7 +23,8 @@ The list is sorted alphabetically:
 
 📺 Build A Chatbot
 📘 Build an API with Laravel 
-📺 Confident Laravel (📺)......</summary>
+📺 Confident Laravel
+📺, 🚧......</summary>
     <content type="html"><![CDATA[
         <p>There are many premium paid video courses (📺) and books (📘) for Laravel.<br />
 I also list content that is not released yet (🚧).<br />
@@ -31,7 +32,7 @@ The list is sorted alphabetically:</p>
 <ul>
 <li>📺 <a href="https://course.buildachatbot.io/">Build A Chatbot</a></li>
 <li>📘 <a href="https://buildanapi.com/">Build an API with Laravel</a> </li>
-<li>📺 <a href="https://confidentlaravel.com/">Confident Laravel</a> (📺)</li>
+<li>📺 <a href="https://confidentlaravel.com/">Confident Laravel</a></li>
 <li>📺, 🚧 <a href="https://eloquent-course.reinink.ca/">Eloquent Performance Patterns</a></li>
 <li>📺, 🚧 <a href="https://indepthlaravel.com/">In Depth Laravel</a></li>
 <li>📺 <a href="https://laravelcoreadventures.com/">Laravel Core Adventures</a></li>
@@ -40,7 +41,7 @@ The list is sorted alphabetically:</p>
 <li>📺 <a href="https://mailcoach.app/videos">The Mailcoach
 video course</a></li>
 <li>📺, 🚧 <a href="https://multitenancy.dev/">Multi Tenancy with Laravel</a></li>
-<li>📺 <a href="https://laraveldaily.teachable.com/">Online Courses by Laravel Daily</a> 📺</li>
+<li>📺 <a href="https://laraveldaily.teachable.com/">Online Courses by Laravel Daily</a></li>
 <li>📺 <a href="https://phppackagedevelopment.com/">PHP Package Development</a></li>
 <li>📘 <a href="https://adamwathan.me/refactoring-to-collections/">Refactoring to Collections</a></li>
 <li>📺 <a href="https://serverlesslaravelcourse.com/">Serverless Laravel</a></li>
