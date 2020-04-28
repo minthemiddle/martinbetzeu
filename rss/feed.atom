@@ -3,7 +3,7 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-04-28T04:01:51+00:00</updated>
+    <updated>2020-04-28T06:03:41+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
@@ -48,6 +48,249 @@ video course</a></li>
 <li>📺 <a href="https://course.testdrivenlaravel.com/">Test Driven Laravel</a></li>
 </ul>
 <p>If you know more resources, please email me 👇.</p>    ]]></content>
+</entry>
+            <entry>
+    <id>https://martinbetz.eu/articles/email-testing-laravel</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/email-testing-laravel" />
+    <title>Testing mails in Laravel</title>
+    <published>2020-04-25T00:00:00+00:00</published>
+    <updated>2020-04-25T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">
+Imagine a simple social network where users can send emails to other users. We will use Laravel and test driven development to create an app that does exactly this.
+An user visits the profile of another user and when he clicks on &amp;quot;Message&amp;quot; he......</summary>
+    <content type="html"><![CDATA[
+        <h2>The case: Test that users can send mails to other users</h2>
+<p>Imagine a simple social network where users can send emails to other users. We will use Laravel and test driven development to create an app that does exactly this.</p>
+<p>An user visits the profile of another user and when he clicks on &quot;Message&quot; he can send a customized email to the other user via the system. He can even give a custom subject.</p>
+<p>I know that for such a simple use case we could just use <code>&lt;a href="mailto:name@domain.com"&gt;&lt;/a&gt;</code> but I want to show you how to use and test email in Laravel.</p>
+<h2>The setup</h2>
+<p>You just need a fresh Laravel app. At the time of writing this article this was v7.8.1, but anything after v5.6 should be 80% matching (please report issues). For a minimal setup, remove all lines starting with <code>DB_</code> in your <code>.env</code>, add <code>DB_CONNECTION=sqlite</code>, create a file called <code>database.sqlite</code> in  the <code>/database</code> folder and run <code>php artisan migrate</code>.</p>
+<h2>The test</h2>
+<p>We will first right an automated test. This will fail and we will add code step by step to fix the problems to finally get a test that gives us confidence that the code works as intended.</p>
+<p>Let's create the test: <code>php artisan make:test ContactUserTest</code>. I will show you how my initial test looks like, but please be aware that I spent around 10 minute into thinking &quot;How should this work?&quot;. Writing the test is when you define how you wish your app should work. We are first testing the expected action (<code>it_does_send_a_mail_from_one_user_to_another</code>). This is called the happy path. We will later check that unexpected behavior does not happen – the sad path.</p>
+<p>I'll explain the details after the code, but I left some problems in there so you can see how test driven development (TDD) works. Write a failing test and fix one problem after the other until you get a passing test.</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Tests\Feature;
+
+use App\User;
+use Illuminate\Support\Facades\Mail;
+use Tests\TestCase;
+
+class ContactUserTest extends TestCase
+{
+    /** @test */
+    public function it_does_send_a_mail_from_one_user_to_another()
+    {
+        $user_from = factory(User::class)-&gt;create();
+        $user_to = factory(User::class)-&gt;create();
+
+        Mail::fake();
+
+        $response = $this-&gt;post(route('contactUserMail'), [
+            'user_to' =&gt; $user_to,
+            'subject' =&gt; 'My subject',
+            'body' =&gt; 'My body',
+        ]);
+
+        $response-&gt;assertSuccessful();
+
+        Mail::assertSent(ContactUserMail::class);
+    }
+}</code></pre>
+<ul>
+<li>I first create two users, the sender and the receiver (<code>$user_to</code>)</li>
+<li>We will use the logged in user as the sender, so we don't need to send this info with the request</li>
+<li><code>Mail::fake()</code> will swap the actual <code>Mail</code> class with a test library. No real mails will be sent and we can make assertions on what should happen</li>
+<li>I decided that sending a mail should be a <code>POST</code> request from a form and have <code>user_to</code>, <code>subject</code> and <code>body</code> arguments. I will get the <code>user_from</code> automatically from the currently logged in user to prevent that you can send in someone else's name</li>
+<li><code>$response-&gt;assertSuccessful()</code> will check whether the <code>POST</code> request was successful</li>
+<li>Finally, I check whether the Mail class <code>ContactUserMail</code> was sent</li>
+</ul>
+<p>As expected, there are a couple of errors, but let <code>phpunit</code> tell us what's wrong…</p>
+<p>Just run <code>phpunit</code> within your project - with Laravel 7+ you can also use <code>php artisan test</code>.</p>
+<h2>Problem 01: No database being used</h2>
+<p>The error: <code>SQLSTATE[HY000]: General error: 1 no such table: users</code></p>
+<p>Our test is not using the database yet, let's add the <code>RefreshDatabase</code> trait to solve this.</p>
+<p>Note: I will show git diffs for solving the problems. This diff compares before <code>a/</code> and after <code>b/</code>. A <code>+</code> means that something was added, a <code>-</code> shows deleted lines.</p>
+<pre><code class="language-diff">diff --git a/tests/Feature/ContactUserTest.php b/tests/Feature/ContactUserTest.php
+index 89de017..a611b89 100644
+--- a/tests/Feature/ContactUserTest.php
++++ b/tests/Feature/ContactUserTest.php
+@@ -3,11 +3,14 @@
+ namespace Tests\Feature;
+
+ use App\User;
++use Illuminate\Foundation\Testing\RefreshDatabase;
+ use Illuminate\Support\Facades\Mail;
+ use Tests\TestCase;
+
+ class ContactUserTest extends TestCase
+ {
++    use RefreshDatabase;
++
+     /** @test */
+     public function it_does_send_a_mail_from_one_user_to_another()
+     {</code></pre>
+<h2>Problem 02: Route not defined</h2>
+<p>The error: <code>Symfony\Component\Routing\Exception\RouteNotFoundException: Route [contactUserMail] not defined.</code></p>
+<p>Well, we called a route that does not exist yet. Let's create it:</p>
+<pre><code class="language-diff">diff --git a/routes/web.php b/routes/web.php
+index b130397..4ecc7b7 100644
+--- a/routes/web.php
++++ b/routes/web.php
+@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
+ Route::get('/', function () {
+     return view('welcome');
+ });
++
++Route::post('contactUserMail', function() {
++    return true;
++})-&gt;name('contactUserMail');</code></pre>
+<p>This route may seem stupid, because I just return <code>true</code>, but for now it is just important to solve the error that <code>phpunit</code> showed.</p>
+<h2>Problem 03: Mail was not sent</h2>
+<p>The error: <code>The expected [Tests\Feature\ContactUserMail] mailable was not sent.</code></p>
+<p>Ok, let's create the email first and leave as is:</p>
+<p><code>php art make:mail ContactUserMail -m emails.contactUserMail</code> </p>
+<p>This will create the mail class and a markdown template.</p>
+<p>We have to update the route to actually send the mail with <code>Mail::to('test@test.com')-&gt;send(new ContactUserMail);</code>. Again, the goal is not to be right, but to get the test passing.</p>
+<pre><code class="language-diff">diff --git a/routes/web.php b/routes/web.php
+index 4ecc7b7..9ed75ee 100644
+--- a/routes/web.php
++++ b/routes/web.php
+@@ -1,5 +1,7 @@
+ &lt;?php
+
++use App\Mail\ContactUserMail;
++use Illuminate\Support\Facades\Mail;
+ use Illuminate\Support\Facades\Route;
+
+ /*
+@@ -18,5 +20,6 @@ Route::get('/', function () {
+ });
+
+ Route::post('contactUserMail', function() {
++    Mail::to('test@test.com')-&gt;send(new ContactUserMail);
+     return true;
+ })-&gt;name('contactUserMail');</code></pre>
+<p>Lastly, we need to import the Mail class to the test:</p>
+<pre><code class="language-diff">diff --git a/tests/Feature/ContactUserTest.php b/tests/Feature/ContactUserTest.php
+index a611b89..4d208a6 100644
+--- a/tests/Feature/ContactUserTest.php
++++ b/tests/Feature/ContactUserTest.php
+@@ -2,6 +2,7 @@
+
+ namespace Tests\Feature;
+
++use App\Mail\ContactUserMail;
+ use App\User;
+ use Illuminate\Foundation\Testing\RefreshDatabase;
+ use Illuminate\Support\Facades\Mail;</code></pre>
+<p>Run <code>phpunit</code> again and… <code>✔ It does send a mail from one user to another</code>.</p>
+<p>Congratulations, our test is passing, we are sending the mail as expected.</p>
+<p>But wait, we did not check that <code>user_from</code> and <code>user_to</code> are right. Our test is incomplete.</p>
+<p>This is also a common case, so no worries. Just add more assertions to your test:</p>
+<pre><code class="language-diff">diff --git a/tests/Feature/ContactUserTest.php b/tests/Feature/ContactUserTest.php
+index fb6532d..64df550 100644
+--- a/tests/Feature/ContactUserTest.php
++++ b/tests/Feature/ContactUserTest.php
+@@ -28,6 +28,10 @@ class ContactUserTest extends TestCase
+
+         $response-&gt;assertSuccessful();
+
+-        Mail::assertSent(ContactUserMail::class);
++        Mail::assertSent(ContactUserMail::class, function($mail) use ($user_from, $user_to) {
++            $mail-&gt;build();
++            $this-&gt;assertEquals($user_from-&gt;email, $mail-&gt;from[0]['address']);
++            $this-&gt;assertTrue($mail-&gt;hasTo($user_to-&gt;email));
++            return true;
++        });
+     }
+ }</code></pre>
+<p>Run <code>phpunit</code> again.</p>
+<h2>Problem 04: From is not right</h2>
+<p>Error: <code>ErrorException: Trying to get property 'address' of non-object</code> </p>
+<p>Ok, we did not set the sender yet. Let's do this.</p>
+<pre><code class="language-diff">diff --git a/app/Mail/ContactUserMail.php b/app/Mail/ContactUserMail.php
+index 017b66c..0577a18 100644
+--- a/app/Mail/ContactUserMail.php
++++ b/app/Mail/ContactUserMail.php
+@@ -28,6 +28,6 @@ class ContactUserMail extends Mailable
+      */
+     public function build()
+     {
+-        return $this-&gt;markdown('emails.contactUserMail');
++        return $this-&gt;from('sender@test.com')-&gt;markdown('emails.contactUserMail');
+     }
+ }</code></pre>
+<pre><code class="language-diff">diff --git a/tests/Feature/ContactUserTest.php b/tests/Feature/ContactUserTest.php
+index d47f85f..947757c 100644
+--- a/tests/Feature/ContactUserTest.php
++++ b/tests/Feature/ContactUserTest.php
+@@ -15,7 +15,9 @@ class ContactUserTest extends TestCase
+     /** @test */
+     public function it_does_send_a_mail_from_one_user_to_another()
+     {
+-        $user_from = factory(User::class)-&gt;create();
++        $user_from = factory(User::class)-&gt;create([
++            'email' =&gt; 'sender@test.com',
++        ]);
+         $user_to = factory(User::class)-&gt;create();
+     }
+ }</code></pre>
+<h2>Problem 05: From is not right</h2>
+<p>Error: <code>Failed asserting that false is true</code>(<code>ContactUserTest.php:36</code>)</p>
+<p>So, now the <code>to</code> is not correct. Of course, we did not specify the email in the factory, so we have differing emails. Let's fix this!</p>
+<pre><code class="language-diff">diff --git a/tests/Feature/ContactUserTest.php b/tests/Feature/ContactUserTest.php
+index 9f2b79d..3f72373 100644
+--- a/tests/Feature/ContactUserTest.php
++++ b/tests/Feature/ContactUserTest.php
+@@ -18,7 +18,9 @@ class ContactUserTest extends TestCase
+         $user_from = factory(User::class)-&gt;create([
+             'email' =&gt; 'sender@test.com',
+         ]);
+-        $user_to = factory(User::class)-&gt;create();
++        $user_to = factory(User::class)-&gt;create([
++            'email' =&gt; 'test@test.com',
++        ]);
+
+         Mail::fake();
+</code></pre>
+<p>Run <code>phpunit</code> again and boom, <code>from</code> and <code>to</code> work as expected!</p>
+<p>But <code>subject</code> is still missing. Add an assertion to the test:</p>
+<pre><code class="language-diff">diff --git a/tests/Feature/ContactUserTest.php b/tests/Feature/ContactUserTest.php
+index 3f72373..9840e1b 100644
+--- a/tests/Feature/ContactUserTest.php
++++ b/tests/Feature/ContactUserTest.php
+@@ -36,6 +36,7 @@ class ContactUserTest extends TestCase
+             $mail-&gt;build();
+             $this-&gt;assertEquals($user_from-&gt;email, $mail-&gt;from[0]['address']);
+             $this-&gt;assertTrue($mail-&gt;hasTo($user_to-&gt;email));
++            $this-&gt;assertEquals('My subject', $mail-&gt;subject);
+             return true;
+         });
+     }</code></pre>
+<h2>Problem 05: Subject not working</h2>
+<p>Error: <code>TypeError: Argument 2 passed to PHPUnit\Framework\Assert::assertTrue() must be of the type string, null given</code> (<code>ContactUserTest.php:39</code>)</p>
+<p>This simply means that <code>$mail-&gt;subject</code> is empty.</p>
+<p>Let's solve this:</p>
+<pre><code class="language-diff">diff --git a/app/Mail/ContactUserMail.php b/app/Mail/ContactUserMail.php
+index 0577a18..1e7258f 100644
+--- a/app/Mail/ContactUserMail.php
++++ b/app/Mail/ContactUserMail.php
+@@ -28,6 +28,6 @@ class ContactUserMail extends Mailable
+      */
+     public function build()
+     {
+-        return $this-&gt;from('sender@test.com')-&gt;markdown('emails.contactUserMail');
++        return $this-&gt;from('sender@test.com')-&gt;subject('My subject')-&gt;markdown('emails.contactUserMail');
+     }
+ }</code></pre>
+<p>Run <code>phpunit</code> again and yay, the test is passing. You can be confident now that an email is sent with the expected <code>from</code>, <code>to</code> and <code>subject</code>.</p>
+<p>Let's call it a day for now and tap yourself on the shoulder, this was massive.</p>
+<p>There will be a part 2 because, to be honest, we did not completely solve it. Right now, all the values are hard coded and not coming from a user's request. We will tackle this soon.</p>    ]]></content>
 </entry>
             <entry>
     <id>https://martinbetz.eu/articles/only-allow-owner-to-update-their-user-profile-in-laravel-with-a-policy</id>
