@@ -1,0 +1,390 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="1">
+
+        <meta property="og:title" content="How to protect URLs with a PIN code in Laravel | Martin Betz"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://martinbetz.eu/articles/laravel-pin-protected-url"/>
+        <meta property="og:description" content="Articles, services and products of Martin Betz" />
+
+        <title>Martin Betz | How to protect URLs with a PIN code in Laravel</title>
+
+        <link rel="home" href="https://martinbetz.eu">
+        <link rel="icon" href="/favicon.ico?v=5">
+        <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
+
+            <meta property="og:title" content="How to protect URLs with a PIN code in Laravel" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/laravel-pin-protected-url"/>
+    <meta property="og:description" content="How to protect URLs with a PIN code in Laravel" />
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=744c4fc9b5c9695b1ae3">
+        <script async defer data-domain="martinbetz.eu" src="https://stats.martinbetz.eu/js/plausible.js"></script>
+        <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-900 leading-normal font-sans">
+        <header class="border-t-2 border-blue-400 flex items-center shadow bg-white h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-6xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Martin Betz home" class="inline-flex items-center">
+                        <h1 class="text-2xl md:text-3xl text-blue font-semibold my-0">Martin Betz</h1>
+                    </a>
+                </div>
+
+                <div class="flex flex-1 justify-end items-center">
+
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Martin Betz Articles" href="/articles"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Articles
+    </a>
+
+    <a title="Martin Betz Products" href="/products"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Products
+    </a>
+
+    <a title="Martin Betz Services" href="/services"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Services
+    </a>
+
+    <a title="Martin Betz Contact" href="/contact"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Contact
+    </a>
+
+    <a href="/rss/feed.atom">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-xl ml-6 text-gray-900 hover:text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue border border-blue h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="nav-menu hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Martin Betz Articles"
+                href="/articles"
+                class="nav-menu__item hover:text-blue "
+            >Articles</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Products"
+                href="/products"
+                class="nav-menu__item hover:text-blue "
+            >Products</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Services"
+                href="/services"
+                class="nav-menu__item hover:text-blue "
+            >Services</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Contact"
+                href="/contact"
+                class="nav-menu__item hover:text-blue "
+            >Contact</a>
+        </li>
+    </ul>
+</nav>
+
+        <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
+
+
+                
+    <h1 class="leading-none mb-2">How to protect URLs with a PIN code in Laravel</h1>
+    <p class="text-gray-600 font mt-0 text-base">May 26, 2020</p>
+
+    <div class="rich-text pb-4" v-pre>
+        <p>Here is the user story for this post: As a website owner I only want to allow access to my website for visitors who enter the correct PIN.</p>
+<h2>How the minimum version will work</h2>
+<p>When you enter the page for the first time, you will just see an input to enter a PIN. When you enter the wrong PIN, it fails silently and just reloads the page. If you enter the right PIN, it will save a cookie <code>access</code> and shows you the welcome page. If you try more than 3 times within a minute, you get a message <code>Too Many Requests</code>.</p>
+<p>And here is how it will look in the browser:</p>
+<img class="border-2 rounded border-grey shadow-inline" src="/assets/img/articles/pin-access-demo.gif" alt="">
+<h2>The tests</h2>
+<p>I will first create the sad path where I cannot access the welcome page as I did not enter the right PIN. Then I will simulate that I previously entered the right PIN and have a cookie that lets me pass. Then I will test that actual entering of the PIN and check whether I get a cookie. Lastly I check that I get banned if I enter three wrong PINs in a very short time:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Tests\Feature\Http\Controllers;
+
+use Illuminate\Support\Facades\Config;
+use Tests\TestCase;
+
+class WelcomeTest extends TestCase
+{
+
+    /** @test */
+    public function can_not_access_welcome_page_without_pin() {
+        $response = $this-&gt;get(route('root'));
+        $response-&gt;assertStatus(302);
+        $response-&gt;assertRedirect(route('pin.create'));
+    }
+
+    /** @test */
+    public function can_access_welcome_page_with_pin_cookie() {
+        $response = $this-&gt;withCookie('access', 'pass')-&gt;get(route('root'));
+        $response-&gt;assertStatus(200);
+    }
+
+    /** @test */
+    public function can_enter_pin_and_access_root_page() {
+        Config::set('settings.PIN', '5678');
+        $response = $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '5678',
+        ]));
+        $response-&gt;assertCookie('access', 'pass');
+    }
+
+    /** @test */
+    public function blocks_for_one_minute_after_three_attemps() {
+        $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '1',
+        ]));
+        $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '2',
+        ]));
+        $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '3',
+        ]));
+        $response = $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '3',
+        ]));
+        $response-&gt;assertStatus(429);
+    }
+}</code></pre>
+<h2>The code</h2>
+<p>I wrote the tests first and added the code one error after another. You may replicate by just running the tests above and go through the errors yourself.</p>
+<p>Here's the files you need with a short explanation what they do:</p>
+<ul>
+<li><code>routes/web.php</code>: for adding the routes, adding the middleware to restrict access and limit the trials</li>
+<li><code>app/Http/Middleware/CheckPin.php</code>: this is the middleware that checks whether you have a cookie that allows you to enter the welcome page</li>
+<li><code>app/Http/Kernel.php</code>: this is were you register the custom middleware</li>
+<li><code>app/Http/Controllers/PinController.php</code>: this is were you check the PIN entered and create the cookie on success</li>
+<li><code>resources/views/create.blade.php</code>: the view for entering the PIN</li>
+<li><code>resources/views/welcome.blade.php</code>: the view with the protected content</li>
+<li><code>config/settings.php</code>: you define the PIN setting here to get the value from the <code>.env</code> file and provide a fallback value</li>
+<li>`</li>
+</ul>
+<p>And here are the important sections of the files. I marked omissions with <code>(…)</code>. You can find the full source code on <a href="https://github.com/minthemiddle/pin-tutorial">https://github.com/minthemiddle/pin-tutorial</a>:</p>
+<pre><code class="language-php">// routes/web.php
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+})-&gt;name('root')-&gt;middleware('pin');
+
+Route::get('pin/create', function () {
+    return view('create');
+})-&gt;name('pin.create');
+
+Route::post('pin/store', 'PinController@store')-&gt;name('pin.store')-&gt;middleware('throttle:3,1');
+</code></pre>
+<pre><code class="language-php">// app/Http/Middleware/CheckPin.php
+&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckPin
+{
+    public function handle($request, Closure $next)
+    {
+        if ($request-&gt;cookie('access') === 'pass') {
+            return $next($request);
+        }
+
+        return redirect(route('pin.create'));
+    }
+}
+</code></pre>
+<pre><code class="language-php">// app/Http/Kernel.php
+&lt;?php
+
+namespace App\Http;
+
+use App\Http\Middleware\CheckPin;
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+
+class Kernel extends HttpKernel
+{
+    (…)
+
+    protected $routeMiddleware = [
+        (…)
+        \App\Http\Middleware\CheckPin::class,
+    ];
+}
+</code></pre>
+<pre><code class="language-php">// app/Http/Controllers/PinController.php
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+
+class PinController extends Controller
+{
+    public function store(Request $request)
+    {
+        if ($request-&gt;pin === Config::get('settings.PIN')) {
+            return redirect(route('root'))-&gt;withCookie('access', 'pass', 60);
+        }
+
+        return redirect(route('pin.create'));
+    }
+}
+</code></pre>
+<pre><code class="language-html">// resources/views/create.blade.php
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+    &lt;link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"&gt;
+    &lt;link rel="stylesheet" href="https://unpkg.com/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.min.css"&gt;
+    &lt;title&gt;Enter PIN&lt;/title&gt;
+&lt;/head&gt;
+&lt;body class="p-8 mx-auto"&gt;
+&lt;form action="{{ route('pin.store') }}" method="POST"&gt;
+    @csrf
+    &lt;input type="number" required name="pin" class="form-input text-xl"&gt;
+    &lt;button type="submit" class="form-input p-2 text-xl"&gt;Save&lt;/button&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-php">// resources/views/welcome.blade.php
+// I just used the standard welcome page that ships with Laravel
+
+```php
+// config/settings.php
+&lt;?php
+
+return [
+    'PIN' =&gt; env('PIN', '1234'),
+];
+</code></pre>
+<pre><code class="language-yaml"># .env
+(…)
+PIN=5678
+(…)</code></pre>    </div>
+
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"How to protect URLs with a PIN code in Laravel"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
+    </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">May 26, 2020</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/tech"
+                    title="View posts in tech"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >tech</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/premium-laravel" title="Older Post: Premium Laravel courses and books">
+                    &LeftArrow; Premium Laravel courses and books
+                </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
+
+            <ul class="flex flex-col md:flex-row justify-center">
+                <li class="md:mr-2">
+                    &copy; Martin Betz 2020.
+                </li>
+
+                <li>
+                    <a href="/privacy">Privacy/GDPR </a>
+                </li>
+                <li class="ml-2">
+                     <a href="/imprint">Imprint</a>
+                </li>
+                <li class="ml-2">
+                    <span id="cntct-me"></span>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=9ea1c33637d7085d7e23"></script>
+        <script>
+            var el = document.getElementById('cntct-me');
+            EO(el, {
+              name: 'contact+me',
+              domain: 'martinbetz',
+              tld: 'eu',
+              altText: 'Email'
+            });
+        </script>
+
+        <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('laravel-pin-protection');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>

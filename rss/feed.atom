@@ -3,12 +3,203 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-04-28T06:03:41+00:00</updated>
+    <updated>2020-05-26T15:45:07+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
     </author>
                 <entry>
+    <id>https://martinbetz.eu/articles/laravel-pin-protected-url</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/laravel-pin-protected-url" />
+    <title>How to protect URLs with a PIN code in Laravel</title>
+    <published>2020-05-26T00:00:00+00:00</published>
+    <updated>2020-05-26T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">Here is the user story for this post: As a website owner I only want to allow access to my website for visitors who enter the correct PIN.
+
+When you enter the page for the first time, you will just see an input to enter a PIN. When you enter the wrong......</summary>
+    <content type="html"><![CDATA[
+        <p>Here is the user story for this post: As a website owner I only want to allow access to my website for visitors who enter the correct PIN.</p>
+<h2>How the minimum version will work</h2>
+<p>When you enter the page for the first time, you will just see an input to enter a PIN. When you enter the wrong PIN, it fails silently and just reloads the page. If you enter the right PIN, it will save a cookie <code>access</code> and shows you the welcome page. If you try more than 3 times within a minute, you get a message <code>Too Many Requests</code>.</p>
+<p>And here is how it will look in the browser:</p>
+<img class="border-2 rounded border-grey shadow-inline" src="/assets/img/articles/pin-access-demo.gif" alt="">
+<h2>The tests</h2>
+<p>I will first create the sad path where I cannot access the welcome page as I did not enter the right PIN. Then I will simulate that I previously entered the right PIN and have a cookie that lets me pass. Then I will test that actual entering of the PIN and check whether I get a cookie. Lastly I check that I get banned if I enter three wrong PINs in a very short time:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Tests\Feature\Http\Controllers;
+
+use Illuminate\Support\Facades\Config;
+use Tests\TestCase;
+
+class WelcomeTest extends TestCase
+{
+
+    /** @test */
+    public function can_not_access_welcome_page_without_pin() {
+        $response = $this-&gt;get(route('root'));
+        $response-&gt;assertStatus(302);
+        $response-&gt;assertRedirect(route('pin.create'));
+    }
+
+    /** @test */
+    public function can_access_welcome_page_with_pin_cookie() {
+        $response = $this-&gt;withCookie('access', 'pass')-&gt;get(route('root'));
+        $response-&gt;assertStatus(200);
+    }
+
+    /** @test */
+    public function can_enter_pin_and_access_root_page() {
+        Config::set('settings.PIN', '5678');
+        $response = $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '5678',
+        ]));
+        $response-&gt;assertCookie('access', 'pass');
+    }
+
+    /** @test */
+    public function blocks_for_one_minute_after_three_attemps() {
+        $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '1',
+        ]));
+        $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '2',
+        ]));
+        $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '3',
+        ]));
+        $response = $this-&gt;post(route('pin.store', [
+            'pin' =&gt; '3',
+        ]));
+        $response-&gt;assertStatus(429);
+    }
+}</code></pre>
+<h2>The code</h2>
+<p>I wrote the tests first and added the code one error after another. You may replicate by just running the tests above and go through the errors yourself.</p>
+<p>Here's the files you need with a short explanation what they do:</p>
+<ul>
+<li><code>routes/web.php</code>: for adding the routes, adding the middleware to restrict access and limit the trials</li>
+<li><code>app/Http/Middleware/CheckPin.php</code>: this is the middleware that checks whether you have a cookie that allows you to enter the welcome page</li>
+<li><code>app/Http/Kernel.php</code>: this is were you register the custom middleware</li>
+<li><code>app/Http/Controllers/PinController.php</code>: this is were you check the PIN entered and create the cookie on success</li>
+<li><code>resources/views/create.blade.php</code>: the view for entering the PIN</li>
+<li><code>resources/views/welcome.blade.php</code>: the view with the protected content</li>
+<li><code>config/settings.php</code>: you define the PIN setting here to get the value from the <code>.env</code> file and provide a fallback value</li>
+<li>`</li>
+</ul>
+<p>And here are the important sections of the files. I marked omissions with <code>(…)</code>. You can find the full source code on <a href="https://github.com/minthemiddle/pin-tutorial">https://github.com/minthemiddle/pin-tutorial</a>:</p>
+<pre><code class="language-php">// routes/web.php
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+})-&gt;name('root')-&gt;middleware('pin');
+
+Route::get('pin/create', function () {
+    return view('create');
+})-&gt;name('pin.create');
+
+Route::post('pin/store', 'PinController@store')-&gt;name('pin.store')-&gt;middleware('throttle:3,1');
+</code></pre>
+<pre><code class="language-php">// app/Http/Middleware/CheckPin.php
+&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckPin
+{
+    public function handle($request, Closure $next)
+    {
+        if ($request-&gt;cookie('access') === 'pass') {
+            return $next($request);
+        }
+
+        return redirect(route('pin.create'));
+    }
+}
+</code></pre>
+<pre><code class="language-php">// app/Http/Kernel.php
+&lt;?php
+
+namespace App\Http;
+
+use App\Http\Middleware\CheckPin;
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+
+class Kernel extends HttpKernel
+{
+    (…)
+
+    protected $routeMiddleware = [
+        (…)
+        \App\Http\Middleware\CheckPin::class,
+    ];
+}
+</code></pre>
+<pre><code class="language-php">// app/Http/Controllers/PinController.php
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+
+class PinController extends Controller
+{
+    public function store(Request $request)
+    {
+        if ($request-&gt;pin === Config::get('settings.PIN')) {
+            return redirect(route('root'))-&gt;withCookie('access', 'pass', 60);
+        }
+
+        return redirect(route('pin.create'));
+    }
+}
+</code></pre>
+<pre><code class="language-html">// resources/views/create.blade.php
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+    &lt;link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"&gt;
+    &lt;link rel="stylesheet" href="https://unpkg.com/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.min.css"&gt;
+    &lt;title&gt;Enter PIN&lt;/title&gt;
+&lt;/head&gt;
+&lt;body class="p-8 mx-auto"&gt;
+&lt;form action="{{ route('pin.store') }}" method="POST"&gt;
+    @csrf
+    &lt;input type="number" required name="pin" class="form-input text-xl"&gt;
+    &lt;button type="submit" class="form-input p-2 text-xl"&gt;Save&lt;/button&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-php">// resources/views/welcome.blade.php
+// I just used the standard welcome page that ships with Laravel
+
+```php
+// config/settings.php
+&lt;?php
+
+return [
+    'PIN' =&gt; env('PIN', '1234'),
+];
+</code></pre>
+<pre><code class="language-yaml"># .env
+(…)
+PIN=5678
+(…)</code></pre>    ]]></content>
+</entry>
+            <entry>
     <id>https://martinbetz.eu/articles/premium-laravel</id>
     <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/premium-laravel" />
     <title>Premium Laravel courses and books</title>
