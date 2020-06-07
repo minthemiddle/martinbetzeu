@@ -21,7 +21,7 @@
     <meta property="og:url" content="https://martinbetz.eu/articles/laravel-pin-protected-url"/>
     <meta property="og:description" content="How to protect URLs with a PIN code in Laravel" />
 
-        <link rel="stylesheet" href="/assets/build/css/main.css?id=744c4fc9b5c9695b1ae3">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=7847f1c56cbeb55da0f4">
         <script async defer data-domain="martinbetz.eu" src="https://stats.martinbetz.eu/js/plausible.js"></script>
         <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
     </head>
@@ -125,7 +125,10 @@
     <p class="text-gray-600 font mt-0 text-base">May 26, 2020</p>
 
     <div class="rich-text pb-4" v-pre>
-        <p>Here is the user story for this post: As a website owner I only want to allow access to my website for visitors who enter the correct PIN.</p>
+        <div class="p-2 bg-red-200 border-2 border-solid border-red-800">
+Please use with caution! The solution presented here should not be used for sites where high security needs to be guaranteed. I will update the post accordingly, but refer to <a class="text-red-900" href="https://www.reddit.com/r/laravel/comments/gr18nj/how_to_protect_your_route_with_a_pin_code/" target="_blank">this Reddit post</a> for reference.
+</div>
+<p>Here is the user story for this post: As a website owner I only want to allow access to my website for visitors who enter the correct PIN.</p>
 <h2>How the minimum version will work</h2>
 <p>When you enter the page for the first time, you will just see an input to enter a PIN. When you enter the wrong PIN, it fails silently and just reloads the page. If you enter the right PIN, it will save a cookie <code>access</code> and shows you the welcome page. If you try more than 3 times within a minute, you get a message <code>Too Many Requests</code>.</p>
 <p>And here is how it will look in the browser:</p>
