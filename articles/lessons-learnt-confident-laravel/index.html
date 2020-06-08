@@ -1,0 +1,529 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="1">
+
+        <meta property="og:title" content="Lessons Learnt: Confident Laravel | Martin Betz"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://martinbetz.eu/articles/lessons-learnt-confident-laravel"/>
+        <meta property="og:description" content="Articles, services and products of Martin Betz" />
+
+        <title>Martin Betz | Lessons Learnt: Confident Laravel</title>
+
+        <link rel="home" href="https://martinbetz.eu">
+        <link rel="icon" href="/favicon.ico?v=5">
+        <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
+
+            <meta property="og:title" content="Lessons Learnt: Confident Laravel" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/lessons-learnt-confident-laravel"/>
+    <meta property="og:description" content="What I learnt from the course Confident Laravel" />
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=7847f1c56cbeb55da0f4">
+        <script async defer data-domain="martinbetz.eu" src="https://stats.martinbetz.eu/js/plausible.js"></script>
+        <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-900 leading-normal font-sans">
+        <header class="border-t-2 border-blue-400 flex items-center shadow bg-white h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-6xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Martin Betz home" class="inline-flex items-center">
+                        <h1 class="text-2xl md:text-3xl text-blue font-semibold my-0">Martin Betz</h1>
+                    </a>
+                </div>
+
+                <div class="flex flex-1 justify-end items-center">
+
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Martin Betz Articles" href="/articles"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Articles
+    </a>
+
+    <a title="Martin Betz Products" href="/products"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Products
+    </a>
+
+    <a title="Martin Betz Services" href="/services"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Services
+    </a>
+
+    <a title="Martin Betz Contact" href="/contact"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Contact
+    </a>
+
+    <a href="/rss/feed.atom">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-xl ml-6 text-gray-900 hover:text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue border border-blue h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="nav-menu hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Martin Betz Articles"
+                href="/articles"
+                class="nav-menu__item hover:text-blue "
+            >Articles</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Products"
+                href="/products"
+                class="nav-menu__item hover:text-blue "
+            >Products</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Services"
+                href="/services"
+                class="nav-menu__item hover:text-blue "
+            >Services</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Contact"
+                href="/contact"
+                class="nav-menu__item hover:text-blue "
+            >Contact</a>
+        </li>
+    </ul>
+</nav>
+
+        <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
+
+
+                
+    <h1 class="leading-none mb-2">Lessons Learnt: Confident Laravel</h1>
+    <p class="text-gray-600 font mt-0 text-base">June 8, 2020</p>
+
+    <div class="rich-text pb-4" v-pre>
+        <p>I took the course <a href="https://confidentlaravel.com/">Confident Laravel</a> when I was on vacation. It is suitable for total testing beginners. </p>
+<p>Here are my takeaways in the format of question and answer. They are sorted by occurence in the course but you can use whatever you need for your application and testing – not everything is related to testing:</p>
+<h2>How to create a basic PHPUnit test (= extend test case)?</h2>
+<pre><code class="language-php">class PHPUnit extends TestCase
+{
+  public function testAssertions() 
+  {
+    $this-&gt;assertTrue(true);
+  }
+}</code></pre>
+<h2>What are the testing definitions?</h2>
+<ul>
+<li>What is <code>$subject</code> in our tests??
+<ul>
+<li>The thing we want to test</li>
+</ul></li>
+<li>What is <code>$expected</code>?
+<ul>
+<li>The result we expect!</li>
+</ul></li>
+<li>What is <code>$actual</code>?
+<ul>
+<li>Result we actually get</li>
+</ul></li>
+<li>What is the difference between <code>$expected</code> and <code>$actual</code>?
+<ul>
+<li><code>$expected</code> is hardcoded, you just enter a number, a string, a result</li>
+<li><code>$actual</code> is a method that returns the actual result</li>
+</ul></li>
+</ul>
+<h2>What is the order of loading test settings</h2>
+<ol>
+<li><code>.env</code></li>
+<li><code>.env.testing</code></li>
+<li><code>phpunit.xml</code></li>
+<li>system environment variables</li>
+</ol>
+<h2>How to make stuff available to all tests?</h2>
+<p>Add it to <code>tests/TestCase.php</code></p>
+<h2>When and why should I use <code>PHPUnit\Framework\TestCase</code> directly?</h2>
+<ul>
+<li>When Laravel tests features are not needed</li>
+<li>May boost speed when 1000s of tests</li>
+</ul>
+<h2>How to structure tests in the <code>feature</code> folder?</h2>
+<p>Just mimic the <code>app</code> folder</p>
+<h2>How to name Dusk (= BDD) tests?</h2>
+<ul>
+<li>Give it the name of the feature you test, i.e. <code>GithubLinksTest</code></li>
+<li>No need to mimic the folder structure of your app</li>
+</ul>
+<h2>How to customize Dusk's settings?</h2>
+<ul>
+<li>Create <code>.env.dusk.local</code></li>
+<li>Make your Dusk specific settings</li>
+</ul>
+<h2>How to generate tests with subfolders?</h2>
+<ul>
+<li><code>php artisan make:test Http/Controllers/HomeControllerTest</code></li>
+<li>No leading <code>app</code></li>
+<li>No trailing <code>.php</code></li>
+</ul>
+<h2>How to name factories?</h2>
+<ul>
+<li><code>ModelnameFactory</code></li>
+<li>e.g. <code>UserFactory</code> (<code>php artisan make:factory UserFactory</code>)</li>
+</ul>
+<pre><code class="language-php">public function() {
+  return $this;
+
+}</code></pre>
+<h2>How to filter <code>php artisan route:list</code> for entries containing <code>invoice</code>?</h2>
+<ul>
+<li><code>php artisan route:list --name invoice</code></li>
+</ul>
+<h2>How to test whether the right view gets loaded?</h2>
+<ul>
+<li><code>$this-&gt;assertViewIs('invoice.create')</code></li>
+</ul>
+<h2>What is the <em>happy path</em>?</h2>
+<ul>
+<li>Testing when the subject is working as expected</li>
+</ul>
+<h2>How to check in controller if column <code>expired</code> with timestamp is not set?</h2>
+<ul>
+<li><code>Model::whereNull('expired')-&gt;get()</code></li>
+</ul>
+<h2>How to put sth like a coupon in the session cookie?</h2>
+<ul>
+<li><code>$request-&gt;session()-&gt;put('name', 'value')</code></li>
+</ul>
+<h2>How to name general controller tests?</h2>
+<ul>
+<li><code>it_does_this_and_that()</code></li>
+<li>e.g. <code>it_stores_coupon_and_redirects()</code></li>
+</ul>
+<h2>How to check whether data exists in a session?</h2>
+<ul>
+<li><code>$response-&gt;assertSessionHas('key', 'value');</code></li>
+</ul>
+<h2>How to get the full error message in Laravel tests?</h2>
+<ul>
+<li><code>$this-&gt;withoutExceptionHandling();</code> in test method</li>
+</ul>
+<h2>How many sad paths should you test?</h2>
+<ul>
+<li>Enough to feel confident</li>
+<li>There are potentially unlimited sad paths</li>
+</ul>
+<h2>How to assert that sth is not in a session?</h2>
+<ul>
+<li><code>$this-&gt;assertSessionMissing('key', 'value');</code></li>
+</ul>
+<h2>What's the running order in a test?</h2>
+<ul>
+<li>Arrange</li>
+<li><code>$response = $this-&gt;get(route('name'));</code></li>
+<li><code>$response-&gt;assert…();</code></li>
+</ul>
+<h2>How to mark test incomplete so it gets skipped when running the test suite?</h2>
+<ul>
+<li><code>$this-&gt;markTestIncomplete();</code></li>
+</ul>
+<h2>How to test that user is logged in (and not redirected)?</h2>
+<ul>
+<li><code>$this-&gt;assertAuthenticatedAs($user);</code></li>
+<li>Do not assert on <code>$response</code> but on global state <code>$this</code></li>
+</ul>
+<h2>How to assert that a view has a variable <code>now_playing</code> with value <code>1</code>?</h2>
+<ul>
+<li><code>$response-&gt;assertViewHas('now_playing', 1);</code></li>
+</ul>
+<h2>How to fake a heading or title?</h2>
+<ul>
+<li><code>$faker-&gt;sentence</code> or <code>$faker-&gt;word(3, true)</code></li>
+<li>Use <code>true</code> as 2nd argument in <code>$faker-&gt;word</code> to get words, otherwise you get an array</li>
+</ul>
+<h2>How to fake an ID?</h2>
+<ul>
+<li><code>$faker-&gt;md5</code></li>
+</ul>
+<h2>How to assert the model data you already have in your test?</h2>
+<ul>
+<li>Goal: Refresh user record, because it go changed</li>
+<li>Not using: <code>$this-&gt;assertDatabaseHas()</code></li>
+<li><code>$user-&gt;refresh();</code></li>
+<li>Assert properties of model</li>
+<li>Example: <code>$this-&gt;assertEquals(1, $user-&gt;last_viewed_vidoe_id)</code></li>
+</ul>
+<h2>How to add <code>$faker</code> to your test?</h2>
+<ul>
+<li>Add <code>use WithFaker;</code> trait to your test class</li>
+</ul>
+<h2>How to create a password hash?</h2>
+<ul>
+<li><code>Hash::make('STRING')</code></li>
+</ul>
+<h2>How to assert two hashes?</h2>
+<ul>
+<li>NOT: <code>$this-&gt;assertEquals(Hash::make($password, $user-&gt;password);</code></li>
+<li>BUT: <code>$this-&gt;assertTrue(Hash::check($password, $user-&gt;password);</code></li>
+</ul>
+<h2>What is the difference between asserting <code>Hash::check()</code> and hardcoding a password value?</h2>
+<ul>
+<li><code>Hash:check</code>: tie test to the implementation of the HASH function</li>
+<li>Hardcoding: Setting a sample value is more flexible but also more error prone</li>
+</ul>
+<h2>How to check if session contains error 'name'?</h2>
+<ul>
+<li><code>$response-&gt;assertSessionHasErrors('name');</code></li>
+</ul>
+<h2>Why do form requests not auto redirect back and how to work around that?</h2>
+<ul>
+<li>They send referrer URL</li>
+<li>These are fresh with every request =&gt; no history available</li>
+<li>Instead: Set the referrer URL manually in the setup</li>
+<li><code>$this-&gt;from(route('user.edit'))</code></li>
+</ul>
+<h2>How to avoid writing dozens of assertions in form validations?</h2>
+<ul>
+<li>Use Form Requests</li>
+<li>Assert that Form Request gets used by the controller</li>
+<li>Use <a href="#">Jason McCreary's Laravel Test Asserts</a> for that</li>
+</ul>
+<pre><code class="language-php">&lt;?php
+
+// In test method
+$this-&gt;assertActionUsesFormRequest(
+  UsersController::class, // Controller
+  'update', // Method
+  UserUpdateRequest::class); // Form Request
+);</code></pre>
+<h2>How to find incomplete tests?</h2>
+<ul>
+<li><code>phpunit -v</code></li>
+</ul>
+<h2>How to directly assert non-auth cannot access?</h2>
+<ul>
+<li><code>$this-&gt;assertForbidden();</code></li>
+</ul>
+<h2>How to manually set response 'forbidden' on controller?</h2>
+<ul>
+<li><code>abort(403)</code></li>
+</ul>
+<h2>How to get <code>Product::STARTER</code>?</h2>
+<ul>
+<li>This is a constant in the product model</li>
+</ul>
+<h2>What is a mock?</h2>
+<ul>
+<li>Stand-in replacement for real object</li>
+<li>Emulates <code>echo</code> behaviour</li>
+</ul>
+<pre><code class="language-php">// What is the simplest mock you can create?
+class ExampleTest extends \PHPUnit\Framework\TestCase
+{
+  public function testMocking()
+  {
+    $mock = \Mockery::mock();
+    $mock-&gt;shouldReceive('foo') // method name
+      -&gt;with('bar') // arg
+      -&gt;andReturn('baz'); // arg
+    $this-&gt;assertEquals('baz', $mock-&gt;foo('bar'));
+  }
+}</code></pre>
+<h2>What are mocks great for?</h2>
+<ul>
+<li>Testing integratin with 3rd party libraries without calling them</li>
+<li>Control testing in complex situations, because you break down problems in small chunks</li>
+</ul>
+<h2>When will mocks fail?</h2>
+<ul>
+<li>If not set</li>
+<li>If it does not have an expectation</li>
+</ul>
+<h2>What is a spy?</h2>
+<ul>
+<li>It secretly captures behavior</li>
+<li>Returns null if not setup at all</li>
+<li>More forgiving than mock</li>
+</ul>
+<h2>What's the easiest spy you can write?</h2>
+<pre><code class="language-php">public function testSpying()
+{
+  $spy = Mockery::spy();
+  $this-&gt;assertNull($spy-&gt;quix());
+
+  // assert behavior
+  $spy-&gt;shouldHaveReceived('quix')-&gt;once();
+}</code></pre>
+<h2>What are test doubles?</h2>
+<ul>
+<li>Replace production object for testing purposes</li>
+</ul>
+<h2>Why are facades easy to test in Laravel?</h2>
+<ul>
+<li>Every facade has mocks &amp; spies</li>
+</ul>
+<h2>How to return nothing (do nothing after a request)?</h2>
+<p><code>return response(null, 204)</code></p>
+<h2>How to mock Laravel's <code>Log</code> facade?</h2>
+<pre><code class="language-php">$mock = \Mockery::mock();
+$mock-&gt;shouldReceive('info') // method name
+  -&gt;once()
+  -&gt;with('video.watched', [$video-&gt;id]);
+Log::swap($mock);</code></pre>
+<h2>What is the difficulty with shared facades?</h2>
+<ul>
+<li>Facades like <code>Event</code> or <code>Log</code> get used all over Laravel</li>
+<li>If you swap them in your test, they get swapped everywhere</li>
+<li>This may cause trouble</li>
+<li>You can use <code>Event::fake()</code> instead of <code>Event::swap()</code></li>
+<li>Example: To check if event was fired: <code>$event-&gt;assertDispatched();</code></li>
+</ul>
+<h2>What to do instead of mocks?</h2>
+<ul>
+<li>When you can't fake or don't want to create dozens of mock classes</li>
+<li>Wrape it and decouple from tests</li>
+</ul>
+<h2>What happens in this mock?</h2>
+<ul>
+<li>The real <code>Log::</code> class gets swapped by the mock</li>
+<li>The mock tells what should happen as a result</li>
+<li>As there is an expectation (= log vars), you need no extra assertion</li>
+</ul>
+<h2>Why do I need the <code>Log::</code> facade at all?</h2>
+<ul>
+<li>It's the original code</li>
+<li>It would go untested otherwise</li>
+</ul>
+<h2>Why do you use <code>-&gt;once()</code> in a mock?</h2>
+<ul>
+<li>Otherwise the test will pass if the double in the real code is not called at all</li>
+<li>i.e. only with <code>-&gt;once()</code>, you can make sure that the facade got used in the real code</li>
+</ul>
+<h2>What is a shortcut for <code>$mock-&gt;shouldReceive('info')-&gt;once()</code>?</h2>
+<ul>
+<li><code>$mock-&gt;expects('info');</code> // method name</li>
+</ul>
+<h2>How to create a setup method that runs for all tests in a file?</h2>
+<pre><code class="language-php">protected function setUp(): void
+{
+  parent::setUp();
+  $this-&gt;subject = new UserUpdateRequest();
+}</code></pre>
+<p>Use it with <code>$this-&gt;subject</code> in the tests</p>
+<h2>How to run a validation in an unit test?</h2>
+<pre><code class="language-php">$subject = new UserUpdateRequest();
+// will call the file App\Http\Requests\UserUpdateRequest;</code></pre>
+<h2>How to create a coverage report</h2>
+<ul>
+<li>You need xdebug</li>
+<li>You can use a docker image with xdebug</li>
+<li>Run <code>phpunit --coverage-html report</code></li>
+<li>Spin up a PHP server to view reports with <code>php -S 0:8080 -t report/</code></li>
+</ul>    </div>
+
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"Lessons Learnt: Confident Laravel"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
+    </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">June 8, 2020</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/tech"
+                    title="View posts in tech"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >tech</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/lessons-learnt-phpunit-course" title="Older Post: Lessons Learnt: PHPUnit for Beginners">
+                    &LeftArrow; Lessons Learnt: PHPUnit for Beginners
+                </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
+
+            <ul class="flex flex-col md:flex-row justify-center">
+                <li class="md:mr-2">
+                    &copy; Martin Betz 2020.
+                </li>
+
+                <li>
+                    <a href="/privacy">Privacy/GDPR </a>
+                </li>
+                <li class="ml-2">
+                     <a href="/imprint">Imprint</a>
+                </li>
+                <li class="ml-2">
+                    <span id="cntct-me"></span>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=9ea1c33637d7085d7e23"></script>
+        <script>
+            var el = document.getElementById('cntct-me');
+            EO(el, {
+              name: 'contact+me',
+              domain: 'martinbetz',
+              tld: 'eu',
+              altText: 'Email'
+            });
+        </script>
+
+        <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('phpunit-beginners-takeaways');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>

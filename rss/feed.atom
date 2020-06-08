@@ -3,12 +3,341 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-06-08T19:54:06+00:00</updated>
+    <updated>2020-06-08T20:11:01+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
     </author>
                 <entry>
+    <id>https://martinbetz.eu/articles/lessons-learnt-confident-laravel</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/lessons-learnt-confident-laravel" />
+    <title>Lessons Learnt: Confident Laravel</title>
+    <published>2020-06-08T00:00:00+00:00</published>
+    <updated>2020-06-08T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">I took the course Confident Laravel when I was on vacation. It is suitable for total testing beginners. 
+Here are my takeaways in the format of question and answer. They are sorted by occurence in the course but you can use whatever you need for your......</summary>
+    <content type="html"><![CDATA[
+        <p>I took the course <a href="https://confidentlaravel.com/">Confident Laravel</a> when I was on vacation. It is suitable for total testing beginners. </p>
+<p>Here are my takeaways in the format of question and answer. They are sorted by occurence in the course but you can use whatever you need for your application and testing – not everything is related to testing:</p>
+<h2>How to create a basic PHPUnit test (= extend test case)?</h2>
+<pre><code class="language-php">class PHPUnit extends TestCase
+{
+  public function testAssertions() 
+  {
+    $this-&gt;assertTrue(true);
+  }
+}</code></pre>
+<h2>What are the testing definitions?</h2>
+<ul>
+<li>What is <code>$subject</code> in our tests??
+<ul>
+<li>The thing we want to test</li>
+</ul></li>
+<li>What is <code>$expected</code>?
+<ul>
+<li>The result we expect!</li>
+</ul></li>
+<li>What is <code>$actual</code>?
+<ul>
+<li>Result we actually get</li>
+</ul></li>
+<li>What is the difference between <code>$expected</code> and <code>$actual</code>?
+<ul>
+<li><code>$expected</code> is hardcoded, you just enter a number, a string, a result</li>
+<li><code>$actual</code> is a method that returns the actual result</li>
+</ul></li>
+</ul>
+<h2>What is the order of loading test settings</h2>
+<ol>
+<li><code>.env</code></li>
+<li><code>.env.testing</code></li>
+<li><code>phpunit.xml</code></li>
+<li>system environment variables</li>
+</ol>
+<h2>How to make stuff available to all tests?</h2>
+<p>Add it to <code>tests/TestCase.php</code></p>
+<h2>When and why should I use <code>PHPUnit\Framework\TestCase</code> directly?</h2>
+<ul>
+<li>When Laravel tests features are not needed</li>
+<li>May boost speed when 1000s of tests</li>
+</ul>
+<h2>How to structure tests in the <code>feature</code> folder?</h2>
+<p>Just mimic the <code>app</code> folder</p>
+<h2>How to name Dusk (= BDD) tests?</h2>
+<ul>
+<li>Give it the name of the feature you test, i.e. <code>GithubLinksTest</code></li>
+<li>No need to mimic the folder structure of your app</li>
+</ul>
+<h2>How to customize Dusk's settings?</h2>
+<ul>
+<li>Create <code>.env.dusk.local</code></li>
+<li>Make your Dusk specific settings</li>
+</ul>
+<h2>How to generate tests with subfolders?</h2>
+<ul>
+<li><code>php artisan make:test Http/Controllers/HomeControllerTest</code></li>
+<li>No leading <code>app</code></li>
+<li>No trailing <code>.php</code></li>
+</ul>
+<h2>How to name factories?</h2>
+<ul>
+<li><code>ModelnameFactory</code></li>
+<li>e.g. <code>UserFactory</code> (<code>php artisan make:factory UserFactory</code>)</li>
+</ul>
+<pre><code class="language-php">public function() {
+  return $this;
+
+}</code></pre>
+<h2>How to filter <code>php artisan route:list</code> for entries containing <code>invoice</code>?</h2>
+<ul>
+<li><code>php artisan route:list --name invoice</code></li>
+</ul>
+<h2>How to test whether the right view gets loaded?</h2>
+<ul>
+<li><code>$this-&gt;assertViewIs('invoice.create')</code></li>
+</ul>
+<h2>What is the <em>happy path</em>?</h2>
+<ul>
+<li>Testing when the subject is working as expected</li>
+</ul>
+<h2>How to check in controller if column <code>expired</code> with timestamp is not set?</h2>
+<ul>
+<li><code>Model::whereNull('expired')-&gt;get()</code></li>
+</ul>
+<h2>How to put sth like a coupon in the session cookie?</h2>
+<ul>
+<li><code>$request-&gt;session()-&gt;put('name', 'value')</code></li>
+</ul>
+<h2>How to name general controller tests?</h2>
+<ul>
+<li><code>it_does_this_and_that()</code></li>
+<li>e.g. <code>it_stores_coupon_and_redirects()</code></li>
+</ul>
+<h2>How to check whether data exists in a session?</h2>
+<ul>
+<li><code>$response-&gt;assertSessionHas('key', 'value');</code></li>
+</ul>
+<h2>How to get the full error message in Laravel tests?</h2>
+<ul>
+<li><code>$this-&gt;withoutExceptionHandling();</code> in test method</li>
+</ul>
+<h2>How many sad paths should you test?</h2>
+<ul>
+<li>Enough to feel confident</li>
+<li>There are potentially unlimited sad paths</li>
+</ul>
+<h2>How to assert that sth is not in a session?</h2>
+<ul>
+<li><code>$this-&gt;assertSessionMissing('key', 'value');</code></li>
+</ul>
+<h2>What's the running order in a test?</h2>
+<ul>
+<li>Arrange</li>
+<li><code>$response = $this-&gt;get(route('name'));</code></li>
+<li><code>$response-&gt;assert…();</code></li>
+</ul>
+<h2>How to mark test incomplete so it gets skipped when running the test suite?</h2>
+<ul>
+<li><code>$this-&gt;markTestIncomplete();</code></li>
+</ul>
+<h2>How to test that user is logged in (and not redirected)?</h2>
+<ul>
+<li><code>$this-&gt;assertAuthenticatedAs($user);</code></li>
+<li>Do not assert on <code>$response</code> but on global state <code>$this</code></li>
+</ul>
+<h2>How to assert that a view has a variable <code>now_playing</code> with value <code>1</code>?</h2>
+<ul>
+<li><code>$response-&gt;assertViewHas('now_playing', 1);</code></li>
+</ul>
+<h2>How to fake a heading or title?</h2>
+<ul>
+<li><code>$faker-&gt;sentence</code> or <code>$faker-&gt;word(3, true)</code></li>
+<li>Use <code>true</code> as 2nd argument in <code>$faker-&gt;word</code> to get words, otherwise you get an array</li>
+</ul>
+<h2>How to fake an ID?</h2>
+<ul>
+<li><code>$faker-&gt;md5</code></li>
+</ul>
+<h2>How to assert the model data you already have in your test?</h2>
+<ul>
+<li>Goal: Refresh user record, because it go changed</li>
+<li>Not using: <code>$this-&gt;assertDatabaseHas()</code></li>
+<li><code>$user-&gt;refresh();</code></li>
+<li>Assert properties of model</li>
+<li>Example: <code>$this-&gt;assertEquals(1, $user-&gt;last_viewed_vidoe_id)</code></li>
+</ul>
+<h2>How to add <code>$faker</code> to your test?</h2>
+<ul>
+<li>Add <code>use WithFaker;</code> trait to your test class</li>
+</ul>
+<h2>How to create a password hash?</h2>
+<ul>
+<li><code>Hash::make('STRING')</code></li>
+</ul>
+<h2>How to assert two hashes?</h2>
+<ul>
+<li>NOT: <code>$this-&gt;assertEquals(Hash::make($password, $user-&gt;password);</code></li>
+<li>BUT: <code>$this-&gt;assertTrue(Hash::check($password, $user-&gt;password);</code></li>
+</ul>
+<h2>What is the difference between asserting <code>Hash::check()</code> and hardcoding a password value?</h2>
+<ul>
+<li><code>Hash:check</code>: tie test to the implementation of the HASH function</li>
+<li>Hardcoding: Setting a sample value is more flexible but also more error prone</li>
+</ul>
+<h2>How to check if session contains error 'name'?</h2>
+<ul>
+<li><code>$response-&gt;assertSessionHasErrors('name');</code></li>
+</ul>
+<h2>Why do form requests not auto redirect back and how to work around that?</h2>
+<ul>
+<li>They send referrer URL</li>
+<li>These are fresh with every request =&gt; no history available</li>
+<li>Instead: Set the referrer URL manually in the setup</li>
+<li><code>$this-&gt;from(route('user.edit'))</code></li>
+</ul>
+<h2>How to avoid writing dozens of assertions in form validations?</h2>
+<ul>
+<li>Use Form Requests</li>
+<li>Assert that Form Request gets used by the controller</li>
+<li>Use <a href="#">Jason McCreary's Laravel Test Asserts</a> for that</li>
+</ul>
+<pre><code class="language-php">&lt;?php
+
+// In test method
+$this-&gt;assertActionUsesFormRequest(
+  UsersController::class, // Controller
+  'update', // Method
+  UserUpdateRequest::class); // Form Request
+);</code></pre>
+<h2>How to find incomplete tests?</h2>
+<ul>
+<li><code>phpunit -v</code></li>
+</ul>
+<h2>How to directly assert non-auth cannot access?</h2>
+<ul>
+<li><code>$this-&gt;assertForbidden();</code></li>
+</ul>
+<h2>How to manually set response 'forbidden' on controller?</h2>
+<ul>
+<li><code>abort(403)</code></li>
+</ul>
+<h2>How to get <code>Product::STARTER</code>?</h2>
+<ul>
+<li>This is a constant in the product model</li>
+</ul>
+<h2>What is a mock?</h2>
+<ul>
+<li>Stand-in replacement for real object</li>
+<li>Emulates <code>echo</code> behaviour</li>
+</ul>
+<pre><code class="language-php">// What is the simplest mock you can create?
+class ExampleTest extends \PHPUnit\Framework\TestCase
+{
+  public function testMocking()
+  {
+    $mock = \Mockery::mock();
+    $mock-&gt;shouldReceive('foo') // method name
+      -&gt;with('bar') // arg
+      -&gt;andReturn('baz'); // arg
+    $this-&gt;assertEquals('baz', $mock-&gt;foo('bar'));
+  }
+}</code></pre>
+<h2>What are mocks great for?</h2>
+<ul>
+<li>Testing integratin with 3rd party libraries without calling them</li>
+<li>Control testing in complex situations, because you break down problems in small chunks</li>
+</ul>
+<h2>When will mocks fail?</h2>
+<ul>
+<li>If not set</li>
+<li>If it does not have an expectation</li>
+</ul>
+<h2>What is a spy?</h2>
+<ul>
+<li>It secretly captures behavior</li>
+<li>Returns null if not setup at all</li>
+<li>More forgiving than mock</li>
+</ul>
+<h2>What's the easiest spy you can write?</h2>
+<pre><code class="language-php">public function testSpying()
+{
+  $spy = Mockery::spy();
+  $this-&gt;assertNull($spy-&gt;quix());
+
+  // assert behavior
+  $spy-&gt;shouldHaveReceived('quix')-&gt;once();
+}</code></pre>
+<h2>What are test doubles?</h2>
+<ul>
+<li>Replace production object for testing purposes</li>
+</ul>
+<h2>Why are facades easy to test in Laravel?</h2>
+<ul>
+<li>Every facade has mocks &amp; spies</li>
+</ul>
+<h2>How to return nothing (do nothing after a request)?</h2>
+<p><code>return response(null, 204)</code></p>
+<h2>How to mock Laravel's <code>Log</code> facade?</h2>
+<pre><code class="language-php">$mock = \Mockery::mock();
+$mock-&gt;shouldReceive('info') // method name
+  -&gt;once()
+  -&gt;with('video.watched', [$video-&gt;id]);
+Log::swap($mock);</code></pre>
+<h2>What is the difficulty with shared facades?</h2>
+<ul>
+<li>Facades like <code>Event</code> or <code>Log</code> get used all over Laravel</li>
+<li>If you swap them in your test, they get swapped everywhere</li>
+<li>This may cause trouble</li>
+<li>You can use <code>Event::fake()</code> instead of <code>Event::swap()</code></li>
+<li>Example: To check if event was fired: <code>$event-&gt;assertDispatched();</code></li>
+</ul>
+<h2>What to do instead of mocks?</h2>
+<ul>
+<li>When you can't fake or don't want to create dozens of mock classes</li>
+<li>Wrape it and decouple from tests</li>
+</ul>
+<h2>What happens in this mock?</h2>
+<ul>
+<li>The real <code>Log::</code> class gets swapped by the mock</li>
+<li>The mock tells what should happen as a result</li>
+<li>As there is an expectation (= log vars), you need no extra assertion</li>
+</ul>
+<h2>Why do I need the <code>Log::</code> facade at all?</h2>
+<ul>
+<li>It's the original code</li>
+<li>It would go untested otherwise</li>
+</ul>
+<h2>Why do you use <code>-&gt;once()</code> in a mock?</h2>
+<ul>
+<li>Otherwise the test will pass if the double in the real code is not called at all</li>
+<li>i.e. only with <code>-&gt;once()</code>, you can make sure that the facade got used in the real code</li>
+</ul>
+<h2>What is a shortcut for <code>$mock-&gt;shouldReceive('info')-&gt;once()</code>?</h2>
+<ul>
+<li><code>$mock-&gt;expects('info');</code> // method name</li>
+</ul>
+<h2>How to create a setup method that runs for all tests in a file?</h2>
+<pre><code class="language-php">protected function setUp(): void
+{
+  parent::setUp();
+  $this-&gt;subject = new UserUpdateRequest();
+}</code></pre>
+<p>Use it with <code>$this-&gt;subject</code> in the tests</p>
+<h2>How to run a validation in an unit test?</h2>
+<pre><code class="language-php">$subject = new UserUpdateRequest();
+// will call the file App\Http\Requests\UserUpdateRequest;</code></pre>
+<h2>How to create a coverage report</h2>
+<ul>
+<li>You need xdebug</li>
+<li>You can use a docker image with xdebug</li>
+<li>Run <code>phpunit --coverage-html report</code></li>
+<li>Spin up a PHP server to view reports with <code>php -S 0:8080 -t report/</code></li>
+</ul>    ]]></content>
+</entry>
+            <entry>
     <id>https://martinbetz.eu/articles/lessons-learnt-phpunit-course</id>
     <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/lessons-learnt-phpunit-course" />
     <title>Lessons Learnt: PHPUnit for Beginners</title>
