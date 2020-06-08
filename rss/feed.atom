@@ -3,12 +3,249 @@
     <title>Martin Betz</title>
     <link href="https://martinbetz.eu" />
     <link type="application/atom+xml" rel="self" href="https://martinbetz.eu/rss/feed.atom" />
-    <updated>2020-06-07T19:18:28+00:00</updated>
+    <updated>2020-06-08T19:54:06+00:00</updated>
     <id>https://martinbetz.eu/rss/feed.atom</id>
     <author>
         <name>Martin Betz</name>
     </author>
                 <entry>
+    <id>https://martinbetz.eu/articles/lessons-learnt-phpunit-course</id>
+    <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/lessons-learnt-phpunit-course" />
+    <title>Lessons Learnt: PHPUnit for Beginners</title>
+    <published>2020-06-08T00:00:00+00:00</published>
+    <updated>2020-06-08T00:00:00+00:00</updated>
+    <author>
+        <name>Martin Betz</name>
+    </author>
+    <summary type="html">I took the course PHPUnit for Beginners by Laravel Daily. It is suitable for total testing beginners and walks you through a simple CRUD application. 
+Here are my takeaways in the format of question and answer. They are sorted by occurence in the course......</summary>
+    <content type="html"><![CDATA[
+        <p>I took the course <a href="https://laraveldaily.teachable.com/p/laravel-phpunit-testing-for-beginners">PHPUnit for Beginners by Laravel Daily</a>. It is suitable for total testing beginners and walks you through a simple CRUD application. </p>
+<p>Here are my takeaways in the format of question and answer. They are sorted by occurence in the course but you can use whatever you need for your application and testing – not everything is related to testing:</p>
+<h2>Why choose <code>@forelse … @empty … @endforelse</code> for loops?</h2>
+<p>It covers the case where there is no data</p>
+<pre><code class="language-php">@forelse ($users as $user)
+     &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+@empty
+    &lt;p&gt;No users&lt;/p&gt;
+@endforelse</code></pre>
+<h2>How to create content with custom values with Eloquent</h2>
+<pre><code class="language-php">$product = Product:create([
+  'name' =&gt; 'Product 1',
+  'price' =&gt; 99.99
+]);
+
+// in your test
+$response-&gt;assertSee($product-&gt;name);</code></pre>
+<h2>How to setup test database?</h2>
+<ul>
+<li><code>phpunit.xml</code> overwrites <code>.env.testing</code></li>
+<li>Edit <code>DB_CONNECTION</code> for <code>MySQL/sqlite</code></li>
+<li>Change  value of <code>DB_DATABASE</code> into <code>value=":memory:"</code> to get fast in memory store</li>
+</ul>
+<h2>What does <code>RefreshDatabase</code> trait do?</h2>
+<ul>
+<li>It Runs migrations</li>
+<li>Creates a fresh database</li>
+<li>Usage
+<ul>
+<li><code>use Illuminate\Foundation\Testing\RefreshDatabase;</code> above class</li>
+<li><code>use RefreshDatabase;</code> in class, not single test</li>
+</ul></li>
+</ul>
+<h2>When should you use a MySQL test database?</h2>
+<ul>
+<li>When you use raw MySQL statements for the following features:
+<ul>
+<li>Date formatting</li>
+<li>String functions</li>
+<li>Date differences</li>
+<li>Geospatial features</li>
+</ul></li>
+</ul>
+<h2>How to set up a MySQL test database in <code>phpunit.xml</code>?</h2>
+<ul>
+<li><code>&lt;server name="DB_CONNECTION" value="MySQL"/&gt;</code></li>
+<li><code>&lt;server name="DB_DATABASE" value="name_of_db"/&gt;</code></li>
+</ul>
+<h2>Why to test data and not visuals (assertSee)?</h2>
+<ul>
+<li>To avoid false positives because of incomplete results</li>
+<li>Example
+<ul>
+<li>Blade: show product name <code>{{ $product-&gt;name }}</code></li>
+<li>Data: <code>['name' =&gt; 'Product 1000]</code></li>
+<li>Visual test: <code>$response-&gt;assertSee('Product 1')</code> would turn green and create a false positive</li>
+</ul></li>
+</ul>
+<h2>How to get view data of e.g. $products to test?</h2>
+<pre><code class="language-php">$view = $response-&gt;viewData('products') // was passed to view in controller
+$this-&gt;assertEquals($product-&gt;name, $view-&gt;first()-&gt;name);</code></pre>
+<h2>What do unit tests capture?</h2>
+<ul>
+<li>Internal logic</li>
+<li>No Endpoint</li>
+<li>Data processing</li>
+</ul>
+<h2>How to create a Laravel service to translate currency</h2>
+<ul>
+<li>Create service in <code>app\services</code> -&gt; <code>CurrencyService.php</code></li>
+<li>Import using <code>use App\Services\CurrencyService</code></li>
+<li>Call <code>new CurrencyService()-&gt;convert();</code></li>
+<li>No changes in database needed</li>
+</ul>
+<h2>How to create temporary database/accessor field (e.g. dynamic price in another currency)?</h2>
+<ul>
+<li>This is also called accessor</li>
+<li>On model <code>Product.php</code></li>
+</ul>
+<pre><code class="language-php">public function getPriceEurAttribute() {
+    return $this-&gt;price*0.8;
+}</code></pre>
+<h2>How to create an unit test?</h2>
+<ul>
+<li><code>art make:test NAME --unit</code></li>
+</ul>
+<h2>How to paginate in controller and view?</h2>
+<ul>
+<li>(In Controller): <code>$products = Product::paginate(10);</code></li>
+<li>In View: <code>{{ $products-&gt;links() }}</code></li>
+</ul>
+<h2>How to call factories?</h2>
+<ul>
+<li><code>factory(Product::class, 10)-&gt;create();</code></li>
+</ul>
+<h2>How to echo variable result into log?</h2>
+<ul>
+<li>Call <code>info($var)</code> in your code</li>
+</ul>
+<h2>How to test if login works?</h2>
+<ul>
+<li>Create user</li>
+<li>Post login data and set response</li>
+</ul>
+<pre><code class="language-php">$response = $this-&gt;post('login', [
+  'email' =&gt; 'EMAIL',
+  'password' =&gt; 'PW'
+]);
+// assert where you expect to be redirected to, e.g. home
+$response-&gt;assertRedirect('/home');</code></pre>
+<h2>How to quickly log in for tests?</h2>
+<ul>
+<li><code>$this-&gt;actingAs($user)-&gt;get('/')</code></li>
+</ul>
+<h2>How to protect a route via auth?</h2>
+<ul>
+<li><code>Route::get('/')-&gt;middleware('auth')</code></li>
+</ul>
+<h2>Easiest way to add admin?</h2>
+<ul>
+<li>Add field to user model: <code>is_admin</code></li>
+<li>Add to fillable in model</li>
+<li>Create middleware <code>app\Http\Middleware\IsAdmin</code> (see following snippet)</li>
+<li>Add middleware to <code>App\Kernel</code></li>
+<li>Add middleware to your route <code>Route::middleware('auth', 'is_admin')</code></li>
+</ul>
+<pre><code class="language-php">public function handle($request, Closure $next) 
+{
+  if (! auth()-&gt;user()-&gt;is_admin) 
+  {
+    abort(403);
+  }
+  return $next($request);
+}</code></pre>
+<h2>Which visual assertions are usual?</h2>
+<ul>
+<li><code>$response-&gt;assertSee()</code></li>
+<li><code>$response-&gt;assertDontSee()</code></li>
+</ul>
+<h2>How to create simple factory states?</h2>
+<ul>
+<li>Example: <code>is_admin</code>, yes/no</li>
+<li>Create private function with factory and optional parameter in it</li>
+</ul>
+<pre><code class="language-php">private function create_user(is_admin = 0)
+{
+  $this-&gt;user = factory(User::class)-&gt;create([
+    'is_admin' =&gt; $is_admin,
+  ]);
+}</code></pre>
+<h3>How to store everything you get via form?</h3>
+<pre><code class="language-php">// Controller
+
+public function store(Request $request)
+{
+    Product::create($request-&gt;all());
+    return redirect()-&gt;route('home');
+}</code></pre>
+<h2>How to test a POST request with parameter <code>name = 'Test 1'</code>?</h2>
+<ul>
+<li><code>$this-&gt;post('products', ['name' =&gt; 'Test 1', 'price' =&gt; 99.99]);</code></li>
+</ul>
+<h2>How to assert that something is in the database? (db side)</h2>
+<ul>
+<li><code>$this-&gt;assertDatabaseHas('products', ['name' =&gt; 'Test 1', 'price' =&gt; 99.99]);</code></li>
+</ul>
+<h2>How to test whether saved data gets returned?</h2>
+<ul>
+<li><code>$product = Product::orderBy('id', 'desc')-&gt;first();</code></li>
+<li><code>$this-&gt;assertEquals('String', $product-&gt;name);</code></li>
+<li><code>$this-&gt;assertEquals('price', $product-&gt;price);</code></li>
+</ul>
+<h2>How to check whether data for edit is available in view?</h2>
+<ul>
+<li><code>$product = Product::first();</code></li>
+<li><code>$response-&gt;assertSee('value="' . $product-&gt;price . '"');</code></li>
+</ul>
+<h2>How to update all data from a request?</h2>
+<pre><code class="language-php">public function update(Product $product, UpdateProductRequest $request)
+{
+  $product-&gt;update($request-&gt;all());
+  return redirect()-&gt;route('products.index');
+}</code></pre>
+<h2>Where and how to create a form request?</h2>
+<ul>
+<li><code>app/Http/Requests/UpdateProductRequest.php</code></li>
+</ul>
+<pre><code class="language-php">public rules() {
+  return [
+    'name' =&gt; 'required',
+    'price' =&gt; 'required',
+  ];
+}</code></pre>
+<h2>How to test an update request?</h2>
+<p><code>$response = $this-&gt;put('/products/' . $product-&gt;id, ['name' =&gt; 'Test']);</code></p>
+<h2>How to test for session error on 'name'?</h2>
+<p><code>$response-&gt;assertSessionHasErrors(['name']);</code></p>
+<h2>How to update as json API call?</h2>
+<pre><code class="language-php">$response = $this-&gt;actingAs($this-&gt;user)
+  -&gt;put('/products/' . $product-&gt;id,
+  [
+    'name' =&gt; 'Test',
+    'price' =&gt; 99.99,
+  ],
+  [
+   'Accept' =&gt; 'Application/json', 
+  ]);</code></pre>
+<h2>How to create a delete item view?</h2>
+<pre><code class="language-php">&lt;form action={{ route('products.destroy' . $product-&gt;id) }} method="POST" onsubmit="confirm('Sure?')"&gt;
+&lt;input type="hidden" name="_method" value="DELETE"&gt;
+&lt;input type="hidden" name="_token" value="{{ csrf_token() }}"&gt;</code></pre>
+<h2>How to delete item in controller?</h2>
+<pre><code class="language-php">public function destroy(Product $product) {
+  $product-&gt;delete();
+  return redirect()-&gt;route('products.index');
+}</code></pre>
+<h2>How to assert that data gets deleted?</h2>
+<ol>
+<li>Create product with factory</li>
+<li><code>$this-&gt;assertEquals(1, Product::all())</code></li>
+<li><code>$response = $this-&gt;actingAs($this-&gt;user)-&gt;delete('products/' . $product-&gt;id);</code> (Route missing?)</li>
+<li><code>$response-&gt;assertStatus(302)</code></li>
+<li><code>$this-&gt;assertEquals(0, Product::count());</code></li>
+</ol>    ]]></content>
+</entry>
+            <entry>
     <id>https://martinbetz.eu/articles/laravel-pin-protected-url</id>
     <link type="text/html" rel="alternate" href="https://martinbetz.eu/articles/laravel-pin-protected-url" />
     <title>How to protect URLs with a PIN code in Laravel</title>

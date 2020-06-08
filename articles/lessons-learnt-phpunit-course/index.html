@@ -1,0 +1,437 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="1">
+
+        <meta property="og:title" content="Lessons Learnt: PHPUnit for Beginners | Martin Betz"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://martinbetz.eu/articles/lessons-learnt-phpunit-course"/>
+        <meta property="og:description" content="Articles, services and products of Martin Betz" />
+
+        <title>Martin Betz | Lessons Learnt: PHPUnit for Beginners</title>
+
+        <link rel="home" href="https://martinbetz.eu">
+        <link rel="icon" href="/favicon.ico?v=5">
+        <link href="/rss/feed.atom" type="application/atom+xml" rel="alternate" title="Martin Betz Atom Feed">
+
+            <meta property="og:title" content="Lessons Learnt: PHPUnit for Beginners" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://martinbetz.eu/articles/lessons-learnt-phpunit-course"/>
+    <meta property="og:description" content="What I learnt from the course PHPUnit for Beginners" />
+
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=7847f1c56cbeb55da0f4">
+        <script async defer data-domain="martinbetz.eu" src="https://stats.martinbetz.eu/js/plausible.js"></script>
+        <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-900 leading-normal font-sans">
+        <header class="border-t-2 border-blue-400 flex items-center shadow bg-white h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-6xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Martin Betz home" class="inline-flex items-center">
+                        <h1 class="text-2xl md:text-3xl text-blue font-semibold my-0">Martin Betz</h1>
+                    </a>
+                </div>
+
+                <div class="flex flex-1 justify-end items-center">
+
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Martin Betz Articles" href="/articles"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Articles
+    </a>
+
+    <a title="Martin Betz Products" href="/products"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Products
+    </a>
+
+    <a title="Martin Betz Services" href="/services"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Services
+    </a>
+
+    <a title="Martin Betz Contact" href="/contact"
+        class="text-xl ml-6 text-gray-900 hover:text-blue-600 ">
+        Contact
+    </a>
+
+    <a href="/rss/feed.atom">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-xl ml-6 text-gray-900 hover:text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue border border-blue h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="nav-menu hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Martin Betz Articles"
+                href="/articles"
+                class="nav-menu__item hover:text-blue "
+            >Articles</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Products"
+                href="/products"
+                class="nav-menu__item hover:text-blue "
+            >Products</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Services"
+                href="/services"
+                class="nav-menu__item hover:text-blue "
+            >Services</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Martin Betz Contact"
+                href="/contact"
+                class="nav-menu__item hover:text-blue "
+            >Contact</a>
+        </li>
+    </ul>
+</nav>
+
+        <main role="main" class="flex-auto w-full container max-w-6xl mx-auto py-16 px-6">
+
+
+                
+    <h1 class="leading-none mb-2">Lessons Learnt: PHPUnit for Beginners</h1>
+    <p class="text-gray-600 font mt-0 text-base">June 8, 2020</p>
+
+    <div class="rich-text pb-4" v-pre>
+        <p>I took the course <a href="https://laraveldaily.teachable.com/p/laravel-phpunit-testing-for-beginners">PHPUnit for Beginners by Laravel Daily</a>. It is suitable for total testing beginners and walks you through a simple CRUD application. </p>
+<p>Here are my takeaways in the format of question and answer. They are sorted by occurence in the course but you can use whatever you need for your application and testing – not everything is related to testing:</p>
+<h2>Why choose <code>@forelse … @empty … @endforelse</code> for loops?</h2>
+<p>It covers the case where there is no data</p>
+<pre><code class="language-php">@forelse ($users as $user)
+     &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+@empty
+    &lt;p&gt;No users&lt;/p&gt;
+@endforelse</code></pre>
+<h2>How to create content with custom values with Eloquent</h2>
+<pre><code class="language-php">$product = Product:create([
+  'name' =&gt; 'Product 1',
+  'price' =&gt; 99.99
+]);
+
+// in your test
+$response-&gt;assertSee($product-&gt;name);</code></pre>
+<h2>How to setup test database?</h2>
+<ul>
+<li><code>phpunit.xml</code> overwrites <code>.env.testing</code></li>
+<li>Edit <code>DB_CONNECTION</code> for <code>MySQL/sqlite</code></li>
+<li>Change  value of <code>DB_DATABASE</code> into <code>value=":memory:"</code> to get fast in memory store</li>
+</ul>
+<h2>What does <code>RefreshDatabase</code> trait do?</h2>
+<ul>
+<li>It Runs migrations</li>
+<li>Creates a fresh database</li>
+<li>Usage
+<ul>
+<li><code>use Illuminate\Foundation\Testing\RefreshDatabase;</code> above class</li>
+<li><code>use RefreshDatabase;</code> in class, not single test</li>
+</ul></li>
+</ul>
+<h2>When should you use a MySQL test database?</h2>
+<ul>
+<li>When you use raw MySQL statements for the following features:
+<ul>
+<li>Date formatting</li>
+<li>String functions</li>
+<li>Date differences</li>
+<li>Geospatial features</li>
+</ul></li>
+</ul>
+<h2>How to set up a MySQL test database in <code>phpunit.xml</code>?</h2>
+<ul>
+<li><code>&lt;server name="DB_CONNECTION" value="MySQL"/&gt;</code></li>
+<li><code>&lt;server name="DB_DATABASE" value="name_of_db"/&gt;</code></li>
+</ul>
+<h2>Why to test data and not visuals (assertSee)?</h2>
+<ul>
+<li>To avoid false positives because of incomplete results</li>
+<li>Example
+<ul>
+<li>Blade: show product name <code>{{ $product-&gt;name }}</code></li>
+<li>Data: <code>['name' =&gt; 'Product 1000]</code></li>
+<li>Visual test: <code>$response-&gt;assertSee('Product 1')</code> would turn green and create a false positive</li>
+</ul></li>
+</ul>
+<h2>How to get view data of e.g. $products to test?</h2>
+<pre><code class="language-php">$view = $response-&gt;viewData('products') // was passed to view in controller
+$this-&gt;assertEquals($product-&gt;name, $view-&gt;first()-&gt;name);</code></pre>
+<h2>What do unit tests capture?</h2>
+<ul>
+<li>Internal logic</li>
+<li>No Endpoint</li>
+<li>Data processing</li>
+</ul>
+<h2>How to create a Laravel service to translate currency</h2>
+<ul>
+<li>Create service in <code>app\services</code> -&gt; <code>CurrencyService.php</code></li>
+<li>Import using <code>use App\Services\CurrencyService</code></li>
+<li>Call <code>new CurrencyService()-&gt;convert();</code></li>
+<li>No changes in database needed</li>
+</ul>
+<h2>How to create temporary database/accessor field (e.g. dynamic price in another currency)?</h2>
+<ul>
+<li>This is also called accessor</li>
+<li>On model <code>Product.php</code></li>
+</ul>
+<pre><code class="language-php">public function getPriceEurAttribute() {
+    return $this-&gt;price*0.8;
+}</code></pre>
+<h2>How to create an unit test?</h2>
+<ul>
+<li><code>art make:test NAME --unit</code></li>
+</ul>
+<h2>How to paginate in controller and view?</h2>
+<ul>
+<li>(In Controller): <code>$products = Product::paginate(10);</code></li>
+<li>In View: <code>{{ $products-&gt;links() }}</code></li>
+</ul>
+<h2>How to call factories?</h2>
+<ul>
+<li><code>factory(Product::class, 10)-&gt;create();</code></li>
+</ul>
+<h2>How to echo variable result into log?</h2>
+<ul>
+<li>Call <code>info($var)</code> in your code</li>
+</ul>
+<h2>How to test if login works?</h2>
+<ul>
+<li>Create user</li>
+<li>Post login data and set response</li>
+</ul>
+<pre><code class="language-php">$response = $this-&gt;post('login', [
+  'email' =&gt; 'EMAIL',
+  'password' =&gt; 'PW'
+]);
+// assert where you expect to be redirected to, e.g. home
+$response-&gt;assertRedirect('/home');</code></pre>
+<h2>How to quickly log in for tests?</h2>
+<ul>
+<li><code>$this-&gt;actingAs($user)-&gt;get('/')</code></li>
+</ul>
+<h2>How to protect a route via auth?</h2>
+<ul>
+<li><code>Route::get('/')-&gt;middleware('auth')</code></li>
+</ul>
+<h2>Easiest way to add admin?</h2>
+<ul>
+<li>Add field to user model: <code>is_admin</code></li>
+<li>Add to fillable in model</li>
+<li>Create middleware <code>app\Http\Middleware\IsAdmin</code> (see following snippet)</li>
+<li>Add middleware to <code>App\Kernel</code></li>
+<li>Add middleware to your route <code>Route::middleware('auth', 'is_admin')</code></li>
+</ul>
+<pre><code class="language-php">public function handle($request, Closure $next) 
+{
+  if (! auth()-&gt;user()-&gt;is_admin) 
+  {
+    abort(403);
+  }
+  return $next($request);
+}</code></pre>
+<h2>Which visual assertions are usual?</h2>
+<ul>
+<li><code>$response-&gt;assertSee()</code></li>
+<li><code>$response-&gt;assertDontSee()</code></li>
+</ul>
+<h2>How to create simple factory states?</h2>
+<ul>
+<li>Example: <code>is_admin</code>, yes/no</li>
+<li>Create private function with factory and optional parameter in it</li>
+</ul>
+<pre><code class="language-php">private function create_user(is_admin = 0)
+{
+  $this-&gt;user = factory(User::class)-&gt;create([
+    'is_admin' =&gt; $is_admin,
+  ]);
+}</code></pre>
+<h3>How to store everything you get via form?</h3>
+<pre><code class="language-php">// Controller
+
+public function store(Request $request)
+{
+    Product::create($request-&gt;all());
+    return redirect()-&gt;route('home');
+}</code></pre>
+<h2>How to test a POST request with parameter <code>name = 'Test 1'</code>?</h2>
+<ul>
+<li><code>$this-&gt;post('products', ['name' =&gt; 'Test 1', 'price' =&gt; 99.99]);</code></li>
+</ul>
+<h2>How to assert that something is in the database? (db side)</h2>
+<ul>
+<li><code>$this-&gt;assertDatabaseHas('products', ['name' =&gt; 'Test 1', 'price' =&gt; 99.99]);</code></li>
+</ul>
+<h2>How to test whether saved data gets returned?</h2>
+<ul>
+<li><code>$product = Product::orderBy('id', 'desc')-&gt;first();</code></li>
+<li><code>$this-&gt;assertEquals('String', $product-&gt;name);</code></li>
+<li><code>$this-&gt;assertEquals('price', $product-&gt;price);</code></li>
+</ul>
+<h2>How to check whether data for edit is available in view?</h2>
+<ul>
+<li><code>$product = Product::first();</code></li>
+<li><code>$response-&gt;assertSee('value="' . $product-&gt;price . '"');</code></li>
+</ul>
+<h2>How to update all data from a request?</h2>
+<pre><code class="language-php">public function update(Product $product, UpdateProductRequest $request)
+{
+  $product-&gt;update($request-&gt;all());
+  return redirect()-&gt;route('products.index');
+}</code></pre>
+<h2>Where and how to create a form request?</h2>
+<ul>
+<li><code>app/Http/Requests/UpdateProductRequest.php</code></li>
+</ul>
+<pre><code class="language-php">public rules() {
+  return [
+    'name' =&gt; 'required',
+    'price' =&gt; 'required',
+  ];
+}</code></pre>
+<h2>How to test an update request?</h2>
+<p><code>$response = $this-&gt;put('/products/' . $product-&gt;id, ['name' =&gt; 'Test']);</code></p>
+<h2>How to test for session error on 'name'?</h2>
+<p><code>$response-&gt;assertSessionHasErrors(['name']);</code></p>
+<h2>How to update as json API call?</h2>
+<pre><code class="language-php">$response = $this-&gt;actingAs($this-&gt;user)
+  -&gt;put('/products/' . $product-&gt;id,
+  [
+    'name' =&gt; 'Test',
+    'price' =&gt; 99.99,
+  ],
+  [
+   'Accept' =&gt; 'Application/json', 
+  ]);</code></pre>
+<h2>How to create a delete item view?</h2>
+<pre><code class="language-php">&lt;form action={{ route('products.destroy' . $product-&gt;id) }} method="POST" onsubmit="confirm('Sure?')"&gt;
+&lt;input type="hidden" name="_method" value="DELETE"&gt;
+&lt;input type="hidden" name="_token" value="{{ csrf_token() }}"&gt;</code></pre>
+<h2>How to delete item in controller?</h2>
+<pre><code class="language-php">public function destroy(Product $product) {
+  $product-&gt;delete();
+  return redirect()-&gt;route('products.index');
+}</code></pre>
+<h2>How to assert that data gets deleted?</h2>
+<ol>
+<li>Create product with factory</li>
+<li><code>$this-&gt;assertEquals(1, Product::all())</code></li>
+<li><code>$response = $this-&gt;actingAs($this-&gt;user)-&gt;delete('products/' . $product-&gt;id);</code> (Route missing?)</li>
+<li><code>$response-&gt;assertStatus(302)</code></li>
+<li><code>$this-&gt;assertEquals(0, Product::count());</code></li>
+</ol>    </div>
+
+        <div class="text-center mt-12 mb-12 bg-gray-200 p-8 border-t-4 border-blue-500">
+        <div class="font-bold text-blue-600">Send me your feedback on</div>
+        <div>"Lessons Learnt: PHPUnit for Beginners"</div>
+        <p class="flex justify-center" id="cntct-article"></p>
+    </div>
+    
+    <div class="border-b border-t border-blue-100 mt-4 pb-4 pt-4 mb-10">
+        <p class="text-gray-600 text-xl md:mt-0">June 8, 2020</p>
+
+
+                    <p>
+                            <a
+                    href="/categories/tech"
+                    title="View posts in tech"
+                    class="text-sm tracking-wide bg-white text-gray-600 p-2  uppercase"
+                >tech</a>
+                        </p>
+        </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://martinbetz.eu/articles/laravel-pin-protected-url" title="Older Post: How to protect URLs with a PIN code in Laravel">
+                    &LeftArrow; How to protect URLs with a PIN code in Laravel
+                </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4 pin-b" role="contentinfo">
+
+            <ul class="flex flex-col md:flex-row justify-center">
+                <li class="md:mr-2">
+                    &copy; Martin Betz 2020.
+                </li>
+
+                <li>
+                    <a href="/privacy">Privacy/GDPR </a>
+                </li>
+                <li class="ml-2">
+                     <a href="/imprint">Imprint</a>
+                </li>
+                <li class="ml-2">
+                    <span id="cntct-me"></span>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=9ea1c33637d7085d7e23"></script>
+        <script>
+            var el = document.getElementById('cntct-me');
+            EO(el, {
+              name: 'contact+me',
+              domain: 'martinbetz',
+              tld: 'eu',
+              altText: 'Email'
+            });
+        </script>
+
+        <script>
+var el = document.getElementById('cntct-article');
+var base = 'feedback+';
+var final = base.concat('phpunit-beginners-takeaways');
+EO(el, {
+  name: final,
+  domain: 'martinbetz',
+  tld: 'eu',
+  altText: 'Email'
+});
+</script>
+<script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>
